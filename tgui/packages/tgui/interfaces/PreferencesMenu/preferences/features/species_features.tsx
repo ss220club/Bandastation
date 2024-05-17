@@ -104,6 +104,76 @@ export const feature_lizard_tail: FeatureChoiced = {
   },
 };
 
+export const feature_vulpkanin_tail: FeatureChoiced = {
+  name: 'Tail',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const feature_vulpkanin_head_markings: FeatureChoiced = {
+  name: 'Head Markings',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_head_markings_color: Feature<string> = {
+  name: 'Facial hair color',
+  component: FeatureColorInput,
+};
+
+export const vulpkanin_body_markings_color: Feature<string> = {
+  name: 'Facial hair color',
+  component: FeatureColorInput,
+};
+
+export const feature_vulpkanin_head_accessories: FeatureChoiced = {
+  name: 'Head Accessories',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_head_accessories_color: Feature<string> = {
+  name: 'Facial hair color',
+  component: FeatureColorInput,
+};
+
+export const feature_vulpkanin_facial_hair: FeatureChoiced = {
+  name: 'Facial Hair',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_facial_hair_color: Feature<string> = {
+  name: 'Facial hair color',
+  component: FeatureColorInput,
+};
+
+export const feature_vulpkanin_tail_markings: FeatureChoiced = {
+  name: 'Tail Markings',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_tail_markings_color: Feature<string> = {
+  name: 'Tail markings color',
+  component: FeatureColorInput,
+};
+
 export const feature_mcolor: Feature<string> = {
   name: 'Mutant color',
   component: FeatureColorInput,

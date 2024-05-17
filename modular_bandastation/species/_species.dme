@@ -1,0 +1,17 @@
+#ifndef MODPACK_SPECIES
+#define MODPACK_SPECIES
+
+#include "_species.dm"
+
+#include "code/_defines.dm"
+#include "code/language.dm"
+// #include "code/dna.dm" - Понять как работает ДНК
+
+#include "code/vulpkanin/organs.dm"
+#include "code/vulpkanin/sprite_accessories.dm"
+#include "code/vulpkanin/preferences.dm"
+#include "code/vulpkanin/bodyparts.dm"
+#include "code/vulpkanin/_vulpkanin.dm"
+#include "code/vulpkanin/hair.dm"
+
+#endif
