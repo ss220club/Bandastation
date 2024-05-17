@@ -677,14 +677,13 @@ GLOBAL_LIST_EMPTY(features_by_species)
 				if("legs")
 					accessory = SSaccessories.legs_list[source.dna.features["legs"]]
 				if("vulpkanin_body_markings")
-					accessory = GLOB.vulpkanin_body_markings_list[source.dna.features["vulpkanin_body_markings"]]
+					accessory = SSaccessories.vulpkanin_body_markings_list[source.dna.features["vulpkanin_body_markings"]]
 				if("vulpkanin_head_markings")
-					accessory = GLOB.vulpkanin_head_markings_list[source.dna.features["vulpkanin_head_markings"]]
+					accessory = SSaccessories.vulpkanin_head_markings_list[source.dna.features["vulpkanin_head_markings"]]
 				if("vulpkanin_head_accessories")
-					accessory = GLOB.vulpkanin_head_accessories_list[source.dna.features["vulpkanin_head_accessories"]]
+					accessory = SSaccessories.vulpkanin_head_accessories_list[source.dna.features["vulpkanin_head_accessories"]]
 				if("vulpkanin_facial_hair")
-					accessory = GLOB.vulpkanin_facial_hair_list[source.dna.features["vulpkanin_facial_hair"]]
-					accessory = SSaccessories.legs_list[source.dna.features["legs"]]
+					accessory = SSaccessories.vulpkanin_facial_hair_list[source.dna.features["vulpkanin_facial_hair"]]
 
 			if(!accessory || accessory.icon_state == "none")
 				continue

@@ -41,9 +41,11 @@
 	bodytemp_cold_damage_limit = BODYTEMP_COLD_DAMAGE_LIMIT - 15
 
 /datum/species/vulpkanin/prepare_human_for_preview(mob/living/carbon/human/vulpkanin)
-	vulpkanin.set_haircolor("#bb9966", update = FALSE) // brown
-	vulpkanin.set_hairstyle("Bald", update = TRUE)
-	vulpkanin.dna.features["mcolor"] = "#FFFFD5"
+	vulpkanin.set_haircolor("#A26324", update = FALSE) // brown
+	vulpkanin.set_hairstyle("Jagged", update = TRUE)
+	vulpkanin.dna.features["mcolor"] = "#D69E67"
+	vulpkanin.dna.features["vulpkanin_head_accessories"] = "Vulpkanin Earfluff"
+	vulpkanin.set_vulpkanin_head_accessories_color("#FFCBDB", update = FALSE)
 	vulpkanin.update_body(is_creating = TRUE)
 
 /datum/species/vulpkanin/check_roundstart_eligible()
@@ -81,11 +83,11 @@
 		Что касается беженцев, то они не особо проявляют активность, например, на политическом поприще.",
 	)
 
-/datum/species/vulpkanin/randomize_features()
-	var/list/features = ..()
-	//features["body_mvulpkanin_body_markingsarkings"] = pick(GLOB.vulpkanin_body_markings_list)
-	features["tail_vulpkanin"] = pick(GLOB.tails_list_vulpkanin)
-	return features
+// /datum/species/vulpkanin/randomize_features()
+// 	var/list/features = ..()
+// 	//features["body_mvulpkanin_body_markingsarkings"] = pick(GLOB.vulpkanin_body_markings_list)
+// 	features["tail_vulpkanin"] = pick(GLOB.tails_list_vulpkanin)
+// 	return features
 
 /mob/living/carbon/human/species/vulpkanin
 	race = /datum/species/vulpkanin

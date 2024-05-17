@@ -42,7 +42,7 @@
 	feature_key = "tail_vulpkanin"
 
 /datum/bodypart_overlay/mutant/tail/vulpkanin/get_global_feature_list()
-	return GLOB.tails_list_vulpkanin
+	return SSaccessories.tails_list_vulpkanin
 
 /obj/item/organ/internal/stomach/vulpkanin
 	hunger_modifier = 1.5
@@ -57,7 +57,7 @@
 	var/tail_markings_color = "#FFFFFF"
 
 /datum/bodypart_overlay/mutant/vulpkanin_tail_markings/get_global_feature_list()
-	return GLOB.vulpkanin_tail_markings_list
+	return SSaccessories.vulpkanin_tail_markings_list
 
 /datum/bodypart_overlay/mutant/vulpkanin_tail_markings/get_base_icon_state()
 	return (!isnull(tail_markings_key) ? "[tail_markings_key]_" : "") + (wagging ? "wagging_" : "") + sprite_datum.icon_state

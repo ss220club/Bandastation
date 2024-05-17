@@ -7,7 +7,7 @@
 	relevant_mutant_bodypart = "vulpkanin_body_markings"
 
 /datum/preference/choiced/vulpkanin_body_markings/init_possible_values()
-	return assoc_to_keys_features(GLOB.vulpkanin_body_markings_list)
+	return assoc_to_keys_features(SSaccessories.vulpkanin_body_markings_list)
 
 /datum/preference/choiced/vulpkanin_body_markings/create_default_value()
 	var/datum/sprite_accessory/vulpkanin_body_markings/markings = /datum/sprite_accessory/vulpkanin_body_markings
@@ -26,7 +26,7 @@
 		body.Blend(icon('modular_bandastation/species/icons/vulpkanin/body.dmi', "vulpkanin_r_hand"), ICON_OVERLAY)
 		body.Blend(COLOR_ORANGE, ICON_MULTIPLY)
 
-	var/datum/sprite_accessory/markings = GLOB.vulpkanin_body_markings_list[value]
+	var/datum/sprite_accessory/markings = SSaccessories.vulpkanin_body_markings_list[value]
 	var/icon/icon_with_markings = new(body)
 
 	if (value != "None")
@@ -50,7 +50,7 @@
 	relevant_external_organ = /obj/item/organ/external/tail/vulpkanin
 
 /datum/preference/choiced/tail_vulpkanin/init_possible_values()
-	return assoc_to_keys_features(GLOB.tails_list_vulpkanin)
+	return assoc_to_keys_features(SSaccessories.tails_list_vulpkanin)
 
 /datum/preference/choiced/tail_vulpkanin/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["tail_vulpkanin"] = value
@@ -108,7 +108,7 @@
 	relevant_mutant_bodypart = "vulpkanin_head_markings"
 
 /datum/preference/choiced/vulpkanin_head_markings/init_possible_values()
-	return assoc_to_keys_features(GLOB.vulpkanin_head_markings_list)
+	return assoc_to_keys_features(SSaccessories.vulpkanin_head_markings_list)
 
 /datum/preference/choiced/vulpkanin_head_markings/icon_for(value)
 	var/static/icon/body
@@ -124,7 +124,7 @@
 		body.Blend(icon('modular_bandastation/species/icons/vulpkanin/body.dmi', "vulpkanin_r_hand"), ICON_OVERLAY)
 		body.Blend(COLOR_ORANGE, ICON_MULTIPLY)
 
-	var/datum/sprite_accessory/markings = GLOB.vulpkanin_head_markings_list[value]
+	var/datum/sprite_accessory/markings = SSaccessories.vulpkanin_head_markings_list[value]
 	var/icon/icon_with_markings = new(body)
 
 	if (value != "None")
@@ -182,7 +182,7 @@
 	relevant_mutant_bodypart = "vulpkanin_head_accessories"
 
 /datum/preference/choiced/vulpkanin_head_accessories/init_possible_values()
-	return assoc_to_keys_features(GLOB.vulpkanin_head_accessories_list)
+	return assoc_to_keys_features(SSaccessories.vulpkanin_head_accessories_list)
 
 /datum/preference/choiced/vulpkanin_head_accessories/icon_for(value)
 	var/static/icon/body
@@ -196,7 +196,7 @@
 		body.Blend(icon('modular_bandastation/species/icons/vulpkanin/body.dmi', "vulpkanin_r_hand"), ICON_OVERLAY)
 		body.Blend(COLOR_ORANGE, ICON_MULTIPLY)
 
-	var/datum/sprite_accessory/markings = GLOB.vulpkanin_head_accessories_list[value]
+	var/datum/sprite_accessory/markings = SSaccessories.vulpkanin_head_accessories_list[value]
 	var/icon/icon_with_markings = new(body)
 
 	if (value != "None")
@@ -254,10 +254,10 @@
 	relevant_mutant_bodypart = "vulpkanin_facial_hair"
 
 /datum/preference/choiced/vulpkanin_facial_hair/init_possible_values()
-	return assoc_to_keys_features(GLOB.vulpkanin_facial_hair_list)
+	return assoc_to_keys_features(SSaccessories.vulpkanin_facial_hair_list)
 
 /datum/preference/choiced/vulpkanin_facial_hair/icon_for(value)
-	var/datum/sprite_accessory/markings = GLOB.vulpkanin_facial_hair_list[value]
+	var/datum/sprite_accessory/markings = SSaccessories.vulpkanin_facial_hair_list[value]
 	var/static/icon/head_icon
 	if (isnull(head_icon))
 		head_icon = icon('modular_bandastation/species/icons/vulpkanin/body.dmi', "vulpkanin_head_m")
@@ -317,7 +317,7 @@
 	relevant_mutant_bodypart = "vulpkanin_tail_markings"
 
 /datum/preference/choiced/vulpkanin_tail_markings/init_possible_values()
-	return assoc_to_keys_features(GLOB.vulpkanin_tail_markings_list)
+	return assoc_to_keys_features(SSaccessories.vulpkanin_tail_markings_list)
 
 /datum/preference/choiced/vulpkanin_tail_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["tail_markings"] = value

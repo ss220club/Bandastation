@@ -1,28 +1,10 @@
 #define SPECIES_VULPKANIN "vulpkanin"
 #define BUTT_SPRITE_VULPKANIN "vulpkanin"
 
-GLOBAL_LIST_EMPTY(vulpkanin_body_markings_list)
-GLOBAL_LIST_EMPTY(vulpkanin_head_markings_list)
-GLOBAL_LIST_EMPTY(vulpkanin_head_accessories_list)
-GLOBAL_LIST_EMPTY(tails_list_vulpkanin)
-GLOBAL_LIST_EMPTY(vulpkanin_tail_markings_list)
-GLOBAL_LIST_EMPTY(vulpkanin_facial_hair_list)
+#define DEFAULT_SPRITE_LIST "default_sprites"
 
 #define HEAD_HAIR_VULPKANIN (1<<7)
 #define HEAD_FACIAL_HAIR_VULPKANIN (1<<101)
-
-/world/proc/make_modular_datum_reference_lists()
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_body_markings, GLOB.vulpkanin_body_markings_list, add_blank = TRUE)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_head_markings, GLOB.vulpkanin_head_markings_list, add_blank = TRUE)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_head_accessories, GLOB.vulpkanin_head_accessories_list, add_blank = TRUE)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/vulpkanin, GLOB.tails_list_vulpkanin, add_blank = FALSE)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_facial_hair, GLOB.vulpkanin_facial_hair_list, add_blank = TRUE)
-	init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_tail_markings, GLOB.vulpkanin_tail_markings_list, add_blank = TRUE)
-
-/world/New()
-	. = ..()
-
-	make_modular_datum_reference_lists()
 
 #define DNA_VULPKANIN_BODY_MARKINGS DNA_FEATURE_BLOCKS + 1
 #define DNA_VULPKANIN_HEAD_MARKINGS DNA_FEATURE_BLOCKS + 2
@@ -32,3 +14,23 @@ GLOBAL_LIST_EMPTY(vulpkanin_facial_hair_list)
 #define DNA_VULPKANIN_FACIAL_HAIR DNA_FEATURE_BLOCKS + 6
 
 #define DNA_MODULAR_BLOCKS_COUNT 6
+
+/datum/controller/subsystem/accessories
+	var/list/vulpkanin_body_markings_list
+	var/list/vulpkanin_head_markings_list
+	var/list/vulpkanin_head_accessories_list
+	var/list/tails_list_vulpkanin
+	var/list/vulpkanin_tail_markings_list
+	var/list/vulpkanin_facial_hair_list
+
+/datum/controller/subsystem/accessories/proc/init_modular_lists()
+	vulpkanin_body_markings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_body_markings, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+	vulpkanin_head_markings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_head_markings, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+	vulpkanin_head_accessories_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_head_accessories, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+	tails_list_vulpkanin = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/vulpkanin, add_blank = FALSE)[DEFAULT_SPRITE_LIST]
+	vulpkanin_tail_markings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_tail_markings, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+	vulpkanin_facial_hair_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/vulpkanin_facial_hair, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
+
+/datum/controller/subsystem/accessories/PreInit()
+	..()
+	init_modular_lists()

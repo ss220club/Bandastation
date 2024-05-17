@@ -16,7 +16,7 @@
 /obj/item/bodypart/arm/left/vulpkanin
 	icon_greyscale = 'modular_bandastation/species/icons/vulpkanin/body.dmi'
 	limb_id = SPECIES_VULPKANIN
-	unarmed_attack_verb = "slash"
+	unarmed_attack_verbs = list("slash")
 	grappled_attack_verb = "lacerate"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/weapons/slash.ogg'
@@ -25,7 +25,7 @@
 /obj/item/bodypart/arm/right/vulpkanin
 	icon_greyscale = 'modular_bandastation/species/icons/vulpkanin/body.dmi'
 	limb_id = SPECIES_VULPKANIN
-	unarmed_attack_verb = "slash"
+	unarmed_attack_verbs = list("slash")
 	grappled_attack_verb = "lacerate"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
 	unarmed_attack_sound = 'sound/weapons/slash.ogg'
