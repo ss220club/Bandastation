@@ -1,10 +1,3 @@
-// Добавление языков в список возможных
-
-// /obj/item/organ/internal/tongue/get_possible_languages()
-// 	RETURN_TYPE(/list)
-
-// 	return ..()
-
 // Язык вульпкан
 
 /datum/language/canilunzt

@@ -1,5 +1,7 @@
+/// VULPKANIN HAIR
+
 /datum/sprite_accessory/hair/vulpkanin
-	icon = 'modular_bandastation/species/icons/vulpkanin/hair.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/hair.dmi'
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_kajam
 	name = "Kajam"

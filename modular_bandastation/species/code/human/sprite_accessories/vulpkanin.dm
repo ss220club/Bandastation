@@ -1,10 +1,11 @@
 // BODY
 
 /datum/sprite_accessory/vulpkanin_body_markings
-	icon = 'modular_bandastation/species/icons/vulpkanin/body_markings.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/body_markings.dmi'
 	name = "None"
 	icon_state = "none"
 	color_src = "vulpkanin_body_markings_color"
+	em_block = TRUE
 
 /datum/sprite_accessory/vulpkanin_body_markings/belly_fox_vulp
 	name = "Vulpkanin Belly"
@@ -13,10 +14,12 @@
 /datum/sprite_accessory/vulpkanin_body_markings/belly_full_vulp
 	name = "Vulpkanin Belly 2"
 	icon_state = "fullbelly"
+	gender_specific = TRUE
 
 /datum/sprite_accessory/vulpkanin_body_markings/belly_crest_vulp
 	name = "Vulpkanin Belly Crest"
 	icon_state = "bellycrest"
+	gender_specific = TRUE
 
 /datum/sprite_accessory/vulpkanin_body_markings/points_fade_vulp
 	name = "Vulpkanin Points"
@@ -25,10 +28,12 @@
 /datum/sprite_accessory/vulpkanin_body_markings/points_fade_belly_vulp
 	name = "Vulpkanin Points and Belly"
 	icon_state = "pointsfadebelly"
+	gender_specific = TRUE
 
 /datum/sprite_accessory/vulpkanin_body_markings/points_fade_belly_alt_vulp
 	name = "Vulpkanin Points and Belly Alt."
 	icon_state = "altpointsfadebelly"
+	gender_specific = TRUE
 
 /datum/sprite_accessory/vulpkanin_body_markings/points_sharp_vulp
 	name = "Vulpkanin Sharp Points"
@@ -37,11 +42,12 @@
 /datum/sprite_accessory/vulpkanin_body_markings/points_crest_vulp
 	name = "Vulpkanin Points and Crest"
 	icon_state = "crestpoints"
+	gender_specific = TRUE
 
 // TAIL
 
 /datum/sprite_accessory/tails/vulpkanin
-	icon = 'modular_bandastation/species/icons/vulpkanin/body_accessory.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/body_accessory.dmi'
 	spine_key = "vulpkanin"
 
 /datum/sprite_accessory/tails/vulpkanin/fluffy
@@ -63,7 +69,7 @@
 // HEAD ACCESSORY
 
 /datum/sprite_accessory/vulpkanin_head_accessories
-	icon = 'modular_bandastation/species/icons/vulpkanin/facial_hair.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/facial_hair.dmi'
 	name = "None"
 	icon_state = "none"
 	color_src = "vulpkanin_head_accessories_color"
@@ -105,12 +111,12 @@
 	icon_state = "swift"
 
 /datum/sprite_accessory/vulpkanin_head_accessories/vulp_nose
-	icon = 'modular_bandastation/species/icons/vulpkanin/head_markings.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/head_markings.dmi'
 	name = "Vulpkanin Nose"
 	icon_state = "nose"
 
 /datum/sprite_accessory/vulpkanin_head_accessories/vulp_nose2
-	icon = 'modular_bandastation/species/icons/vulpkanin/head_markings.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/head_markings.dmi'
 	name = "Vulpkanin Nose Alt."
 	icon_state = "nose_alt"
 
@@ -125,7 +131,7 @@
 // HEAD MARKINGS
 
 /datum/sprite_accessory/vulpkanin_head_markings
-	icon = 'modular_bandastation/species/icons/vulpkanin/head_markings.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/head_markings.dmi'
 	name = "None"
 	icon_state = "none"
 	color_src = "vulpkanin_head_markings_color"
@@ -165,7 +171,7 @@
 // FACIAL HAIR
 
 /datum/sprite_accessory/vulpkanin_facial_hair
-	icon = 'modular_bandastation/species/icons/vulpkanin/facial_hair.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/facial_hair.dmi'
 	name = "None"
 	icon_state = "none"
 	color_src = "vulpkanin_facial_hair_color"
@@ -222,7 +228,7 @@
 //
 
 /datum/sprite_accessory/vulpkanin_tail_markings
-	icon = 'modular_bandastation/species/icons/vulpkanin/tail_markings.dmi'
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/tail_markings.dmi'
 	name = "None"
 	icon_state = "none"
 	em_block = TRUE
@@ -231,20 +237,20 @@
 
 /datum/sprite_accessory/vulpkanin_tail_markings/vulp_default_tip
 	name = "Tail Tip"
-	tails_allowed = list("Default", "Straight Bushy Tail")
+	tails_allowed = list("Default", "Straight Bushy")
 	icon_state = "tip"
 
 /datum/sprite_accessory/vulpkanin_tail_markings/vulp_default_fade
 	name = "Tail Fade"
-	tails_allowed = list("Default", "Straight Bushy Tail")
+	tails_allowed = list("Default", "Straight Bushy")
 	icon_state = "fade"
 
 /datum/sprite_accessory/vulpkanin_tail_markings/vulp_bushy_fluff
 	name = "Tail Fluff"
-	tails_allowed = list("Bushy Tail")
+	tails_allowed = list("Bushy")
 	icon_state = "fluff"
 
 /datum/sprite_accessory/vulpkanin_tail_markings/vulp_hybrid_silverf
 	name = "Tail Black Fade White Tip"
-	tails_allowed = list("Straight Bushy Tail")
+	tails_allowed = list("Straight Bushy")
 	icon_state = "fadetip"

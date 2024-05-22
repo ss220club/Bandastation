@@ -1,32 +1,4 @@
-/obj/item/organ/internal/tongue/vulpkanin
-	name = "long tongue"
-	desc = "длинный и более чувствительный язык, может различить больше вкусов"
-	icon_state = "tongue"
-	taste_sensitivity = 10
-	modifies_speech = FALSE
-	languages_native = list(/datum/language/canilunzt)
-	liked_foodtypes = RAW | MEAT | SEAFOOD
-	disliked_foodtypes = VEGETABLES | GRAIN | FRUIT | JUNKFOOD | GORE
-
-/obj/item/organ/internal/tongue/vulpkanin/get_possible_languages()
-	RETURN_TYPE(/list)
-	return list(
-		/datum/language/common,
-		/datum/language/uncommon,
-		/datum/language/draconic,
-		/datum/language/codespeak,
-		/datum/language/monkey,
-		/datum/language/narsie,
-		/datum/language/beachbum,
-		/datum/language/aphasia,
-		/datum/language/piratespeak,
-		/datum/language/moffic,
-		/datum/language/sylvan,
-		/datum/language/shadowtongue,
-		/datum/language/terrum,
-		/datum/language/nekomimetic,
-		/datum/language/canilunzt
-	)
+/// VULPKANIN TAIL
 
 /obj/item/organ/external/tail/vulpkanin
 	name = "vulpkanin tail"
@@ -44,10 +16,7 @@
 /datum/bodypart_overlay/mutant/tail/vulpkanin/get_global_feature_list()
 	return SSaccessories.tails_list_vulpkanin
 
-/obj/item/organ/internal/stomach/vulpkanin
-	hunger_modifier = 1.5
-
-//
+/// VULPKANIN TAIL MARKINGS
 
 /datum/bodypart_overlay/mutant/vulpkanin_tail_markings
 	layers = EXTERNAL_FRONT|EXTERNAL_BEHIND
@@ -69,7 +38,6 @@
 
 /datum/bodypart_overlay/mutant/vulpkanin_tail_markings/override_color(rgb_value)
 	return tail_markings_color
-//
 
 /obj/item/organ/external/tail/vulpkanin/on_bodypart_insert(obj/item/bodypart/bodypart)
 	var/data = ..()
@@ -99,7 +67,7 @@
 		tail_markings_overlay = new
 		tail_markings_overlay.tail_markings_key = tail_markings_key
 		tail_markings_overlay.color_source = ORGAN_COLOR_OVERRIDE
-		tail_markings_overlay.tail_markings_color = owner.vulpkanin_tail_markings_color
+		tail_markings_overlay.tail_markings_color = owner.vulpcolors["vulpkanin_tail_markings"]
 		tail_markings_overlay.set_appearance_from_name(feature_name)
 		bodypart.add_bodypart_overlay(tail_markings_overlay)
 

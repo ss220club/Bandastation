@@ -676,14 +676,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 					accessory = SSaccessories.body_markings_list[source.dna.features["body_markings"]]
 				if("legs")
 					accessory = SSaccessories.legs_list[source.dna.features["legs"]]
-				if("vulpkanin_body_markings")
-					accessory = SSaccessories.vulpkanin_body_markings_list[source.dna.features["vulpkanin_body_markings"]]
-				if("vulpkanin_head_markings")
-					accessory = SSaccessories.vulpkanin_head_markings_list[source.dna.features["vulpkanin_head_markings"]]
-				if("vulpkanin_head_accessories")
-					accessory = SSaccessories.vulpkanin_head_accessories_list[source.dna.features["vulpkanin_head_accessories"]]
-				if("vulpkanin_facial_hair")
-					accessory = SSaccessories.vulpkanin_facial_hair_list[source.dna.features["vulpkanin_facial_hair"]]
 
 			if(!accessory || accessory.icon_state == "none")
 				continue
@@ -712,14 +704,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 							accessory_overlay.color = get_fixed_hair_color(source) || source.facial_hair_color
 						if(EYE_COLOR)
 							accessory_overlay.color = source.eye_color_left
-						if("vulpkanin_body_markings_color")
-							accessory_overlay.color = source.vulpkanin_body_markings_color
-						if("vulpkanin_head_markings_color")
-							accessory_overlay.color = source.vulpkanin_head_markings_color
-						if("vulpkanin_head_accessories_color")
-							accessory_overlay.color = source.vulpkanin_head_accessory_color
-						if("vulpkanin_facial_hair_color")
-							accessory_overlay.color = source.facial_hair_color
 				else
 					accessory_overlay.color = forced_colour
 			standing += accessory_overlay
