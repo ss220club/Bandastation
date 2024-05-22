@@ -104,6 +104,28 @@ export const feature_lizard_tail: FeatureChoiced = {
   },
 };
 
+export const feature_mcolor: Feature<string> = {
+  name: 'Mutant color',
+  component: FeatureColorInput,
+};
+
+export const underwear_color: Feature<string> = {
+  name: 'Underwear color',
+  component: FeatureColorInput,
+};
+
+export const feature_vampire_status: Feature<string> = {
+  name: 'Vampire status',
+  component: FeatureDropdownInput,
+};
+
+export const heterochromatic: Feature<string> = {
+  name: 'Heterochromatic (Right Eye) color',
+  component: FeatureColorInput,
+};
+
+// BANDASTATION EDIT START
+
 export const feature_vulpkanin_tail: FeatureChoiced = {
   name: 'Tail',
   component: (
@@ -171,25 +193,5 @@ export const feature_vulpkanin_tail_markings: FeatureChoiced = {
 
 export const vulpkanin_tail_markings_color: Feature<string> = {
   name: 'Tail markings color',
-  component: FeatureColorInput,
-};
-
-export const feature_mcolor: Feature<string> = {
-  name: 'Mutant color',
-  component: FeatureColorInput,
-};
-
-export const underwear_color: Feature<string> = {
-  name: 'Underwear color',
-  component: FeatureColorInput,
-};
-
-export const feature_vampire_status: Feature<string> = {
-  name: 'Vampire status',
-  component: FeatureDropdownInput,
-};
-
-export const heterochromatic: Feature<string> = {
-  name: 'Heterochromatic (Right Eye) color',
   component: FeatureColorInput,
 };

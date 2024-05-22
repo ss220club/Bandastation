@@ -47,11 +47,3 @@
 		dna.features["tail_markings"] = SSaccessories.vulpkanin_tail_markings_list[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_TAIL_MARKINGS), SSaccessories.vulpkanin_tail_markings_list.len)]
 	if(dna.features["vulpkanin_facial_hair"])
 		dna.features["vulpkanin_facial_hair"] = SSaccessories.vulpkanin_facial_hair_list[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_FACIAL_HAIR), SSaccessories.vulpkanin_facial_hair_list.len)]
-
-
-// /vulpkanin/populate_total_uf_len_by_block()
-// 	. = list()
-// 	var/total_block_len = 1
-// 	for(var/blocknumber in 1 to DNA_FEATURE_BLOCKS)
-// 		. += total_block_len
-// 		total_block_len += GET_UF_BLOCK_LEN(blocknumber)
