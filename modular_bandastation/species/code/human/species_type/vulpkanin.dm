@@ -9,8 +9,15 @@
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 
 	species_language_holder = /datum/language_holder/vulpkanin
+
+	mutantbrain = /obj/item/organ/internal/brain/vulpkanin
+	mutantheart = /obj/item/organ/internal/heart/vulpkanin
+	mutantlungs = /obj/item/organ/internal/lungs/vulpkanin
+	mutanteyes = /obj/item/organ/internal/eyes/vulpkanin
 	mutanttongue = /obj/item/organ/internal/tongue/vulpkanin
+	mutantliver = /obj/item/organ/internal/liver/vulpkanin
 	mutantstomach = /obj/item/organ/internal/stomach/vulpkanin
+
 	external_organs = list(
 		/obj/item/organ/external/tail/vulpkanin = "Default",
 	)
@@ -33,6 +40,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/vulpkanin,
 	)
 
+	payday_modifier = 0.8
 	bodytemp_heat_damage_limit = BODYTEMP_HEAT_DAMAGE_LIMIT - 15
 	bodytemp_cold_damage_limit = BODYTEMP_COLD_DAMAGE_LIMIT - 15
 
@@ -52,9 +60,6 @@
 	features["tail_markings"] = pick(SSaccessories.vulpkanin_tail_markings_list)
 	features["vulpkanin_facial_hair"] = pick(SSaccessories.vulpkanin_facial_hair_list)
 	return features
-
-/datum/species/vulpkanin/check_roundstart_eligible()
-	return TRUE
 
 /datum/species/vulpkanin/get_physical_attributes()
 	return "Вульпканины - двуногие гуманоиды собакоподобные покрытые шерстью, ростом от 140 до 180 см и весом до 60 кг. \

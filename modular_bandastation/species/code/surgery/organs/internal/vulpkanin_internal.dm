@@ -12,4 +12,28 @@
 	return ..() + /datum/language/canilunzt
 
 /obj/item/organ/internal/stomach/vulpkanin
-	hunger_modifier = 1.5
+	hunger_modifier = 1.3
+
+/obj/item/organ/internal/liver/vulpkanin
+	name = "vulpkanin liver"
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
+	alcohol_tolerance = ALCOHOL_RATE * 1.5
+
+/obj/item/organ/internal/eyes/vulpkanin
+	name = "vulpkanin eyeballs"
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
+
+/obj/item/organ/internal/heart/vulpkanin
+	name = "vulpkanin heart"
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
+
+/obj/item/organ/internal/brain/vulpkanin
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
+
+/obj/item/organ/internal/lungs/vulpkanin
+	name = "vulpkanin lungs"
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
+
+/obj/item/organ/internal/kidneys/vulpkanin
+	name = "vulpkanin kidneys"
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'

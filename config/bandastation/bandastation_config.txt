@@ -5,3 +5,6 @@
 #TTS_API_URL_SILERO
 
 #WHITELIST220
+
+## Bandastation Races
+ROUNDSTART_RACES vulpkanin

@@ -312,6 +312,10 @@
 /datum/preference/choiced/vulpkanin_tail_markings/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.vulpkanin_tail_markings_list)
 
+/datum/preference/choiced/vulpkanin_tail_markings/create_default_value()
+	var/datum/sprite_accessory/vulpkanin_tail_markings/markings = /datum/sprite_accessory/vulpkanin_tail_markings
+	return initial(markings.name)
+
 /datum/preference/choiced/vulpkanin_tail_markings/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["tail_markings"] = value
 
