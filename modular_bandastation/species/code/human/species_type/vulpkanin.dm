@@ -33,7 +33,6 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/vulpkanin,
 	)
 
-	stunmod = 0.9
 	bodytemp_heat_damage_limit = BODYTEMP_HEAT_DAMAGE_LIMIT - 15
 	bodytemp_cold_damage_limit = BODYTEMP_COLD_DAMAGE_LIMIT - 15
 
@@ -44,6 +43,15 @@
 	vulpkanin.dna.features["vulpkanin_head_accessories"] = "Vulpkanin Earfluff"
 	vulpkanin.set_vulpkanin_head_accessories_color("#FFCBDB", update = FALSE)
 	vulpkanin.update_body(is_creating = TRUE)
+
+/datum/species/vulpkanin/randomize_features()
+	var/list/features = ..()
+	features["vulpkanin_body_markings"] = pick(SSaccessories.vulpkanin_body_markings_list)
+	features["vulpkanin_head_markings"] = pick(SSaccessories.vulpkanin_head_markings_list)
+	features["vulpkanin_head_accessories"] = pick(SSaccessories.vulpkanin_head_accessories_list)
+	features["tail_markings"] = pick(SSaccessories.vulpkanin_tail_markings_list)
+	features["vulpkanin_facial_hair"] = pick(SSaccessories.vulpkanin_facial_hair_list)
+	return features
 
 /datum/species/vulpkanin/check_roundstart_eligible()
 	return TRUE

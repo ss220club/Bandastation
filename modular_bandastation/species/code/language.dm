@@ -10,7 +10,8 @@
 	"ist","ein","entch","zwichs","tut","mir","wo","bis","es","vor","nic","gro","lll","enem","zandt","tzch","noch", \
 	"hel","ischt","far","wa","baram","iereng","tech","lach","sam","mak","lich","gen","or","ag","eck","gec","stag","onn", \
 	"bin","ket","jarl","vulf","einech","cresthz","azunein","ghzth")
-	icon_state = "animal"
+	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/lang.dmi'
+	icon_state = "vulptail"
 	default_priority = 90
 
 /datum/language_holder/vulpkanin
