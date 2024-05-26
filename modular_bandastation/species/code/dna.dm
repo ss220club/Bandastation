@@ -47,3 +47,28 @@
 		dna.features["tail_markings"] = SSaccessories.vulpkanin_tail_markings_list[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_TAIL_MARKINGS), SSaccessories.vulpkanin_tail_markings_list.len)]
 	if(dna.features["vulpkanin_facial_hair"])
 		dna.features["vulpkanin_facial_hair"] = SSaccessories.vulpkanin_facial_hair_list[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_FACIAL_HAIR), SSaccessories.vulpkanin_facial_hair_list.len)]
+
+/proc/populate_total_uf_len_by_block_modular(last)
+	. = list()
+	var/total_block_len = last
+	for(var/blocknumber in 1 to DNA_MODULAR_BLOCKS_COUNT)
+		total_block_len += DNA_BLOCK_SIZE
+		. += total_block_len
+
+/scramble_dna(mob/living/carbon/M, ui=FALSE, se=FALSE, uf=FALSE, probability)
+	if(uf)
+		for(var/blocknum in DNA_FEATURE_BLOCKS to DNA_FEATURE_BLOCKS + DNA_MODULAR_BLOCKS_COUNT)
+			if(prob(probability))
+				M.dna.set_uni_feature_block(blocknum, random_string(GET_UF_BLOCK_LEN(blocknum), GLOB.hex_characters))
+	..()
+
+/mob/living/carbon/human/species/vulpkanin/random_mutate_unique_features()
+	if(!has_dna())
+		CRASH("[src] does not have DNA")
+	var/num = rand(1, DNA_FEATURE_BLOCKS + DNA_MODULAR_BLOCKS_COUNT)
+	dna.set_uni_feature_block(num, random_string(GET_UF_BLOCK_LEN(num), GLOB.hex_characters))
+	updateappearance(mutcolor_update = TRUE, mutations_overlay_update = TRUE)
+
+/world/New()
+	. = ..()
+	GLOB.total_uf_len_by_block += populate_total_uf_len_by_block_modular(GLOB.total_uf_len_by_block[DNA_FEATURE_BLOCKS])

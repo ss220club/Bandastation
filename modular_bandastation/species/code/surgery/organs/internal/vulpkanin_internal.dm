@@ -6,7 +6,8 @@
 	modifies_speech = FALSE
 	languages_native = list(/datum/language/canilunzt)
 	liked_foodtypes = RAW | MEAT | SEAFOOD
-	disliked_foodtypes = VEGETABLES | GRAIN | FRUIT | JUNKFOOD | GORE
+	disliked_foodtypes = DAIRY | NUTS | GROSS
+	toxic_foodtypes = GRAIN | SUGAR | TOXIC
 
 /obj/item/organ/internal/tongue/vulpkanin/get_possible_languages()
 	return ..() + /datum/language/canilunzt
@@ -22,6 +23,18 @@
 /obj/item/organ/internal/eyes/vulpkanin
 	name = "vulpkanin eyeballs"
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
+
+/obj/item/organ/internal/ears/vulpkanin
+	desc = "Большие ушки позволяют легче слышать шепот"
+	damage_multiplier = 2
+
+/obj/item/organ/internal/ears/vulpkanin/on_mob_insert(mob/living/carbon/ear_owner)
+	. = ..()
+	ADD_TRAIT(ear_owner, TRAIT_GOOD_HEARING, ORGAN_TRAIT)
+
+/obj/item/organ/internal/ears/vulpkanin/on_mob_remove(mob/living/carbon/ear_owner)
+	. = ..()
+	REMOVE_TRAIT(ear_owner, TRAIT_GOOD_HEARING, ORGAN_TRAIT)
 
 /obj/item/organ/internal/heart/vulpkanin
 	name = "vulpkanin heart"

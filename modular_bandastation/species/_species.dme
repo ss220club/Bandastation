@@ -5,7 +5,7 @@
 
 #include "code/_defines.dm"
 #include "code/language.dm"
-// #include "code/dna.dm"
+#include "code/dna.dm"
 
 #include "code/human/carbon.dm"
 #include "code/human/human.dm"
