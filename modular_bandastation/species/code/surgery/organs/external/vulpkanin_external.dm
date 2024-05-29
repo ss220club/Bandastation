@@ -7,7 +7,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/vulpkanin
 
 	wag_flags = WAG_ABLE
-	dna_block = 18
+	dna_block = DNA_VULPKANIN_TAIL
 	var/datum/bodypart_overlay/mutant/vulpkanin_tail_markings/tail_markings_overlay
 
 /datum/bodypart_overlay/mutant/tail/vulpkanin

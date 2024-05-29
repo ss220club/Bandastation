@@ -1,9 +1,9 @@
 /datum/modpack/species
 	name = "Modpack Species"
-	desc = "Добавление новых видов и конфигурирование существующих"
+	desc = "Добавление архитектуры для новых видов и конфигурирования существующих"
 	author = "nlaysi"
 
 /datum/modpack/species/vulpkanin
 	name = "Species Vulpkanin"
-	desc = "Добавление "
+	desc = "Добавление вида Вульпканин"
 	author = "nlaysi"

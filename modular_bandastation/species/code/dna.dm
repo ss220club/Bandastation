@@ -55,13 +55,6 @@
 		total_block_len += DNA_BLOCK_SIZE
 		. += total_block_len
 
-/scramble_dna(mob/living/carbon/M, ui=FALSE, se=FALSE, uf=FALSE, probability)
-	if(uf)
-		for(var/blocknum in DNA_FEATURE_BLOCKS to DNA_FEATURE_BLOCKS + DNA_MODULAR_BLOCKS_COUNT)
-			if(prob(probability))
-				M.dna.set_uni_feature_block(blocknum, random_string(GET_UF_BLOCK_LEN(blocknum), GLOB.hex_characters))
-	..()
-
 /mob/living/carbon/human/species/vulpkanin/random_mutate_unique_features()
 	if(!has_dna())
 		CRASH("[src] does not have DNA")
