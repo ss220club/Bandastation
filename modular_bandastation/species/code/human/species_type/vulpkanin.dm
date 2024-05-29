@@ -1,6 +1,6 @@
 /datum/species/vulpkanin
 	name = "\improper Vulpkanin"
-	plural_form = "Vulpkans"
+	plural_form = "Вульпкане"
 	id = SPECIES_VULPKANIN
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS
@@ -42,8 +42,8 @@
 	)
 
 	payday_modifier = 0.8
-	bodytemp_heat_damage_limit = BODYTEMP_HEAT_DAMAGE_LIMIT - 15
-	bodytemp_cold_damage_limit = BODYTEMP_COLD_DAMAGE_LIMIT - 15
+	bodytemp_heat_damage_limit = BODYTEMP_HEAT_DAMAGE_LIMIT + 30
+	bodytemp_cold_damage_limit = BODYTEMP_COLD_DAMAGE_LIMIT - 60
 
 /datum/species/vulpkanin/prepare_human_for_preview(mob/living/carbon/human/vulpkanin)
 	vulpkanin.set_haircolor("#A26324", update = FALSE) // brown
@@ -99,20 +99,49 @@
 
 	to_add += list(
 		list(
-			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "wind",
+			SPECIES_PERK_NAME = "Чувствительный нюх",
+			SPECIES_PERK_DESC = "[plural_form] могут различать больше запахов.",
+		),
+		list(
+			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "assistive-listening-systems",
 			SPECIES_PERK_NAME = "Чувствительный слух",
-			SPECIES_PERK_DESC = "Вульпкане лучше слышат, но более чувствительны к громким звукам, например, светошумовым гранатам.",
+			SPECIES_PERK_DESC = "[plural_form] лучше слышат, но более чувствительны к громким звукам, например, светошумовым гранатам.",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "fire-alt",
 			SPECIES_PERK_NAME = "Быстрый метаболизм",
-			SPECIES_PERK_DESC = "Вульпкане быстрее тратят полезные вещества и проголадываются",
+			SPECIES_PERK_DESC = "[plural_form] быстрее тратят полезные вещества и проголадываются",
 		),
 	)
 
 	return to_add
+
+/datum/species/vulpkanin/create_pref_temperature_perks()
+	return list(list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "temperature-low",
+			SPECIES_PERK_NAME = "Термоустойчивость",
+			SPECIES_PERK_DESC = "[plural_form] лучше переносят перепады температур.",))
+
+/datum/species/vulpkanin/create_pref_liver_perks()
+	return list(list(
+			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+			SPECIES_PERK_ICON = "wine-glass",
+			SPECIES_PERK_NAME = "Чувствительность к алкоголю",
+			SPECIES_PERK_DESC = "Вульпканская печень более восприимчива к алкоголю, чем печень человека, примерно на 150%."
+		))
+
+/datum/species/vulpkanin/create_pref_language_perk()
+	return list(list(
+			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+			SPECIES_PERK_ICON = "comment",
+			SPECIES_PERK_NAME = "Носитель языка",
+			SPECIES_PERK_DESC = "[plural_form] получают возможность говорить на Канилунце.",
+		))
 
 /datum/species/vulpkanin/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
 	var/list/bodyparts_to_add = mutant_bodyparts.Copy()

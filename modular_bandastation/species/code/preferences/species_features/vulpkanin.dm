@@ -4,7 +4,7 @@
 	savefile_key = "feature_vulpkanin_body_markings"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Body markings"
+	main_feature_name = "Раскраска тела"
 	should_generate_icons = TRUE
 	relevant_mutant_bodypart = "vulpkanin_body_markings"
 
@@ -95,7 +95,7 @@
 	savefile_key = "feature_vulpkanin_head_markings"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Head markings"
+	main_feature_name = "Раскраска головы"
 	should_generate_icons = TRUE
 	relevant_mutant_bodypart = "vulpkanin_head_markings"
 
@@ -169,7 +169,7 @@
 	savefile_key = "feature_vulpkanin_head_accessories"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Head accessories"
+	main_feature_name = "Кастомизация головы"
 	should_generate_icons = TRUE
 	relevant_mutant_bodypart = "vulpkanin_head_accessories"
 
@@ -241,7 +241,7 @@
 	savefile_key = "feature_vulpkanin_facial_hair"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_FEATURES
-	main_feature_name = "Vulpkanin facial"
+	main_feature_name = "Волосы на лице"
 	should_generate_icons = TRUE
 	relevant_mutant_bodypart = "vulpkanin_facial_hair"
 

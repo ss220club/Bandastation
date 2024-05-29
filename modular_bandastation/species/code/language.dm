@@ -6,10 +6,10 @@
 	key = "7"
 	flags = TONGUELESS_SPEECH
 	space_chance = 60
-	syllables = list("rur","ya","cen","rawr","bar","kuk","tek","qat","uk","wu","vuh","tah","tch","schz","auch", \
-	"ist","ein","entch","zwichs","tut","mir","wo","bis","es","vor","nic","gro","lll","enem","zandt","tzch","noch", \
-	"hel","ischt","far","wa","baram","iereng","tech","lach","sam","mak","lich","gen","or","ag","eck","gec","stag","onn", \
-	"bin","ket","jarl","vulf","einech","cresthz","azunein","ghzth")
+	syllables = list("рур","йа","сен","равр","бар","кук","тек","куат","ук","ву","вух","тах","тч","сжз","ауч", \
+	"ист","йеин","ентч","звич","тут","мирr","во","бис","эс","вор","ник","гро","эл","энем","зантх","тзч","ноч", \
+	"хел","исчт","фар","ва","барам","йеренг","теч","лач","сам","мак","лич","ген","ор","аг","ект","гек","стаг","онн", \
+	"бин","кет","ярл","вульф","эйнеч","кресвз","азунейн","гхчв")
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/lang.dmi'
 	icon_state = "vulptail"
 	default_priority = 90

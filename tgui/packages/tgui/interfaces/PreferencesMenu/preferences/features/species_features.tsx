@@ -127,7 +127,7 @@ export const heterochromatic: Feature<string> = {
 // BANDASTATION EDIT START
 
 export const feature_vulpkanin_tail: FeatureChoiced = {
-  name: 'Tail',
+  name: 'Хвост',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -136,7 +136,7 @@ export const feature_vulpkanin_tail: FeatureChoiced = {
 };
 
 export const feature_vulpkanin_head_markings: FeatureChoiced = {
-  name: 'Head Markings',
+  name: 'Раскраска головы',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -145,17 +145,17 @@ export const feature_vulpkanin_head_markings: FeatureChoiced = {
 };
 
 export const vulpkanin_head_markings_color: Feature<string> = {
-  name: 'Facial hair color',
+  name: 'Раскраска головы',
   component: FeatureColorInput,
 };
 
 export const vulpkanin_body_markings_color: Feature<string> = {
-  name: 'Facial hair color',
+  name: 'Раскраска тела',
   component: FeatureColorInput,
 };
 
 export const feature_vulpkanin_head_accessories: FeatureChoiced = {
-  name: 'Head Accessories',
+  name: 'Кастомизация головы',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -164,12 +164,12 @@ export const feature_vulpkanin_head_accessories: FeatureChoiced = {
 };
 
 export const vulpkanin_head_accessories_color: Feature<string> = {
-  name: 'Facial hair color',
+  name: 'Кастомизация головы',
   component: FeatureColorInput,
 };
 
 export const feature_vulpkanin_facial_hair: FeatureChoiced = {
-  name: 'Facial Hair',
+  name: 'Волосы на лице',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -178,12 +178,12 @@ export const feature_vulpkanin_facial_hair: FeatureChoiced = {
 };
 
 export const vulpkanin_facial_hair_color: Feature<string> = {
-  name: 'Facial hair color',
+  name: 'Волосы на лице',
   component: FeatureColorInput,
 };
 
 export const feature_vulpkanin_tail_markings: FeatureChoiced = {
-  name: 'Tail Markings',
+  name: 'Раскраска хвоста',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -192,6 +192,6 @@ export const feature_vulpkanin_tail_markings: FeatureChoiced = {
 };
 
 export const vulpkanin_tail_markings_color: Feature<string> = {
-  name: 'Tail markings color',
+  name: 'Цвет хвоста',
   component: FeatureColorInput,
 };

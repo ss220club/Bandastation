@@ -196,6 +196,14 @@
 	name = "нюхать"
 	message = "нюхает."
 	message_mime = "бесшумно нюхает."
+	message_param = "нюхает %t."
+
+/datum/emote/living/sniff/get_sound(mob/living/user)
+	. = ..()
+	if(user.gender == FEMALE)
+		return 'modular_bandastation/emote_panel/audio/female/sniff_female.ogg'
+	else
+		return 'modular_bandastation/emote_panel/audio/male/sniff_male.ogg'
 
 /datum/emote/living/snore
 	name = "храпеть"
@@ -631,3 +639,40 @@
 	name = "ooga"
 	message = "oogas."
 	message_param = "oogas at %t."
+
+// Vulpkanin
+
+/datum/emote/living/vulpkanin/can_run_emote(mob/user, status_check = TRUE, intentional = FALSE)
+	if(is_species(user, /datum/species/vulpkanin))
+		return TRUE
+	else
+		return FALSE
+
+/datum/emote/living/vulpkanin/howl
+	key = "howl"
+	key_third_person = "howls"
+	message = "воет."
+	message_mime = "делает вид что воет."
+	message_param = "воет на %t."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	cooldown = 10 SECONDS
+
+/datum/emote/living/vulpkanin/howl/get_sound(mob/living/user)
+	. = ..()
+	return 'modular_bandastation/emote_panel/audio/howl.ogg'
+
+/datum/emote/living/vulpkanin/growl
+	key = "growl"
+	key_third_person = "growls"
+	message = "рычит."
+	message_mime = "бусшумно рычит."
+	message_param = "рычит на %t."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+
+/datum/emote/living/vulpkanin/growl/get_sound(mob/living/user)
+	. = ..()
+	return pick(
+		'modular_bandastation/emote_panel/audio/growl1.ogg',
+		'modular_bandastation/emote_panel/audio/growl2.ogg',
+		'modular_bandastation/emote_panel/audio/growl3.ogg',
+	)
