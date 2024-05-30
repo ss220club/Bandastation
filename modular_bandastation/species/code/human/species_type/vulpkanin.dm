@@ -1,5 +1,5 @@
 /datum/species/vulpkanin
-	name = "\improper Vulpkanin"
+	name = "\improper Вульпканин"
 	plural_form = "Вульпкане"
 	id = SPECIES_VULPKANIN
 	inherent_traits = list(
@@ -102,7 +102,7 @@
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = "wind",
 			SPECIES_PERK_NAME = "Чувствительный нюх",
-			SPECIES_PERK_DESC = "[plural_form] могут различать больше запахов.",
+			SPECIES_PERK_DESC = "[plural_form] могут различать больше запахов и запоминать их.",
 		),
 		list(
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
@@ -114,7 +114,7 @@
 			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 			SPECIES_PERK_ICON = "fire-alt",
 			SPECIES_PERK_NAME = "Быстрый метаболизм",
-			SPECIES_PERK_DESC = "[plural_form] быстрее тратят полезные вещества и проголадываются",
+			SPECIES_PERK_DESC = "[plural_form] быстрее тратят полезные вещества, потому чаще хотят есть.",
 		),
 	)
 

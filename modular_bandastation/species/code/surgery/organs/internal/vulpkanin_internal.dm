@@ -35,7 +35,7 @@
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
 
 /obj/item/organ/internal/ears/vulpkanin
-	desc = "Большие ушки позволяют легче слышать шепот"
+	desc = "Большие ушки позволяют легче слышать шепот."
 	damage_multiplier = 2
 
 /obj/item/organ/internal/ears/vulpkanin/on_mob_insert(mob/living/carbon/ear_owner)

@@ -219,13 +219,12 @@
 /datum/sprite_accessory/vulpkanin_facial_hair/vulp_elder
 	name = "Elder"
 	icon_state = "elder"
-	//secondary_theme = "chin"
 
 /datum/sprite_accessory/facial_hair/vulpkanin/vulp_slash
 	name = "Slash"
 	icon_state = "slash"
 
-//
+// TAIL MARKINGS
 
 /datum/sprite_accessory/vulpkanin_tail_markings
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/tail_markings.dmi'

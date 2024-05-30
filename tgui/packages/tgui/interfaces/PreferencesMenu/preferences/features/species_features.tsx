@@ -145,12 +145,12 @@ export const feature_vulpkanin_head_markings: FeatureChoiced = {
 };
 
 export const vulpkanin_head_markings_color: Feature<string> = {
-  name: 'Раскраска головы',
+  name: 'Раскраска головы - цвет',
   component: FeatureColorInput,
 };
 
 export const vulpkanin_body_markings_color: Feature<string> = {
-  name: 'Раскраска тела',
+  name: 'Раскраска тела - цвет',
   component: FeatureColorInput,
 };
 
@@ -164,7 +164,7 @@ export const feature_vulpkanin_head_accessories: FeatureChoiced = {
 };
 
 export const vulpkanin_head_accessories_color: Feature<string> = {
-  name: 'Кастомизация головы',
+  name: 'Кастомизация головы - цвет',
   component: FeatureColorInput,
 };
 
@@ -178,12 +178,12 @@ export const feature_vulpkanin_facial_hair: FeatureChoiced = {
 };
 
 export const vulpkanin_facial_hair_color: Feature<string> = {
-  name: 'Волосы на лице',
+  name: 'Волосы на лице - цвет',
   component: FeatureColorInput,
 };
 
 export const feature_vulpkanin_tail_markings: FeatureChoiced = {
-  name: 'Раскраска хвоста',
+  name: 'Хвост - раскраска',
   component: (
     props: FeatureValueProps<string, string, FeatureChoicedServerData>,
   ) => {
@@ -192,6 +192,6 @@ export const feature_vulpkanin_tail_markings: FeatureChoiced = {
 };
 
 export const vulpkanin_tail_markings_color: Feature<string> = {
-  name: 'Цвет хвоста',
+  name: 'Хвост - цвет',
   component: FeatureColorInput,
 };

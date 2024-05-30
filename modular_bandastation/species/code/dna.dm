@@ -63,5 +63,4 @@
 	updateappearance(mutcolor_update = TRUE, mutations_overlay_update = TRUE)
 
 /datum/modpack/species/vulpkanin/post_initialize()
-	. = ..()
 	GLOB.total_uf_len_by_block += populate_total_uf_len_by_block_modular(GLOB.total_uf_len_by_block[DNA_FEATURE_BLOCKS])

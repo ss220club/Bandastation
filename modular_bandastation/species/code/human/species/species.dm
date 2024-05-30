@@ -84,11 +84,12 @@
 	var/list/blood = GET_ATOM_SHIFF_BLOOD_DNA(target)
 
 	if(ishuman(target))
-		var/mob/living/carbon/human/H = target
-		sniffed_species_ue[H.dna.unique_enzymes] = H.name
-		sniffed_species_ui[md5(H.dna.unique_identity)] = H.name
-		to_chat(owner, "Вы запомнили запах [H.name]")
-		return TRUE
+		if(do_after(owner, 1.5 SECONDS, target = target))
+			var/mob/living/carbon/human/H = target
+			sniffed_species_ue[H.dna.unique_enzymes] = H.name
+			sniffed_species_ui[md5(H.dna.unique_identity)] = H.name
+			to_chat(owner, "Вы запомнили запах [H.name]")
+			return TRUE
 
 	if(!fingerprints && !blood)
 		return TRUE

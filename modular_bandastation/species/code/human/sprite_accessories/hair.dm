@@ -30,12 +30,10 @@
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_belle
 	name = "Belle"
 	icon_state = "belle"
-	//secondary_theme = "bands"
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_bun
 	name = "Bun"
 	icon_state = "bun"
-	//glasses_over = 1
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_jagged
 	name = "Jagged"
@@ -48,7 +46,6 @@
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_hawk
 	name = "Hawk"
 	icon_state = "hawk"
-	//glasses_over = 1
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_anita
 	name = "Anita"
@@ -61,22 +58,18 @@
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_spike
 	name = "Spike"
 	icon_state = "spike"
-	//glasses_over = 1
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_braided
 	name = "Braided"
 	icon_state = "braided"
-	//secondary_theme = "beads"
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_punkbraided
 	name = "Punk Braided"
 	icon_state = "punkbraided"
-	//secondary_theme = "flare"
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_short2
 	name = "Short Alt."
 	icon_state = "short2"
-	//glasses_over = 1
 
 /datum/sprite_accessory/hair/vulpkanin/vulp_hair_rough
 	name = "Rough-Cropped Mane"
