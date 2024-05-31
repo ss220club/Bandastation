@@ -7,13 +7,20 @@
 #define CM_COLOR_LUM_MAX 0.75
 
 /datum/action/cooldown/vulpkanin
-	name = "Vulp Power"
+	name = "Способность Вульпкан"
 	check_flags = AB_CHECK_IMMOBILE | AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
 	melee_cooldown_time = 2 SECONDS
+	button_icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/skills.dmi'
+	button_icon_state = "none"
+	overlay_icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/skills.dmi'
+	overlay_icon_state = "frame_border"
+	background_icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/skills.dmi'
+	background_icon_state = "frame"
 
 /datum/action/cooldown/vulpkanin/sniffer
 	name = "Вынюхать"
 	desc = "Вы обнюхиваете предмет и определяете кто с ним взаимодействовал. Вы можете запомнить запах определённого человека обнюхав его."
+	button_icon_state = "sniff"
 	click_to_activate = TRUE
 	var/list/sniffed_species_ue = list()
 	var/list/sniffed_species_ui = list()
