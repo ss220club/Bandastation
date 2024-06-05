@@ -28,7 +28,7 @@
 /obj/item/organ/internal/liver/vulpkanin
 	name = "vulpkanin liver"
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
-	alcohol_tolerance = ALCOHOL_RATE * 1.5
+	alcohol_tolerance = ALCOHOL_RATE * 2.5
 
 /obj/item/organ/internal/eyes/vulpkanin
 	name = "vulpkanin eyeballs"
@@ -52,7 +52,7 @@
 
 /obj/item/organ/internal/brain/vulpkanin
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
-	actions_types = list(/datum/action/cooldown/vulpkanin/sniffer)
+	actions_types = list(/datum/action/cooldown/sniff)
 
 /obj/item/organ/internal/lungs/vulpkanin
 	name = "vulpkanin lungs"

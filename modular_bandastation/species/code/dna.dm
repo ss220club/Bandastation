@@ -43,8 +43,16 @@
 		dna.features["vulpkanin_head_accessories"] = SSaccessories.vulpkanin_head_accessories_list[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_HEAD_ACCESSORIES), SSaccessories.vulpkanin_head_accessories_list.len)]
 	if(dna.features["tail_vulpkanin"])
 		dna.features["tail_vulpkanin"] = SSaccessories.tails_list_vulpkanin[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_TAIL), SSaccessories.tails_list_vulpkanin.len)]
+		var/obj/item/organ/external/tail/vulpkanin/tail = organs_slot[ORGAN_SLOT_EXTERNAL_TAIL]
+		if (tail && tail.type == /obj/item/organ/external/tail/vulpkanin)
+			tail.Remove(src)
+			tail.Insert(src, special=TRUE, movement_flags = DELETE_IF_REPLACED)
 	if(dna.features["tail_markings"])
 		dna.features["tail_markings"] = SSaccessories.vulpkanin_tail_markings_list[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_TAIL_MARKINGS), SSaccessories.vulpkanin_tail_markings_list.len)]
+		var/obj/item/organ/external/tail/vulpkanin/tail = organs_slot[ORGAN_SLOT_EXTERNAL_TAIL]
+		if (tail && tail.type == /obj/item/organ/external/tail/vulpkanin)
+			tail.Remove(src)
+			tail.Insert(src, special=TRUE, movement_flags = DELETE_IF_REPLACED)
 	if(dna.features["vulpkanin_facial_hair"])
 		dna.features["vulpkanin_facial_hair"] = SSaccessories.vulpkanin_facial_hair_list[deconstruct_block(get_uni_feature_block(dna.unique_features, DNA_VULPKANIN_FACIAL_HAIR), SSaccessories.vulpkanin_facial_hair_list.len)]
 
