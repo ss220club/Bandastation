@@ -5,7 +5,6 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS
 	)
-	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 
 	species_language_holder = /datum/language_holder/vulpkanin
@@ -105,7 +104,7 @@
 			SPECIES_PERK_DESC = "[plural_form] могут различать больше запахов и запоминать их.",
 		),
 		list(
-			SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
+			SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 			SPECIES_PERK_ICON = "assistive-listening-systems",
 			SPECIES_PERK_NAME = "Чувствительный слух",
 			SPECIES_PERK_DESC = "[plural_form] лучше слышат, но более чувствительны к громким звукам, например, светошумовым гранатам.",

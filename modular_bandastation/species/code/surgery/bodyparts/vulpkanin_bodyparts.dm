@@ -3,6 +3,7 @@
 	limb_id = SPECIES_VULPKANIN
 	is_dimorphic = TRUE
 	head_flags = HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES|HEAD_DEBRAIN|HEAD_HAIR
+	species_bodytype = SPECIES_VULPKANIN
 
 /obj/item/bodypart/chest/vulpkanin
 	icon_greyscale = 'modular_bandastation/species/icons/mob/species/vulpkanin/body.dmi'

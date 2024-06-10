@@ -14,13 +14,13 @@
 
 /obj/item/organ/internal/tongue/vulpkanin/on_mob_insert(mob/living/carbon/owner)
 	. = ..()
-	owner.verbs |= /mob/living/carbon/human/species/vulpkanin/proc/emote_howl
-	owner.verbs |= /mob/living/carbon/human/species/vulpkanin/proc/emote_growl
+	add_verb(owner, /mob/living/carbon/human/species/vulpkanin/proc/emote_howl)
+	add_verb(owner, /mob/living/carbon/human/species/vulpkanin/proc/emote_growl)
 
 /obj/item/organ/internal/tongue/vulpkanin/on_mob_remove(mob/living/carbon/owner)
 	. = ..()
-	owner.verbs -= /mob/living/carbon/human/species/vulpkanin/proc/emote_howl
-	owner.verbs -= /mob/living/carbon/human/species/vulpkanin/proc/emote_growl
+	remove_verb(owner, /mob/living/carbon/human/species/vulpkanin/proc/emote_howl)
+	remove_verb(owner, /mob/living/carbon/human/species/vulpkanin/proc/emote_growl)
 
 /obj/item/organ/internal/stomach/vulpkanin
 	hunger_modifier = 1.3

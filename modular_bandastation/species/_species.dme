@@ -18,4 +18,8 @@
 #include "code/human/sprite_accessories/hair.dm"
 #include "code/human/species/species.dm"
 
+#include "code/clothing/human_update_icons.dm"
+#include "code/clothing/items.dm"
+#include "code/clothing/mod.dm"
+
 #endif

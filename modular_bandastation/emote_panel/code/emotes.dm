@@ -641,12 +641,12 @@
 
 // Vulpkanin
 
-/datum/emote/living/vulpkanin/can_run_emote(mob/user, status_check = TRUE, intentional = FALSE)
+/datum/emote/living/carbon/human/vulpkanin/can_run_emote(mob/user, status_check = TRUE, intentional = FALSE)
 	var/organ = user.get_organ_slot(ORGAN_SLOT_TONGUE)
 	if(istype(organ, /obj/item/organ/internal/tongue/vulpkanin))
-		return TRUE
+		return TRUE && ..()
 
-/datum/emote/living/vulpkanin/howl
+/datum/emote/living/carbon/human/vulpkanin/howl
 	key = "howl"
 	key_third_person = "howls"
 	message = "воет."
@@ -655,10 +655,10 @@
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 	cooldown = 10 SECONDS
 
-/datum/emote/living/vulpkanin/howl/get_sound(mob/living/user)
+/datum/emote/living/carbon/human/vulpkanin/howl/get_sound(mob/living/user)
 	return 'modular_bandastation/emote_panel/audio/howl.ogg'
 
-/datum/emote/living/vulpkanin/growl
+/datum/emote/living/carbon/human/vulpkanin/growl
 	key = "growl"
 	key_third_person = "growls"
 	message = "рычит."
@@ -666,7 +666,7 @@
 	message_param = "рычит на %t."
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 
-/datum/emote/living/vulpkanin/growl/get_sound(mob/living/user)
+/datum/emote/living/carbon/human/vulpkanin/get_sound(mob/living/user)
 	return pick(
 		'modular_bandastation/emote_panel/audio/growl1.ogg',
 		'modular_bandastation/emote_panel/audio/growl2.ogg',
