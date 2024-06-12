@@ -57,7 +57,7 @@
 	features["vulpkanin_head_accessories"] = prob(50) ? pick(SSaccessories.vulpkanin_head_accessories_list) : "None"
 	features["vulpkanin_facial_hair"] = prob(50) ? pick(SSaccessories.vulpkanin_facial_hair_list) : "None"
 
-	var/furcolor = prob(50) ? features["mcolor"] : "#[random_color()]"
+	var/furcolor = "#[random_color()]"
 	features["furcolor_first"] = furcolor
 	features["furcolor_second"] = furcolor
 	features["furcolor_third"] = furcolor

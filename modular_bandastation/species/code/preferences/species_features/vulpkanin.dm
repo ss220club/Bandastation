@@ -77,6 +77,8 @@
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	relevant_mutant_bodypart = "vulpkanin_body_markings"
 
+/datum/preference/color/vulpkanin_body_markings_color/create_default_value()
+	return COLOR_WHITE
 
 /datum/preference/color/vulpkanin_body_markings_color/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["furcolor_first"] = value
@@ -143,6 +145,9 @@
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	relevant_head_flag = HEAD_VULPKANIN
 
+/datum/preference/color/vulpkanin_head_markings_color/create_default_value()
+	return COLOR_WHITE
+
 /datum/preference/color/vulpkanin_head_markings_color/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["furcolor_third"] = value
 
@@ -206,6 +211,9 @@
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	relevant_head_flag = HEAD_VULPKANIN
 
+/datum/preference/color/vulpkanin_head_accessories_color/create_default_value()
+	return COLOR_WHITE
+
 /datum/preference/color/vulpkanin_head_accessories_color/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["furcolor_fourth"] = value
 
@@ -263,6 +271,9 @@
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	relevant_head_flag = HEAD_VULPKANIN
 
+/datum/preference/color/vulpkanin_facial_hair_color/create_default_value()
+	return COLOR_WHITE
+
 /datum/preference/color/vulpkanin_facial_hair_color/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["furcolor_fifth"] = value
 
@@ -302,6 +313,9 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
 	relevant_mutant_bodypart = "vulpkanin_tail_markings"
+
+/datum/preference/color/vulpkanin_tail_markings_color/create_default_value()
+	return COLOR_WHITE
 
 /datum/preference/color/vulpkanin_tail_markings_color/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features["furcolor_second"] = value
