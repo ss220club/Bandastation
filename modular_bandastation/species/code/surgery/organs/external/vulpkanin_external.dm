@@ -10,6 +10,14 @@
 	dna_block = DNA_VULPKANIN_TAIL
 	var/datum/bodypart_overlay/mutant/vulpkanin_tail_markings/tail_markings_overlay
 
+/obj/item/organ/external/tail/vulpkanin/on_mob_insert(mob/living/carbon/owner)
+	. = ..()
+	add_verb(owner, /mob/living/carbon/human/proc/emote_wag)
+
+/obj/item/organ/external/tail/vulpkanin/on_mob_remove(mob/living/carbon/owner)
+	. = ..()
+	remove_verb(owner, /mob/living/carbon/human/proc/emote_wag)
+
 /datum/bodypart_overlay/mutant/tail/vulpkanin
 	feature_key = "tail_vulpkanin"
 
@@ -67,7 +75,7 @@
 		tail_markings_overlay = new
 		tail_markings_overlay.tail_markings_key = tail_markings_key
 		tail_markings_overlay.color_source = ORGAN_COLOR_OVERRIDE
-		tail_markings_overlay.tail_markings_color = owner.vulpcolors["vulpkanin_tail_markings"]
+		tail_markings_overlay.tail_markings_color = owner.dna.features["furcolor_second"]
 		tail_markings_overlay.set_appearance_from_name(feature_name)
 		bodypart.add_bodypart_overlay(tail_markings_overlay)
 

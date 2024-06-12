@@ -77,17 +77,9 @@
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
 	relevant_mutant_bodypart = "vulpkanin_body_markings"
 
+
 /datum/preference/color/vulpkanin_body_markings_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.set_vulpkanin_body_markings_color(value, update = FALSE)
-
-/mob/living/proc/set_vulpkanin_body_markings_color(hex_string, override, update = TRUE)
-	return
-
-/mob/living/carbon/human/set_vulpkanin_body_markings_color(hex_string, override, update = TRUE)
-	vulpcolors["vulpkanin_body_markings"] = hex_string
-
-	if(update)
-		update_body_parts()
+	target.dna.features["furcolor_first"] = value
 
 /// VULPKANIN HEAD MARKINGS
 
@@ -97,7 +89,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Раскраска головы"
 	should_generate_icons = TRUE
-	relevant_mutant_bodypart = "vulpkanin_head_markings"
+	relevant_head_flag = HEAD_VULPKANIN
 
 /datum/preference/choiced/vulpkanin_head_markings/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.vulpkanin_head_markings_list)
@@ -149,19 +141,10 @@
 	savefile_key = "vulpkanin_head_markings_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	relevant_mutant_bodypart = "vulpkanin_head_markings"
+	relevant_head_flag = HEAD_VULPKANIN
 
 /datum/preference/color/vulpkanin_head_markings_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.set_vulpkanin_head_markings_color(value, update = FALSE)
-
-/mob/living/proc/set_vulpkanin_head_markings_color(hex_string, override, update = TRUE)
-	return
-
-/mob/living/carbon/human/set_vulpkanin_head_markings_color(hex_string, override, update = TRUE)
-	vulpcolors["vulpkanin_head_markings"] = hex_string
-
-	if(update)
-		update_body_parts()
+	target.dna.features["furcolor_third"] = value
 
 /// VULPKANIN HEAD ACCESSORIES
 
@@ -171,7 +154,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Кастомизация головы"
 	should_generate_icons = TRUE
-	relevant_mutant_bodypart = "vulpkanin_head_accessories"
+	relevant_head_flag = HEAD_VULPKANIN
 
 /datum/preference/choiced/vulpkanin_head_accessories/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.vulpkanin_head_accessories_list)
@@ -221,19 +204,10 @@
 	savefile_key = "vulpkanin_head_accessories_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	relevant_mutant_bodypart = "vulpkanin_head_accessories"
+	relevant_head_flag = HEAD_VULPKANIN
 
 /datum/preference/color/vulpkanin_head_accessories_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.set_vulpkanin_head_accessories_color(value, update = FALSE)
-
-/mob/living/proc/set_vulpkanin_head_accessories_color(hex_string, override, update = TRUE)
-	return
-
-/mob/living/carbon/human/set_vulpkanin_head_accessories_color(hex_string, override, update = TRUE)
-	vulpcolors["vulpkanin_head_accessory"] = hex_string
-
-	if(update)
-		update_body_parts()
+	target.dna.features["furcolor_fourth"] = value
 
 /// VULPKANIN FACIAL HAIR
 
@@ -243,7 +217,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Волосы на лице"
 	should_generate_icons = TRUE
-	relevant_mutant_bodypart = "vulpkanin_facial_hair"
+	relevant_head_flag = HEAD_VULPKANIN
 
 /datum/preference/choiced/vulpkanin_facial_hair/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.vulpkanin_facial_hair_list)
@@ -287,19 +261,10 @@
 	savefile_key = "vulpkanin_facial_hair_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	relevant_mutant_bodypart = "vulpkanin_facial_hair"
+	relevant_head_flag = HEAD_VULPKANIN
 
 /datum/preference/color/vulpkanin_facial_hair_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.set_vulpkanin_facial_hair_color(value, update = FALSE)
-
-/mob/living/proc/set_vulpkanin_facial_hair_color(hex_string, override, update = TRUE)
-	return
-
-/mob/living/carbon/human/set_vulpkanin_facial_hair_color(hex_string, override, update = TRUE)
-	vulpcolors["vulpkanin_facial_hair"] = hex_string
-
-	if(update)
-		update_body_parts()
+	target.dna.features["furcolor_fifth"] = value
 
 /// VULPKANIN TAIL MARKINGS
 
@@ -339,16 +304,7 @@
 	relevant_mutant_bodypart = "vulpkanin_tail_markings"
 
 /datum/preference/color/vulpkanin_tail_markings_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.set_vulpkanin_tail_markings_color(value, update = FALSE)
-
-/mob/living/proc/set_vulpkanin_tail_markings_color(hex_string, override, update = TRUE)
-	return
-
-/mob/living/carbon/human/set_vulpkanin_tail_markings_color(hex_string, override, update = TRUE)
-	vulpcolors["vulpkanin_tail_markings"] = hex_string
-
-	if(update)
-		update_body_parts()
+	target.dna.features["furcolor_second"] = value
 
 /datum/preference/color/vulpkanin_tail_markings_color/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))

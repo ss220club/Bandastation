@@ -8,7 +8,6 @@
 #include "code/dna.dm"
 
 #include "code/human/carbon.dm"
-#include "code/human/human.dm"
 #include "code/surgery/organs/external/vulpkanin_external.dm"
 #include "code/surgery/organs/internal/vulpkanin_internal.dm"
 #include "code/human/sprite_accessories/vulpkanin.dm"

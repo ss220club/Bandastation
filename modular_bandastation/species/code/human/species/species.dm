@@ -45,6 +45,10 @@
 	if(HAS_TRAIT(owner, TRAIT_ANOSMIA))
 		return TRUE
 
+	var/mob/living/carbon/human/H = owner
+	if(istype(H) && (H.has_smoke_protection() || H.can_breathe_internals()))
+		return TRUE
+
 	return ..()
 
 /datum/action/cooldown/sniff/proc/colorize_string(name, sat_shift = 1, lum_shift = 1)

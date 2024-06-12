@@ -276,6 +276,11 @@
 	set category = "Эмоции"
 	emote("aflap", intentional = TRUE)
 
+/mob/living/carbon/human/proc/emote_wag()
+	set name = "◦ " + EMOTE_HUMAN_WAG + " "
+	set category = "Эмоции"
+	emote("wag", intentional = TRUE)
+
 /// Racial Emotes ///
 /mob/living/carbon/human/proc/emote_ping()
 	set name = "< " + EMOTE_SILICON_PING + " >"

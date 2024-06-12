@@ -25,9 +25,6 @@
 	mutant_bodyparts = list(
 		"wings" = "None",
 		"vulpkanin_body_markings" = "None",
-		"vulpkanin_head_markings" = "None",
-		"vulpkanin_head_accessories" = "None",
-		"vulpkanin_facial_hair" = "None",
 		"vulpkanin_tail_markings" = "None",
 	)
 
@@ -49,16 +46,23 @@
 	vulpkanin.set_hairstyle("Jagged", update = TRUE)
 	vulpkanin.dna.features["mcolor"] = "#D69E67"
 	vulpkanin.dna.features["vulpkanin_head_accessories"] = "Vulpkanin Earfluff"
-	vulpkanin.set_vulpkanin_head_accessories_color("#FFCBDB", update = FALSE)
+	vulpkanin.dna.features["furcolor_fourth"] = "#ffa2be"
 	vulpkanin.update_body(is_creating = TRUE)
 
 /datum/species/vulpkanin/randomize_features()
 	var/list/features = ..()
-	features["vulpkanin_body_markings"] = pick(SSaccessories.vulpkanin_body_markings_list)
-	features["vulpkanin_head_markings"] = pick(SSaccessories.vulpkanin_head_markings_list)
-	features["vulpkanin_head_accessories"] = pick(SSaccessories.vulpkanin_head_accessories_list)
-	features["tail_markings"] = pick(SSaccessories.vulpkanin_tail_markings_list)
-	features["vulpkanin_facial_hair"] = pick(SSaccessories.vulpkanin_facial_hair_list)
+	features["vulpkanin_body_markings"] = prob(50) ? pick(SSaccessories.vulpkanin_body_markings_list) : "None"
+	features["tail_markings"] = prob(50) ? pick(SSaccessories.vulpkanin_tail_markings_list) : "None"
+	features["vulpkanin_head_markings"] = prob(50) ? pick(SSaccessories.vulpkanin_head_markings_list) : "None"
+	features["vulpkanin_head_accessories"] = prob(50) ? pick(SSaccessories.vulpkanin_head_accessories_list) : "None"
+	features["vulpkanin_facial_hair"] = prob(50) ? pick(SSaccessories.vulpkanin_facial_hair_list) : "None"
+
+	var/furcolor = prob(50) ? features["mcolor"] : "#[random_color()]"
+	features["furcolor_first"] = furcolor
+	features["furcolor_second"] = furcolor
+	features["furcolor_third"] = furcolor
+	features["furcolor_fourth"] = furcolor
+	features["furcolor_fifth"] = furcolor
 	return features
 
 /datum/species/vulpkanin/get_physical_attributes()
@@ -244,12 +248,6 @@
 					accessory = SSaccessories.ears_list[source.dna.features["ears"]]
 				if("vulpkanin_body_markings")
 					accessory = SSaccessories.vulpkanin_body_markings_list[source.dna.features["vulpkanin_body_markings"]]
-				if("vulpkanin_head_markings")
-					accessory = SSaccessories.vulpkanin_head_markings_list[source.dna.features["vulpkanin_head_markings"]]
-				if("vulpkanin_head_accessories")
-					accessory = SSaccessories.vulpkanin_head_accessories_list[source.dna.features["vulpkanin_head_accessories"]]
-				if("vulpkanin_facial_hair")
-					accessory = SSaccessories.vulpkanin_facial_hair_list[source.dna.features["vulpkanin_facial_hair"]]
 
 			if(!accessory || accessory.icon_state == "none")
 				continue
@@ -277,13 +275,7 @@
 						if(EYE_COLOR)
 							accessory_overlay.color = source.eye_color_left
 						if("vulpkanin_body_markings_color")
-							accessory_overlay.color = source.vulpcolors["vulpkanin_body_markings"]
-						if("vulpkanin_head_markings_color")
-							accessory_overlay.color = source.vulpcolors["vulpkanin_head_markings"]
-						if("vulpkanin_head_accessories_color")
-							accessory_overlay.color = source.vulpcolors["vulpkanin_head_accessory"]
-						if("vulpkanin_facial_hair_color")
-							accessory_overlay.color = source.vulpcolors["vulpkanin_facial_hair"]
+							accessory_overlay.color = source.dna.features["furcolor_first"]
 				else
 					accessory_overlay.color = forced_colour
 			standing += accessory_overlay
@@ -306,3 +298,33 @@
 	source.apply_overlay(BODY_BEHIND_LAYER)
 	source.apply_overlay(BODY_ADJ_LAYER)
 	source.apply_overlay(BODY_FRONT_LAYER)
+
+/obj/item/bodypart/head/get_hair_and_lips_icon(dropped)
+	. = ..()
+
+	var/image_dir = NONE
+	if(dropped)
+		image_dir = SOUTH
+	var/image/facial_hair_overlay
+	var/datum/sprite_accessory/sprite_accessory
+	var/mob/living/carbon/human/user = src.owner
+	if(istype(user) && user.dna && (head_flags & HEAD_VULPKANIN))
+		sprite_accessory = SSaccessories.vulpkanin_head_markings_list[user.dna.features["vulpkanin_head_markings"]]
+		if(sprite_accessory)
+			facial_hair_overlay = image(sprite_accessory.icon, "m_vulpkanin_head_markings_[sprite_accessory.icon_state]_ADJ", -BODY_ADJ_LAYER, image_dir)
+			facial_hair_overlay.color = user.dna.features["furcolor_third"]
+			. += facial_hair_overlay
+
+		sprite_accessory = SSaccessories.vulpkanin_head_accessories_list[user.dna.features["vulpkanin_head_accessories"]]
+		if(sprite_accessory)
+			facial_hair_overlay = image(sprite_accessory.icon, "m_vulpkanin_head_accessories_[sprite_accessory.icon_state]_ADJ", -BODY_ADJ_LAYER, image_dir)
+			facial_hair_overlay.color = user.dna.features["furcolor_fourth"]
+			. += facial_hair_overlay
+
+		sprite_accessory = SSaccessories.vulpkanin_facial_hair_list[user.dna.features["vulpkanin_facial_hair"]]
+		if(sprite_accessory)
+			facial_hair_overlay = image(sprite_accessory.icon, "m_vulpkanin_facial_hair_[sprite_accessory.icon_state]_ADJ", -BODY_ADJ_LAYER, image_dir)
+			facial_hair_overlay.color = user.dna.features["furcolor_fifth"]
+			. += facial_hair_overlay
+
+	return .

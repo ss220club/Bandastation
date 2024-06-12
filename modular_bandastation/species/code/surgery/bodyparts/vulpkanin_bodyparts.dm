@@ -2,7 +2,7 @@
 	icon_greyscale = 'modular_bandastation/species/icons/mob/species/vulpkanin/body.dmi'
 	limb_id = SPECIES_VULPKANIN
 	is_dimorphic = TRUE
-	head_flags = HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES|HEAD_DEBRAIN|HEAD_HAIR
+	head_flags = HEAD_LIPS|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_EYEHOLES|HEAD_DEBRAIN|HEAD_HAIR|HEAD_VULPKANIN
 	species_bodytype = SPECIES_VULPKANIN
 
 /obj/item/bodypart/chest/vulpkanin
@@ -10,6 +10,7 @@
 	limb_id = SPECIES_VULPKANIN
 	is_dimorphic = TRUE
 	wing_types = list(/obj/item/organ/external/wings/functional/dragon)
+	species_bodytype = SPECIES_VULPKANIN
 
 /obj/item/bodypart/chest/vulpkanin/get_butt_sprite()
 	return BUTT_SPRITE_VULPKANIN

@@ -32,7 +32,7 @@
 		var/mutant_override = FALSE
 
 		var/obj/item/bodypart/head/bodypart_head = src.get_bodypart(BODY_ZONE_HEAD)
-		if(worn_item.worn_icon_species && worn_item.worn_icon_species[src.dna.species.id])
+		if(worn_item.worn_icon_species && worn_item.worn_icon_species[bodypart_head.species_bodytype])
 			icon_file = worn_item.worn_icon_species[bodypart_head.species_bodytype]
 			mutant_override = TRUE
 		else if(bodypart_head.species_bodytype in icon_files_species)
@@ -74,8 +74,8 @@
 		var/mutant_override = FALSE
 
 		var/obj/item/bodypart/head/bodypart_head = src.get_bodypart(BODY_ZONE_HEAD)
-		if(worn_item.worn_icon_species && worn_item.worn_icon_species[src.dna.species.id])
-			icon_file = worn_item.worn_icon_species[src.dna.species.id]
+		if(worn_item.worn_icon_species && worn_item.worn_icon_species[bodypart_head.species_bodytype])
+			icon_file = worn_item.worn_icon_species[bodypart_head.species_bodytype]
 			mutant_override = TRUE
 		else if(bodypart_head.species_bodytype in icon_files_species)
 			icon_file = icon_files_species[bodypart_head.species_bodytype]
@@ -108,16 +108,17 @@
 
 		var/icon_file = DEFAULT_SUIT_FILE
 		var/list/icon_files_species = list(
-			/datum/species/vulpkanin = 'modular_bandastation/species/icons/mob/species/clothing/suit.dmi',
+			SPECIES_VULPKANIN = 'modular_bandastation/species/icons/mob/species/clothing/suit.dmi',
 		)
 
 		var/mutant_override = FALSE
 
-		if(worn_item.worn_icon_species && worn_item.worn_icon_species[src.dna.species.id])
-			icon_file = worn_item.worn_icon_species[src.dna.species.id]
+		var/obj/item/bodypart/chest/bodypart_chest = src.get_bodypart(BODY_ZONE_CHEST)
+		if(worn_item.worn_icon_species && worn_item.worn_icon_species[bodypart_chest.species_bodytype])
+			icon_file = worn_item.worn_icon_species[bodypart_chest.species_bodytype]
 			mutant_override = TRUE
-		else if(src.dna.species.type in icon_files_species)
-			icon_file = icon_files_species[src.dna.species.type]
+		else if(bodypart_chest.species_bodytype in icon_files_species)
+			icon_file = icon_files_species[bodypart_chest.species_bodytype]
 			mutant_override = FALSE
 
 		if(!(icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item))))
