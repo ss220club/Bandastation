@@ -10,7 +10,7 @@
 	name = "Вынюхать"
 	desc = "Вы обнюхиваете предмет и определяете, кто с ним взаимодействовал. Также, вы можете запомнить запах определённого человека, обнюхав его."
 	check_flags = AB_CHECK_IMMOBILE | AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
-	melee_cooldown_time = 2 SECONDS
+	cooldown_time = 2 SECONDS
 	button_icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/skills.dmi'
 	button_icon_state = "sniff"
 	overlay_icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/skills.dmi'
@@ -83,20 +83,42 @@
 		if(5)
 			return "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
 
+/obj/item/clothing/mask/cigarette/handle_reagents(seconds_per_tick)
+	..()
+	var/mob/living/carbon/smoker = loc
+	if(istype(smoker))
+		if(src == smoker.wear_mask)
+			for(var/datum/action/A in smoker.actions)
+				if(istype(A, /datum/action/cooldown/sniff))
+					var/datum/action/cooldown/sniff/S = A
+					S.StartCooldown(300 SECONDS)
+	else if(istype(smoker, /obj/item/clothing/mask/gas))
+		smoker = smoker.loc
+		if(istype(smoker) && smoker.get_item_by_slot(ITEM_SLOT_MASK) == loc)
+			for(var/datum/action/A in smoker.actions)
+				if(istype(A, /datum/action/cooldown/sniff))
+					var/datum/action/cooldown/sniff/S = A
+					S.StartCooldown(300 SECONDS)
 
 /datum/action/cooldown/sniff/Activate(atom/target)
 	var/list/fingerprints = GET_ATOM_SHIFF_FINGERPRINTS(target)
 	var/list/blood = GET_ATOM_SHIFF_BLOOD_DNA(target)
 
+	if(ishuman(owner))
+		var/mob/living/carbon/human/H = owner
+		sniffed_species_ue[H.dna.unique_enzymes] = H.real_name
+		sniffed_species_ui[md5(H.dna.unique_identity)] = H.real_name
 	if(ishuman(target))
 		if(do_after(owner, 2 SECONDS, target = target))
 			var/mob/living/carbon/human/H = target
 			sniffed_species_ue[H.dna.unique_enzymes] = H.name
 			sniffed_species_ui[md5(H.dna.unique_identity)] = H.name
 			to_chat(owner, "Вы запомнили запах [H.name]")
+			StartCooldown()
 			return TRUE
 
 	if(!fingerprints && !blood)
+		StartCooldown()
 		return TRUE
 
 	var/list/fingerprint_output = list()
@@ -141,6 +163,7 @@
 			message += "<font color='#[blood_output[i]["Color"]]'>[name], [blood_output[i]["Gender"]], [blood_output[i]["Species"]]</font>"
 		to_chat(owner, jointext(message, "\n&bull; "))
 
+	StartCooldown()
 	return TRUE
 
 #undef CM_COLOR_LUM_MAX
