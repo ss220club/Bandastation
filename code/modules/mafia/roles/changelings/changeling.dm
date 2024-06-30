@@ -10,7 +10,7 @@
 
 	revealed_outfit = /datum/outfit/mafia/changeling
 	special_ui_theme = "syndicate"
-	win_condition = "становятся главными в городе, и никакая роль одиночного убийцы не может их остановить."
+	win_condition = "становятся главным в городе, и никакой одиночка не сможет его остановить."
 
 	role_unique_actions = list(/datum/mafia_ability/changeling_kill)
 

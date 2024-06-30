@@ -5,7 +5,7 @@
  */
 /datum/mafia_ability/attack_player
 	name = "Нападение"
-	ability_action = "попытка нападения"
+	ability_action = "попробовать напасть"
 	action_priority = COMSIG_MAFIA_NIGHT_KILL_PHASE
 	///The message told to the player when they are killed.
 	var/attack_action = "убит"
@@ -20,7 +20,7 @@
 	if(!target_role.kill(game, host_role, FALSE))
 		host_role.send_message_to_player(span_danger("Твоя попытка убить [target_role.body.real_name] был предотвращёна!"))
 	else
-		target_role.send_message_to_player(span_userdanger("Вы были [attack_action] \a [host_role.name]!"))
+		target_role.send_message_to_player(span_userdanger("Вы были [attack_action]ы [host_role.name]!"))
 		if(honorable && (target_role.team != MAFIA_TEAM_TOWN))
 			host_role.send_message_to_player(span_userdanger("Вы убили невинного члена экипажа. Вы умрете завтра ночью."))
 			RegisterSignal(game, COMSIG_MAFIA_SUNDOWN, PROC_REF(internal_affairs))
@@ -34,6 +34,6 @@
 
 /datum/mafia_ability/attack_player/execution
 	name = "Казнь"
-	ability_action = "попытка казни"
-	attack_action = "казнён"
+	ability_action = "попробовать казнить"
+	attack_action = "казнен"
 	honorable = TRUE

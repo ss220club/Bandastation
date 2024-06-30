@@ -6,7 +6,7 @@
  */
 /datum/mafia_ability/flicker_rampage
 	name = "Мерцание/Буйство"
-	ability_action = "попытка нападения или омрачения"
+	ability_action = "попробовать напасть или омрачить"
 	action_priority = COMSIG_MAFIA_NIGHT_KILL_PHASE
 
 	///List of all players in the dark, which we can rampage.
@@ -26,7 +26,7 @@
 		darkened_players += target_role
 	else
 		for(var/datum/mafia_role/dead_players as anything in darkened_players)
-			dead_players.send_message_to_player(span_userdanger("Из темноты появляется тень.!"))
+			dead_players.send_message_to_player(span_userdanger("Из темноты появляется тень!"))
 			dead_players.kill(game, host_role, FALSE)
 			darkened_players -= dead_players
 	return TRUE

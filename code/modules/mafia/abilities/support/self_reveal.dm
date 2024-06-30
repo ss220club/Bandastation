@@ -6,7 +6,7 @@
  */
 /datum/mafia_ability/self_reveal
 	name = "Откровение"
-	ability_action = "раскройте свою роль"
+	ability_action = "раскрыть свою роль"
 	action_priority = null
 	valid_use_period = MAFIA_PHASE_DAY
 	use_flags = CAN_USE_ON_SELF

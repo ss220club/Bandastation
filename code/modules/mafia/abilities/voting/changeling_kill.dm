@@ -5,8 +5,8 @@
  * The attacker will always be the first person in the list, killing them will go to the next.
  */
 /datum/mafia_ability/changeling_kill
-	name = "Голос на убийство"
-	ability_action = "попытка поглощения"
+	name = "Голос за убийство"
+	ability_action = "попробовать поглотить"
 	action_priority = COMSIG_MAFIA_NIGHT_KILL_PHASE
 	///Boolean on whether a Changeling has been sent to attack someone yet.
 	var/static/ling_sent = FALSE

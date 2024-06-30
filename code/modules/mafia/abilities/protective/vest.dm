@@ -8,7 +8,7 @@
  */
 /datum/mafia_ability/vest
 	name = "Жилет"
-	ability_action = "Защитите себя жилетом"
+	ability_action = "защитить себя жилетом"
 	use_flags = CAN_USE_ON_SELF
 	///Amount of vests that can be used until the power deletes itself.
 	var/charges = STARTING_VEST_AMOUNT

@@ -5,7 +5,7 @@
  */
 /datum/mafia_ability/attack_visitors
 	name = "Предупреждение"
-	ability_action = "Сегодня вечером отправьте всех посетителей домой картечью."
+	ability_action = "сегодня вечером накормить всех посетителей картечью"
 	use_flags = CAN_USE_ON_SELF
 
 /datum/mafia_ability/attack_visitors/set_target(datum/mafia_controller/game, datum/mafia_role/new_target)

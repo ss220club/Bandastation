@@ -6,7 +6,7 @@
  */
 /datum/mafia_ability/heal
 	name = "Исцеление"
-	ability_action = "Исцеление"
+	ability_action = "исцелить"
 	action_priority = COMSIG_MAFIA_NIGHT_ACTION_PHASE
 	use_flags = CAN_USE_ON_OTHERS | CAN_USE_ON_SELF
 
@@ -51,7 +51,7 @@
  */
 /datum/mafia_ability/heal/defend
 	name = "Защита"
-	ability_action = "защита"
+	ability_action = "защитить"
 	saving_message = "охрана отбила нападавшего"
 
 /datum/mafia_ability/heal/defend/prevent_kill(datum/source, datum/mafia_controller/game, datum/mafia_role/attacker, lynch)
