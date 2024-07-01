@@ -1,0 +1,29 @@
+#include "code/additional_med_defines.dm"
+#include "code/additional_med_mob.dm"
+#include "code/additional_med_component.dm"
+#include "code/additional_med_states.dm"
+
+#include "code/new_chemicals/unique_chemicals.dm"
+#include "code/new_chemicals/organ_chemicals.dm"
+
+#include "code/cpr_extension/autocompressor.dm"
+#include "code/cpr_extension/cpr_extension.dm"
+
+#include "code/organ_damage/remake_organ_decay.dm"
+#include "code/organ_damage/organ_damage_ondamage.dm"
+//#include "code/organ_damage/organ_damage_brute.dm"
+//#include "code/organ_damage/organ_damage_burn.dm"
+//#include "code/organ_damage/organ_damage_toxin.dm"
+//#include "code/organ_damage/organ_damage_oxygen.dm"
+
+#include "code/new_wounds/internal_bleed.dm"
+#include "code/new_wounds/necrosis.dm"
+#include "code/new_wounds/wounds_remake.dm"
+
+#include "code/new_surgery/steps_remake.dm"
+#include "code/new_surgery/surgery_iternalbleed.dm"
+
+#include "code/new_technologies/medical_designs.dm"
+
+#include "code/medical_items/iv_bags.dm"
+#include "code/medical_items/medical_pen.dm"
