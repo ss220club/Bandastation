@@ -1,3 +1,19 @@
+/datum/status_effect/organ_set_bonus/vulpkanin
+	id = "organ_set_bonus_vulpkanin"
+	organs_needed = 4
+	bonus_activate_text = null
+	bonus_deactivate_text = null
+
+/datum/status_effect/organ_set_bonus/vulpkanin/enable_bonus()
+	. = ..()
+	if(!. || !ishuman(owner))
+		return
+	var/mob/living/carbon/human/vulp = owner
+	if(is_species(vulp, /datum/species/vulpkanin))
+		return
+
+	vulp.set_species(/datum/species/vulpkanin)
+
 /obj/item/organ/internal/tongue/vulpkanin
 	name = "Длинный язык"
 	desc = "Длинный и более чувствительный язык, может различить больше вкусов"
@@ -7,6 +23,10 @@
 	languages_native = list(/datum/language/canilunzt)
 	liked_foodtypes = RAW | MEAT | SEAFOOD
 	disliked_foodtypes =  FRUIT | NUTS | GROSS | GRAIN
+
+/obj/item/organ/internal/tongue/vulpkanin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/vulpkanin)
 
 /obj/item/organ/internal/tongue/vulpkanin/get_possible_languages()
 	return ..() + /datum/language/canilunzt
@@ -24,10 +44,18 @@
 /obj/item/organ/internal/stomach/vulpkanin
 	hunger_modifier = 1.3
 
+/obj/item/organ/internal/stomach/vulpkanin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/vulpkanin)
+
 /obj/item/organ/internal/liver/vulpkanin
 	name = "vulpkanin liver"
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
 	alcohol_tolerance = ALCOHOL_RATE * 2.5
+
+/obj/item/organ/internal/liver/vulpkanin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/vulpkanin)
 
 /obj/item/organ/internal/eyes/vulpkanin
 	name = "vulpkanin eyeballs"
@@ -36,6 +64,10 @@
 /obj/item/organ/internal/ears/vulpkanin
 	desc = "Большие ушки позволяют легче слышать шепот."
 	damage_multiplier = 2
+
+/obj/item/organ/internal/ears/vulpkanin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/vulpkanin)
 
 /obj/item/organ/internal/ears/vulpkanin/on_mob_insert(mob/living/carbon/ear_owner)
 	. = ..()
@@ -53,6 +85,10 @@
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
 	actions_types = list(/datum/action/cooldown/sniff)
 
+/obj/item/organ/internal/brain/vulpkanin/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/vulpkanin)
+
 /obj/item/organ/internal/lungs/vulpkanin
 	name = "vulpkanin lungs"
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
@@ -60,3 +96,13 @@
 /obj/item/organ/internal/kidneys/vulpkanin
 	name = "vulpkanin kidneys"
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
+
+/datum/infuser_entry/vulpini
+	output_organs = list(
+		/obj/item/organ/internal/tongue/vulpkanin,
+		/obj/item/organ/internal/stomach/vulpkanin,
+		/obj/item/organ/internal/liver/vulpkanin,
+		/obj/item/organ/internal/ears/vulpkanin,
+		/obj/item/organ/internal/brain/vulpkanin,
+		/obj/item/organ/external/tail/vulpkanin,
+	)
