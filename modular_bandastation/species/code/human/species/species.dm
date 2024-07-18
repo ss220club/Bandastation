@@ -21,6 +21,17 @@
 	var/list/sniffed_species_ue = list()
 	var/list/sniffed_species_ui = list()
 
+/datum/action/cooldown/sniff/Grant(mob/granted_to)
+	. = ..()
+	RegisterSignal(granted_to, "testsig", PROC_REF(smoke))
+
+/datum/action/cooldown/sniff/Remove(mob/removed_from)
+	. = ..()
+	UnregisterSignal(removed_from, "testsig", PROC_REF(smoke))
+
+/datum/action/cooldown/sniff/proc/smoke()
+	StartCooldown(300 SECONDS)
+
 /datum/action/cooldown/sniff/set_click_ability(mob/on_who)
 	. = ..()
 	if(!.)
@@ -88,17 +99,11 @@
 	var/mob/living/carbon/smoker = loc
 	if(istype(smoker))
 		if(src == smoker.wear_mask)
-			for(var/datum/action/A in smoker.actions)
-				if(istype(A, /datum/action/cooldown/sniff))
-					var/datum/action/cooldown/sniff/S = A
-					S.StartCooldown(300 SECONDS)
+			SEND_SIGNAL(smoker, "testsig")
 	else if(istype(smoker, /obj/item/clothing/mask/gas))
 		smoker = smoker.loc
 		if(istype(smoker) && smoker.get_item_by_slot(ITEM_SLOT_MASK) == loc)
-			for(var/datum/action/A in smoker.actions)
-				if(istype(A, /datum/action/cooldown/sniff))
-					var/datum/action/cooldown/sniff/S = A
-					S.StartCooldown(300 SECONDS)
+			SEND_SIGNAL(smoker, "testsig")
 
 /datum/action/cooldown/sniff/Activate(atom/target)
 	var/list/fingerprints = GET_ATOM_SHIFF_FINGERPRINTS(target)
