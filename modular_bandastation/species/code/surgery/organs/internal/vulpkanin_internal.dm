@@ -1,6 +1,6 @@
 /datum/status_effect/organ_set_bonus/vulpkanin
 	id = "organ_set_bonus_vulpkanin"
-	organs_needed = 4
+	organs_needed = 3
 	bonus_activate_text = null
 	bonus_deactivate_text = null
 
@@ -85,10 +85,6 @@
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
 	actions_types = list(/datum/action/cooldown/sniff)
 
-/obj/item/organ/internal/brain/vulpkanin/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/vulpkanin)
-
 /obj/item/organ/internal/lungs/vulpkanin
 	name = "vulpkanin lungs"
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/organs.dmi'
@@ -103,6 +99,5 @@
 		/obj/item/organ/internal/stomach/vulpkanin,
 		/obj/item/organ/internal/liver/vulpkanin,
 		/obj/item/organ/internal/ears/vulpkanin,
-		/obj/item/organ/internal/brain/vulpkanin,
 		/obj/item/organ/external/tail/vulpkanin,
 	)
