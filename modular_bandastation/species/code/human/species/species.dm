@@ -94,7 +94,7 @@
 		if(5)
 			return "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
 
-/obj/item/clothing/mask/cigarette/handle_reagents(seconds_per_tick)
+/obj/item/cigarette/handle_reagents(seconds_per_tick)
 	..()
 	var/mob/living/carbon/smoker = loc
 	if(istype(smoker))
