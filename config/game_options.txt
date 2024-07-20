@@ -249,7 +249,7 @@ DEFAULT_LAWS 4
 ## See datums\ai_laws.dm for the full law lists
 ## IE, SPECIFIED_LAWS asimovpp, SPECIFIED_LAWS robocop, SPECIFIED_LAWS antimov
 
-SPECIFIED_LAWS nt_default
+SPECIFIED_LAWS crewsimovpp
 
 ## RANDOM LAWS ##
 ## ------------------------------------------------------------------------------------------
@@ -263,6 +263,7 @@ RANDOM_LAWS paladin
 RANDOM_LAWS robocop
 RANDOM_LAWS corporate
 RANDOM_LAWS nt_default
+RANDOM_LAWS crewsimovpp
 
 ## Quirky laws. Shouldn't cause too much harm
 #RANDOM_LAWS hippocratic
@@ -540,3 +541,8 @@ NEGATIVE_STATION_TRAITS 3 1
 # If set to 0, then players won't be able to select any positive quirks.
 # If commented-out or undefined, the maximum default is 6.
 MAX_POSITIVE_QUIRKS 6
+
+# A config that skews with the random spawners weights
+# If the value is lower than 1, it'll tend to even out the odds
+# If higher than 1, it'll lean toward common spawns even more.
+RANDOM_LOOT_WEIGHT_MODIFIER 1
