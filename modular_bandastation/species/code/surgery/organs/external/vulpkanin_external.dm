@@ -10,10 +10,6 @@
 	dna_block = DNA_VULPKANIN_TAIL
 	var/datum/bodypart_overlay/mutant/vulpkanin_tail_markings/tail_markings_overlay
 
-/obj/item/organ/external/tail/vulpkanin/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/organ_set_bonus, /datum/status_effect/organ_set_bonus/vulpkanin)
-
 /obj/item/organ/external/tail/vulpkanin/on_mob_insert(mob/living/carbon/owner)
 	. = ..()
 	add_verb(owner, /mob/living/carbon/human/proc/emote_wag)
