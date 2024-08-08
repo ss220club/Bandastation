@@ -84,6 +84,16 @@
 	set category = "Эмоции"
 	emote("clap", intentional = TRUE)
 
+/mob/living/carbon/human/species/vulpkanin/proc/emote_howl()
+	set name = "▷ " + EMOTE_HUMAN_HOWL + " "
+	set category = "Эмоции"
+	emote("howl", intentional = TRUE)
+
+/mob/living/carbon/human/species/vulpkanin/proc/emote_growl()
+	set name = "▷ " + EMOTE_HUMAN_GROWL + " "
+	set category = "Эмоции"
+	emote("growl", intentional = TRUE)
+
 /// Action Emotes ///
 /mob/living/carbon/human/verb/emote_collapse()
 	set name = "○ " + EMOTE_COLLAPSE + " "
@@ -275,6 +285,11 @@
 	set name = "◦ " + EMOTE_HUMAN_AFLAP + " "
 	set category = "Эмоции"
 	emote("aflap", intentional = TRUE)
+
+/mob/living/carbon/human/proc/emote_wag()
+	set name = "◦ " + EMOTE_HUMAN_WAG + " "
+	set category = "Эмоции"
+	emote("wag", intentional = TRUE)
 
 /// Racial Emotes ///
 /mob/living/carbon/human/proc/emote_ping()
