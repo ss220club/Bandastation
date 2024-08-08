@@ -18,8 +18,8 @@
 #define TIER_1_CELL_CHARGE_RATE (0.25 * STANDARD_CELL_CHARGE)
 
 /obj/machinery/microwave
-	name = "microwave oven"
-	desc = "Cooks and boils stuff."
+	name = "Микроволновка"
+	desc = "Нагревает всякие штуки."
 	icon = 'icons/obj/machines/microwave.dmi'
 	base_icon_state = ""
 	icon_state = "mw_complete"
@@ -161,36 +161,36 @@
 	for(var/datum/stock_part/capacitor/capacitor in component_parts)
 		if(capacitor.tier >= 2)
 			vampire_charging_capable = TRUE
-			visible_message(span_notice("The [EXAMINE_HINT("Charge Ready")] light on \the [src] flickers to life."))
+			visible_message(span_notice("Индикатор [EXAMINE_HINT("заряд готов")] горит."))
 			break
 
 /obj/machinery/microwave/examine(mob/user)
 	. = ..()
 	if(vampire_charging_capable)
-		. += span_info("This model features Wave™: a Nanotrasen exclusive. Our latest and greatest, Wave™ allows your PDA to be charged wirelessly through microwave frequencies! You can Wave-charge your device by placing it inside and selecting the charge mode.")
-		. += span_info("Because nothing says 'future' like charging your PDA while overcooking your leftovers. Nanotrasen Wave™ - Multitasking, redefined.")
+		. += span_info("Эта модель оснащена функцией Wave™: эксклюзив от Нанотрейзен. Наша новейшая разработка Wave™ позволяет заряжать КПК без проводов с помощью микроволновых частот! Вы можете зарядить свое устройство с помощью Wave, поместив его внутрь и выбрав режим зарядки.")
+		. += span_info("Ведь ничто так не говорит о будущем, как зарядка КПК во время переваривания остатков пищи. Нанотрейзен Wave™ - многозадачность в новом понимании.")
 
 	if(cell_powered)
-		. += span_notice("This model is wireless, powered by portable cells. [isnull(cell) ? "The cell slot is empty." : "[EXAMINE_HINT("Ctrl-click")] to remove the power cell."]")
+		. += span_notice("Эта модель беспроводная, питается от портативных элементов. [isnull(cell) ? "Слот для батарейки пуст." : "[EXAMINE_HINT("Ctrl-click")] чтобы извлечь элемент питания."]")
 
 	if(!operating)
 		if(!operating && vampire_charging_capable)
-			. += span_notice("[EXAMINE_HINT("Alt-click")] to change default mode.")
+			. += span_notice("[EXAMINE_HINT("Alt-click")] чтобы изменить режим по умолчанию.")
 
-		. += span_notice("[EXAMINE_HINT("Right-click")] to start [vampire_charging_enabled ? "charging" : "cooking"] cycle.")
+		. += span_notice("[EXAMINE_HINT("Right-click")] что бы начать [vampire_charging_enabled ? "зарядку" : "готовку"].")
 
 	if(!in_range(user, src) && !issilicon(user) && !isobserver(user))
-		. += span_warning("You're too far away to examine [src]'s contents and display!")
+		. += span_warning("Вы слишком далеко, чтобы рассмотреть содержимое [src.name] и его дисплей!")
 		return
 	if(operating)
-		. += span_notice("\The [src] is operating.")
+		. += span_notice("[src] работает.")
 		return
 
 	if(length(ingredients))
 		if(issilicon(user))
-			. += span_notice("\The [src] camera shows:")
+			. += span_notice("[src.name] имеет камеру, что показывает:")
 		else
-			. += span_notice("\The [src] contains:")
+			. += span_notice("[src.name] содержит:")
 		var/list/items_counts = new
 		for(var/i in ingredients)
 			if(isstack(i))
@@ -202,16 +202,16 @@
 		for(var/item in items_counts)
 			. += span_notice("- [items_counts[item]]x [item].")
 	else
-		. += span_notice("\The [src] is empty.")
+		. += span_notice("[src] пустая.")
 
 	if(!(machine_stat & (NOPOWER|BROKEN)))
-		. += "[span_notice("The status display reads:")]\n"+\
-		"[span_notice("- Mode: <b>[vampire_charging_enabled ? "Charge" : "Cook"]</b>.")]\n"+\
-		"[span_notice("- Capacity: <b>[max_n_of_items]</b> items.")]\n"+\
-		span_notice("- Power: <b>[efficiency * TIER_1_CELL_CHARGE_RATE]W</b>.")
+		. += "[span_notice("На дисплее состояния отображается:")]"+\
+		"[span_notice("- Режим: <b>[vampire_charging_enabled ? "Зарядка" : "Готовка"]</b>.")]"+\
+		"[span_notice("- Вместимость: <b>[max_n_of_items]</b> предметов.")]"+\
+		span_notice("- Мощность: <b>[efficiency * TIER_1_CELL_CHARGE_RATE]W</b>.")
 
 		if(cell_powered)
-			. += span_notice("- Charge: <b>[isnull(cell) ? "INSERT CELL" : "[round(cell.percent())]%"]</b>.")
+			. += span_notice("- Заряд: <b>[isnull(cell) ? "INSERT CELL" : "[round(cell.percent())]%"]</b>.")
 
 #define MICROWAVE_INGREDIENT_OVERLAY_SIZE 24
 
@@ -330,16 +330,16 @@
 		return NONE
 
 	user.visible_message(
-		span_notice("[user] starts to fix part of [src]."),
-		span_notice("You start to fix part of [src]..."),
+		span_notice("[user] начинает ремонт, [src.name] скоро снова заработает!"),
+		span_notice("Вы начинаете ремона, [src.name] скоро снова заработает!"),
 	)
 
 	if(!tool.use_tool(src, user, 2 SECONDS, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user] fixes part of [src]."),
-		span_notice("You fix part of [src]."),
+		span_notice("[user] заканчивает ремонт, [src.name] снова работает."),
+		span_notice("Вы заканчиваете ремонт, [src.name] снова работает."),
 	)
 	broken = KINDA_BROKEN // Fix it a bit
 	update_appearance()
@@ -350,16 +350,16 @@
 		return NONE
 
 	user.visible_message(
-		span_notice("[user] starts to fix part of [src]."),
-		span_notice("You start to fix part of [src]..."),
+		span_notice("[user] начинает ремонт, [src.name] скоро снова заработает!"),
+		span_notice("ВВы начинаете ремона, [src.name] скоро снова заработает!"),
 	)
 
 	if(!tool.use_tool(src, user, 2 SECONDS, amount = 1, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user] fixes [src]."),
-		span_notice("You fix [src]."),
+		span_notice("[user] заканчивает ремонт, [src.name] снова работает."),
+		span_notice("Вы заканчиваете ремонт, [src.name] снова работает."),
 	)
 	broken = NOT_BROKEN
 	update_appearance()
@@ -385,7 +385,7 @@
 		return NONE
 
 	if(broken > NOT_BROKEN)
-		balloon_alert(user, "it's broken!")
+		balloon_alert(user, "он сломан!")
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(item, /obj/item/stock_parts/power_store/cell) && cell_powered)
@@ -400,20 +400,20 @@
 			update_appearance()
 			return ITEM_INTERACT_BLOCKING
 		cell = item
-		balloon_alert(user, "[swapped ? "swapped" : "inserted"] cell")
+		balloon_alert(user, "[swapped ? "поменял" : "вставил"] батарейку")
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
 	if(!anchored)
-		balloon_alert(user, "not secured!")
+		balloon_alert(user, "не прикручено!")
 		return ITEM_INTERACT_BLOCKING
 
 	if(dirty >= MAX_MICROWAVE_DIRTINESS) // The microwave is all dirty so can't be used!
-		balloon_alert(user, "it's too dirty!")
-		return ITEM_INTERACT_BLOCKING
+		balloon_alert(user, "cлишком грязно!")
+		return TRUE
 
 	if(vampire_charging_capable && istype(item, /obj/item/modular_computer) && ingredients.len > 0)
-		balloon_alert(user, "max 1 device!")
+		balloon_alert(user, "максимум 1 устройство!")
 		return ITEM_INTERACT_BLOCKING
 
 	if(istype(item, /obj/item/storage))
@@ -422,7 +422,7 @@
 
 		if(!istype(item, /obj/item/storage/bag/tray))
 			// Non-tray dumping requires a do_after
-			to_chat(user, span_notice("You start dumping out the contents of [item] into [src]..."))
+			to_chat(user, span_notice("[item.name] выгружается прямо на [src.name]..."))
 			if(!do_after(user, 2 SECONDS, target = tray))
 				return ITEM_INTERACT_BLOCKING
 
@@ -430,35 +430,35 @@
 			if(!IS_EDIBLE(tray_item))
 				continue
 			if(ingredients.len >= max_n_of_items)
-				balloon_alert(user, "it's full!")
+				balloon_alert(user, "заполнено!")
 				return ITEM_INTERACT_BLOCKING
 			if(tray.atom_storage.attempt_remove(tray_item, src))
 				loaded++
 				ingredients += tray_item
 		if(loaded)
 			open(autoclose = 0.6 SECONDS)
-			to_chat(user, span_notice("You insert [loaded] items into \the [src]."))
+			to_chat(user, span_notice("[loaded] вставлен. Цель - [src.name]."))
 			update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
 	if(item.w_class <= WEIGHT_CLASS_NORMAL && !user.combat_mode)
 		if(ingredients.len >= max_n_of_items)
-			balloon_alert(user, "it's full!")
+			balloon_alert(user, "заполнено!")
 			return ITEM_INTERACT_BLOCKING
 		if(!user.transferItemToLoc(item, src))
-			balloon_alert(user, "it's stuck to your hand!")
+			balloon_alert(user, "он застрял на твоей руке!")
 			return ITEM_INTERACT_BLOCKING
 
 		ingredients += item
 		open(autoclose = 0.6 SECONDS)
-		user.visible_message(span_notice("[user] adds \a [item] to \the [src]."), span_notice("You add [item] to \the [src]."))
+		user.visible_message(span_notice("[user] добавил [item.name]. Цель - [src.name]."), span_notice("Вы добавили [item.name]. Цель - [src.name]."))
 		update_appearance()
 		return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/microwave/attack_hand_secondary(mob/user, list/modifiers)
 	if(user.can_perform_action(src, ALLOW_SILICON_REACH))
 		if(!length(ingredients))
-			balloon_alert(user, "it's empty!")
+			balloon_alert(user, "он пустой!")
 			return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
 		start_cycle(user)
@@ -470,10 +470,10 @@
 		return NONE
 
 	vampire_charging_enabled = !vampire_charging_enabled
-	balloon_alert(user, "set to [vampire_charging_enabled ? "charge" : "cook"]")
+	balloon_alert(user, "установлен на [vampire_charging_enabled ? "зарядку" : "готовку"]")
 	playsound(src, 'sound/machines/twobeep_high.ogg', 50, FALSE)
 	if(HAS_SILICON_ACCESS(user))
-		visible_message(span_notice("[user] sets \the [src] to [vampire_charging_enabled ? "charge" : "cook"]."), blind_message = span_notice("You hear \the [src] make an informative beep!"))
+		visible_message(span_notice("[user] поставил [src] на [vampire_charging_enabled ? "зарядку" : "готовку"]."), blind_message = span_notice("[src] издает информативный звук!"))
 	return CLICK_ACTION_SUCCESS
 
 /obj/machinery/microwave/click_ctrl(mob/user)
@@ -482,7 +482,7 @@
 
 	if(cell_powered && !isnull(cell))
 		user.put_in_hands(cell)
-		balloon_alert(user, "removed cell")
+		balloon_alert(user, "убрал батарейку")
 		cell = null
 		update_appearance()
 		return CLICK_ACTION_SUCCESS
@@ -493,7 +493,7 @@
 	. = ..()
 
 	if(!anchored)
-		balloon_alert(user, "not secured!")
+		balloon_alert(user, "не прикручено!")
 		return
 	if(operating || panel_open || !user.can_perform_action(src, ALLOW_SILICON_REACH))
 		return
@@ -504,7 +504,7 @@
 		if(HAS_AI_ACCESS(user))
 			examine(user)
 		else
-			balloon_alert(user, "it's empty!")
+			balloon_alert(user, "он пустой!")
 		return
 
 	var/choice = show_radial_menu(user, src, HAS_AI_ACCESS(user) ? ai_radial_options : radial_options, require_near = !HAS_SILICON_ACCESS(user))
@@ -569,13 +569,13 @@
 		return
 
 	if(wire_disabled)
-		audible_message("[src] buzzes.")
+		audible_message("[src] жужжит.")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		return
 
 	if(cell_powered && cell?.charge < TIER_1_CELL_CHARGE_RATE * efficiency)
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
-		balloon_alert(cooker, "no power draw!")
+		balloon_alert(cooker, "отсутствует потребление энергии!")
 		return
 
 	if(cooker && HAS_TRAIT(cooker, TRAIT_CURSED) && prob(7))
@@ -594,7 +594,7 @@
 		if(istype(potential_fooditem, /obj/item/modular_computer) && prob(75))
 			pda_failure = TRUE
 			notify_ghosts(
-				"[cooker] has overheated their PDA!",
+				"[cooker] перегрел свой КПК!",
 				source = src,
 				notify_flags = NOTIFY_CATEGORY_NOFLASH,
 				header = "Hunger Games: Catching Fire",
@@ -613,14 +613,14 @@
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 			return
 
-	visible_message(span_notice("\The [src] turns on."), null, span_hear("You hear a microwave humming."))
+	visible_message(span_notice("[src.name] включилась."), null, span_hear("Вы слышите как гудит микроволновка."))
 	operating = TRUE
 	set_light(l_range = 1.5, l_power = 1.2, l_on = TRUE)
 	soundloop.start()
 	update_appearance()
 
 /obj/machinery/microwave/proc/spark()
-	visible_message(span_warning("Sparks fly around [src]!"))
+	visible_message(span_warning("Искры разлетаются вокруг [src.name]!"))
 	var/datum/effect_system/spark_spread/sparks = new
 	sparks.set_up(2, 1, src)
 	sparks.start()
@@ -688,7 +688,7 @@
 			for(var/mob/smeller in get_hearers_in_view(DEFAULT_MESSAGE_RANGE, src))
 				if(HAS_TRAIT(smeller, TRAIT_ANOSMIA))
 					cant_smell += smeller
-			visible_message(span_danger("You smell a burnt smell coming from [src]!"), ignored_mobs = cant_smell)
+			visible_message(span_danger("You smell a burnt smell coming from [src.name]!"), ignored_mobs = cant_smell)
 			particles = new /particles/smoke()
 			addtimer(CALLBACK(src, PROC_REF(remove_smoke)), 10 SECONDS)
 			Shake(duration = 1 SECONDS)
@@ -758,7 +758,7 @@
 	cook_loop(type = MICROWAVE_NORMAL, cycles = 10, cooker = cooker)
 
 /obj/machinery/microwave/proc/muck_finish()
-	visible_message(span_warning("\The [src] gets covered in muck!"))
+	visible_message(span_warning("[src.name] покрывается грязью!"))
 
 	dirty = MAX_MICROWAVE_DIRTINESS
 	dirty_anim_playing = FALSE
@@ -806,7 +806,7 @@
 
 /obj/machinery/microwave/proc/charge(mob/cooker)
 	if(!vampire_charging_capable)
-		balloon_alert(cooker, "needs upgrade!")
+		balloon_alert(cooker, "требует модернизации!")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		return
 
@@ -814,14 +814,14 @@
 		return
 
 	if(wire_disabled)
-		audible_message("[src] buzzes.")
+		audible_message("[src] жужжит.")
 		playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 		return
 
 	// We should only be charging PDAs
 	for(var/atom/movable/potential_item as anything in ingredients)
 		if(!istype(potential_item, /obj/item/modular_computer))
-			balloon_alert(cooker, "pda only!")
+			balloon_alert(cooker, "только КПК!")
 			playsound(src, 'sound/machines/buzz-sigh.ogg', 50, FALSE)
 			eject()
 			return
@@ -886,7 +886,7 @@
 /// Type of microwave that automatically turns it self on erratically. Probably don't use this outside of the holodeck program "Microwave Paradise".
 /// You could also live your life with a microwave that will continously run in the background of everything while also not having any power draw. I think the former makes more sense.
 /obj/machinery/microwave/hell
-	desc = "Cooks and boils stuff. This one appears to be a bit... off."
+	desc = "Нагревает всякие штуки. Эта кажется... выключена."
 	use_power = NO_POWER_USE
 	idle_power_usage = 0
 	active_power_usage = 0
@@ -899,8 +899,8 @@
 		addtimer(CALLBACK(src, PROC_REF(wzhzhzh)), rand(0.5 SECONDS, 3 SECONDS))
 
 /obj/machinery/microwave/engineering
-	name = "wireless microwave oven"
-	desc = "For the hard-working tradesperson who's in the middle of nowhere and just wants to warm up their pastry-based savoury item from an overpriced vending machine."
+	name = "беспроводная микроволновка"
+	desc = "Для трудолюбивого работника, который находится в глуши и просто хочет разогреть кондитерское изделие из автомата с завышенной ценой.."
 	base_icon_state = "engi_"
 	icon_state = "engi_mw_complete"
 	circuit = /obj/item/circuitboard/machine/microwave/engineering

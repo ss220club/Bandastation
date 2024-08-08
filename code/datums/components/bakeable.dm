@@ -93,19 +93,19 @@
 	var/list/asomnia_hadders = list()
 	for(var/mob/smeller in get_hearers_in_view(DEFAULT_MESSAGE_RANGE, used_oven))
 		if(HAS_TRAIT(smeller, TRAIT_ANOSMIA))
-			asomnia_hadders += smeller 
+			asomnia_hadders += smeller
 
 	if(positive_result)
 		used_oven.visible_message(
-			span_notice("You smell something great coming from [used_oven]."), 
-			blind_message = span_notice("You smell something great..."),
+			span_notice("Вы чувствуете, как [used_oven.name] источает приятный запах."),
+			blind_message = span_notice("Вы чувствуете приятный запах..."),
 			ignored_mobs = asomnia_hadders,
 		)
 		BLACKBOX_LOG_FOOD_MADE(baked_result.type)
 	else
 		used_oven.visible_message(
-			span_warning("You smell a burnt smell coming from [used_oven]."),
-			blind_message = span_warning("You smell a burnt smell..."),
+			span_warning("Вы чувствуете, как [used_oven.name] испускает горелое зловоние."),
+			blind_message = span_warning("Вы чувствуете запах горелого..."),
 			ignored_mobs = asomnia_hadders,
 		)
 	SEND_SIGNAL(parent, COMSIG_ITEM_BAKED, baked_result)
@@ -115,18 +115,19 @@
 /datum/component/bakeable/proc/on_examine(atom/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
+	var/obj/sourceobj = parent
 	if(!current_bake_time) //Not baked yet
 		if(positive_result)
 			if(initial(bake_result.gender) == PLURAL)
-				examine_list += span_notice("[parent] can be [span_bold("baked")] into some [initial(bake_result.name)].")
+				examine_list += span_notice("Это [sourceobj.name]. [initial(bake_result.name)] могут [span_bold("готовиться")] из нее.")
 			else
-				examine_list += span_notice("[parent] can be [span_bold("baked")] into \a [initial(bake_result.name)].")
+				examine_list += span_notice("Это [sourceobj.name]. [span_bold("Готовится")] в [initial(bake_result.name)].")
 		return
 
 	if(positive_result)
 		if(current_bake_time <= required_bake_time * 0.75)
-			examine_list += span_notice("[parent] probably needs to be baked a bit longer!")
+			examine_list += span_notice("Наверное, [sourceobj.name] нужно выпекать немного дольше!")
 		else if(current_bake_time <= required_bake_time)
-			examine_list += span_notice("[parent] seems to be almost finished baking!")
+			examine_list += span_notice("Кажется, что [sourceobj.name] почти готов!")
 	else
-		examine_list += span_danger("[parent] should probably not be put in the oven.")
+		examine_list += span_danger("[sourceobj.name] не стоит засовывать в духовку.")
