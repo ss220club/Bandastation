@@ -6,6 +6,9 @@
 #include "code/material_pouch.dm"
 #include "code/structures/posters.dm"
 
+#include "code/weapons/ranged/reclinable_revolver.dm"
+#include "code/weapons/melee/centcom_bat.dm"
+
 #include "code/clothing/head/hat.dm"
 #include "code/clothing/head/soft_caps.dm"
 #include "code/clothing/suits/cloaks.dm"
