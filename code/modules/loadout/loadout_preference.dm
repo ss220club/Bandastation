@@ -52,6 +52,7 @@
 					You may want to check your loadout settings."))
 			continue
 
+
 		// Set into sanitize list using converted path key
 		var/list/data = passed_list[path]
 		LAZYSET(sanitized_list, real_path, LAZYLISTDUPLICATE(data))

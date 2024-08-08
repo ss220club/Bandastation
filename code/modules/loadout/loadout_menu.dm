@@ -75,12 +75,14 @@
 			return
 
 	LAZYSET(loadout, selected_item.item_path, list())
+	preferences.parent.loadout_points -= selected_item.cost
 	preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 
 /// Deselect [deselected_item].
 /datum/preference_middleware/loadout/proc/deselect_item(datum/loadout_item/deselected_item)
 	var/list/loadout = preferences.read_preference(/datum/preference/loadout)
 	LAZYREMOVE(loadout, deselected_item.item_path)
+	preferences.parent.loadout_points += deselected_item.cost
 	preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 
 /datum/preference_middleware/loadout/proc/register_greyscale_menu(datum/greyscale_modify_menu/open_menu)
@@ -97,6 +99,7 @@
 /datum/preference_middleware/loadout/get_ui_data(mob/user)
 	var/list/data = list()
 	data["job_clothes"] = preferences.character_preview_view.show_job_clothes
+	data["loadout_leftpoints"] = preferences.parent.loadout_points
 	return data
 
 /datum/preference_middleware/loadout/get_ui_static_data(mob/user)

@@ -1,5 +1,6 @@
 /datum/loadout_item
 	var/donator_level = 0
+	var/cost = 1
 
 /datum/loadout_item/get_item_information()
 	. = ..()
