@@ -1,0 +1,5 @@
+#include "_clothing.dm"
+#include "code/accessories.dm"
+#include "code/gloves.dm"
+#include "code/mask.dm"
+#include "code/shoes.dm"
