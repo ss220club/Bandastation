@@ -1,39 +1,50 @@
 /datum/component/tts_component
+	/// TTS seed that will be used
 	var/datum/tts_seed/tts_seed
-	var/list/traits = list()
+	/// List of tts effects that will applied to resulting speech
+	var/list/effects = list()
 
 /datum/component/tts_component/RegisterWithParent()
 	RegisterSignal(parent, COMSIG_ATOM_TTS_SEED_CHANGE, PROC_REF(tts_seed_change))
 	RegisterSignal(parent, COMSIG_ATOM_TTS_CAST, PROC_REF(cast_tts))
-	RegisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_ADD, PROC_REF(tts_trait_add))
-	RegisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_REMOVE, PROC_REF(tts_trait_remove))
+	RegisterSignal(parent, COMSIG_ATOM_TTS_EFFECT_ADD, PROC_REF(tts_effect_add))
+	RegisterSignal(parent, COMSIG_ATOM_TTS_EFFECT_REMOVE, PROC_REF(tts_effect_remove))
 
 /datum/component/tts_component/UnregisterFromParent()
 	UnregisterSignal(parent, COMSIG_ATOM_TTS_SEED_CHANGE)
 	UnregisterSignal(parent, COMSIG_ATOM_TTS_CAST)
-	UnregisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_ADD)
-	UnregisterSignal(parent, COMSIG_ATOM_TTS_TRAIT_REMOVE)
+	UnregisterSignal(parent, COMSIG_ATOM_TTS_EFFECT_ADD)
+	UnregisterSignal(parent, COMSIG_ATOM_TTS_EFFECT_REMOVE)
 
-/datum/component/tts_component/Initialize(datum/tts_seed/new_tts_seed, ...)
+/datum/component/tts_component/Initialize(datum/tts_seed/new_tts_seed, list/effects)
 	if(!isatom(parent))
 		return COMPONENT_INCOMPATIBLE
+
 	if(ispath(new_tts_seed) && SStts220.tts_seeds[initial(new_tts_seed.name)])
 		new_tts_seed = SStts220.tts_seeds[initial(new_tts_seed.name)]
+
 	if(istype(new_tts_seed))
 		tts_seed = new_tts_seed
+
 	if(!tts_seed)
 		tts_seed = get_random_tts_seed_by_gender()
+
 	if(!tts_seed) // Something went terribly wrong
 		return COMPONENT_INCOMPATIBLE
-	if(length(args) > 1)
-		for(var/trait in 2 to length(args))
-			traits += args[trait]
+
+	if(!effects)
+		return
+
+	if(!islist(effects))
+		effects = list(effects)
+
+	src.effects = effects
 
 /datum/component/tts_component/proc/return_tts_seed()
 	SIGNAL_HANDLER
 	return tts_seed
 
-/datum/component/tts_component/proc/select_tts_seed(mob/chooser, silent_target = FALSE, override = FALSE, list/new_traits = null)
+/datum/component/tts_component/proc/select_tts_seed(mob/chooser, silent_target = FALSE, override = FALSE, list/new_effects)
 	if(!chooser)
 		if(ismob(parent))
 			chooser = parent
@@ -48,14 +59,33 @@
 		var/datum/preferences/prefs = chooser.client.prefs
 		var/prefs_tts_seed = prefs?.read_preference(/datum/preference/text/tts_seed)
 		if(being_changed.gender == prefs?.read_preference(/datum/preference/choiced/gender))
-			if(tgui_alert(chooser, "Оставляем голос вашего персонажа [prefs?.read_preference(/datum/preference/name/real_name)] - [prefs_tts_seed]?", "Выбор голоса", "Нет", "Да") ==  "Да")
+			var/tgui_alert_result = tgui_alert(
+				chooser,
+				"Оставляем голос вашего персонажа [prefs?.read_preference(/datum/preference/name/real_name)] - [prefs_tts_seed]?",
+				"Выбор голоса",
+				"Нет",
+				"Да"
+			)
+
+			if(tgui_alert_result == "Да")
 				if(!SStts220.tts_seeds[prefs_tts_seed])
 					to_chat(chooser, span_warning("Отсутствует tts_seed для значения \"[prefs_tts_seed]\". Текущий голос - [tts_seed]"))
 					return null
 				new_tts_seed = SStts220.tts_seeds[prefs_tts_seed]
-				if(new_traits)
-					traits = new_traits
-				INVOKE_ASYNC(SStts220, TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), null, chooser, tts_test_str, new_tts_seed, FALSE, get_effect())
+
+				if(new_effects)
+					effects = new_effects
+
+				INVOKE_ASYNC(
+					SStts220, \
+					TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), \
+					null, \
+					chooser, \
+					tts_test_str, \
+					new_tts_seed, \
+					FALSE, \
+					get_all_effects() \
+				)
 				return new_tts_seed
 
 	var/tts_seeds
@@ -76,20 +106,38 @@
 		return null
 
 	new_tts_seed = SStts220.tts_seeds[new_tts_seed_key]
-	if(new_traits)
-		traits = new_traits
+	if(new_effects)
+		effects = new_effects
 
 	if(!silent_target && being_changed != chooser && ismob(being_changed))
-		INVOKE_ASYNC(SStts220, TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), null, being_changed, tts_test_str, new_tts_seed, FALSE, get_effect())
+		INVOKE_ASYNC( \
+			SStts220, \
+			TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), \
+			null, \
+			being_changed, \
+			tts_test_str, \
+			new_tts_seed, \
+			FALSE, \
+			get_all_effects() \
+		)
 
 	if(chooser)
-		INVOKE_ASYNC(SStts220, TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), null, chooser, tts_test_str, new_tts_seed, FALSE, get_effect())
+		INVOKE_ASYNC( \
+			SStts220, \
+			TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), \
+			null, \
+			chooser, \
+			tts_test_str, \
+			new_tts_seed, \
+			FALSE, \
+			get_all_effects() \
+		)
 
 	return new_tts_seed
 
-/datum/component/tts_component/proc/tts_seed_change(atom/being_changed, mob/chooser, override = FALSE, list/new_traits = null)
+/datum/component/tts_component/proc/tts_seed_change(atom/being_changed, mob/chooser, override = FALSE, list/new_effects)
 	set waitfor = FALSE
-	var/datum/tts_seed/new_tts_seed = select_tts_seed(chooser = chooser, override = override, new_traits = new_traits)
+	var/datum/tts_seed/new_tts_seed = select_tts_seed(chooser = chooser, override = override, new_effects = new_effects)
 	if(!new_tts_seed)
 		return null
 	tts_seed = new_tts_seed
@@ -105,54 +153,88 @@
 		return null
 	return seed
 
-/datum/component/tts_component/proc/get_effect(effect)
-	. = effect
-	switch(.)
-		if(null)
-			if(TTS_TRAIT_ROBOTIZE in traits)
-				return /datum/singleton/sound_effect/robot
-		if(/datum/singleton/sound_effect/radio)
-			if(TTS_TRAIT_ROBOTIZE in traits)
-				return /datum/singleton/sound_effect/radio_robot
-		if(/datum/singleton/sound_effect/megaphone)
-			if(TTS_TRAIT_ROBOTIZE in traits)
-				return /datum/singleton/sound_effect/megaphone_robot
-	return .
+/datum/component/tts_component/proc/cast_tts(
+	atom/speaker,
+	mob/listener,
+	message,
+	atom/location,
+	is_local = TRUE,
+	is_radio = FALSE,
+	traits = TTS_TRAIT_RATE_FASTER,
+	preSFX,
+	postSFX
+)
 
-/datum/component/tts_component/proc/cast_tts(atom/speaker, mob/listener, message, atom/location, is_local = TRUE, effect = null, traits = TTS_TRAIT_RATE_FASTER, preSFX, postSFX)
 	SIGNAL_HANDLER
 
 	if(!message)
 		return
-	var/datum/preferences/prefs = listener?.client?.prefs
-	if(prefs?.read_preference(/datum/preference/choiced/sound_tts) != TTS_SOUND_ENABLED || prefs?.read_preference(/datum/preference/numeric/sound_tts_volume) == 0)
+
+	if(mob_tts_disabled(listener))
 		return
+
 	if(HAS_TRAIT(listener, TRAIT_DEAF))
 		return
+
 	if(!speaker)
 		speaker = parent
+
 	if(!location)
 		location = parent
-	if(effect == /datum/singleton/sound_effect/radio)
-		is_local = FALSE
+
+	var/list/additional_effects = list()
+	if(is_radio)
 		if(listener == speaker) // don't hear both radio and whisper from yourself
 			return
 
-	effect = get_effect(effect)
+		additional_effects += TTS_SOUND_EFFECT_RADIO
+		is_local = FALSE
 
-	INVOKE_ASYNC(SStts220, TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), location, listener, message, tts_seed, is_local, effect, traits, preSFX, postSFX)
+	INVOKE_ASYNC(
+		SStts220, \
+		TYPE_PROC_REF(/datum/controller/subsystem/tts220, get_tts), \
+		location, \
+		listener, \
+		message, \
+		tts_seed, \
+		is_local, \
+		get_all_effects(additional_effects), \
+		traits, \
+		preSFX, \
+		postSFX \
+	)
 
-/datum/component/tts_component/proc/tts_trait_add(atom/user, trait)
+/datum/component/tts_component/proc/mob_tts_disabled(mob/mob_to_check)
+	var/datum/preferences/prefs = mob_to_check?.client?.prefs
+	if(isnull(prefs))
+		return TRUE
+
+	return prefs.read_preference(/datum/preference/choiced/sound_tts) != TTS_SOUND_ENABLED \
+	 || prefs.read_preference(/datum/preference/numeric/sound_tts_volume) == 0
+
+/datum/component/tts_component/proc/tts_effect_add(atom/user, effect)
 	SIGNAL_HANDLER
 
-	if(!isnull(trait) && !(trait in traits))
-		traits += trait
+	if(isnull(effect))
+		return
 
-/datum/component/tts_component/proc/tts_trait_remove(atom/user, trait)
+	effects |= effect
+
+/datum/component/tts_component/proc/tts_effect_remove(atom/user, effect)
 	SIGNAL_HANDLER
 
-	if(!isnull(trait) && (trait in traits))
-		traits -= trait
+	if(isnull(effect))
+		return
+
+	effects -= effect
+
+/datum/component/tts_component/proc/get_all_effects(list/additional_effects)
+	var/list/resulting_effects = list()
+	resulting_effects += effects
+	if(!isnull(additional_effects))
+		resulting_effects |= additional_effects
+
+	return resulting_effects
 
 // Component usage
 
@@ -160,4 +242,4 @@
 	set name = "Смена голоса"
 	set desc = "Express yourself!"
 	set category = "Silicon Commands"
-	change_tts_seed(src, new_traits = list(TTS_TRAIT_ROBOTIZE))
+	change_tts_seed(src, new_effects = list(TTS_SOUND_EFFECT_ROBOT))

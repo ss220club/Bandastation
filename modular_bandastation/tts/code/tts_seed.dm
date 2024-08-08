@@ -19,8 +19,8 @@
 	. = ..()
 	add_tts_component()
 
-/atom/proc/cast_tts(mob/listener, message, atom/location, is_local = TRUE, effect = null, traits = TTS_TRAIT_RATE_FASTER, preSFX, postSFX)
-	SEND_SIGNAL(src, COMSIG_ATOM_TTS_CAST, listener, message, location, is_local, effect, traits, preSFX, postSFX)
+/atom/proc/cast_tts(mob/listener, message, atom/location, is_local = TRUE, is_radio = FALSE, traits = TTS_TRAIT_RATE_FASTER, preSFX, postSFX)
+	SEND_SIGNAL(src, COMSIG_ATOM_TTS_CAST, listener, message, location, is_local, is_radio, traits, preSFX, postSFX)
 
 // TODO: Do it better?
 /atom/proc/get_tts_seed()
@@ -28,15 +28,15 @@
 	if(tts_component)
 		return tts_component.tts_seed
 
-/atom/proc/change_tts_seed(mob/chooser, override, list/new_traits = null)
+/atom/proc/change_tts_seed(mob/chooser, override, list/new_effects)
 	if(!get_tts_seed())
 		if(alert(chooser, "Отсутствует TTS компонент. Создать?", "Изменение TTS", "Да", "Нет") == "Нет")
 			return
 		AddComponent(/datum/component/tts_component, /datum/tts_seed/silero/angel)
-	SEND_SIGNAL(src, COMSIG_ATOM_TTS_SEED_CHANGE, chooser, override, new_traits)
+	SEND_SIGNAL(src, COMSIG_ATOM_TTS_SEED_CHANGE, chooser, override, new_effects)
 
-/atom/proc/tts_trait_add(trait)
-	SEND_SIGNAL(src, COMSIG_ATOM_TTS_TRAIT_ADD, trait)
+/atom/proc/tts_effect_add(trait)
+	SEND_SIGNAL(src, COMSIG_ATOM_TTS_EFFECT_ADD, trait)
 
-/atom/proc/tts_trait_remove(trait)
-	SEND_SIGNAL(src, COMSIG_ATOM_TTS_TRAIT_REMOVE, trait)
+/atom/proc/tts_effect_remove(trait)
+	SEND_SIGNAL(src, COMSIG_ATOM_TTS_EFFECT_REMOVE, trait)
