@@ -1,11 +1,6 @@
 #define GET_ATOM_SHIFF_FINGERPRINTS(atom) atom.forensics?.fingerprints
 #define GET_ATOM_SHIFF_BLOOD_DNA(atom) atom.forensics?.blood_DNA
 
-#define CM_COLOR_SAT_MIN 0.6
-#define CM_COLOR_SAT_MAX 0.7
-#define CM_COLOR_LUM_MIN 0.65
-#define CM_COLOR_LUM_MAX 0.75
-
 /datum/action/cooldown/sniff
 	name = "Вынюхать"
 	desc = "Вы обнюхиваете предмет и определяете, кто с ним взаимодействовал. Также, вы можете запомнить запах определённого человека, обнюхав его."
@@ -61,38 +56,6 @@
 		return TRUE
 
 	return ..()
-
-/datum/action/cooldown/sniff/proc/colorize_string(name, sat_shift = 1, lum_shift = 1)
-	var/static/rseed = rand(1,26)
-
-	var/hash = copytext(md5(name + GLOB.round_id), rseed, rseed + 6)
-	var/h = hex2num(copytext(hash, 1, 3)) * (360 / 255)
-	var/s = (hex2num(copytext(hash, 3, 5)) >> 2) * ((CM_COLOR_SAT_MAX - CM_COLOR_SAT_MIN) / 63) + CM_COLOR_SAT_MIN
-	var/l = (hex2num(copytext(hash, 5, 7)) >> 2) * ((CM_COLOR_LUM_MAX - CM_COLOR_LUM_MIN) / 63) + CM_COLOR_LUM_MIN
-
-	s *= clamp(sat_shift, 0, 1)
-	l *= clamp(lum_shift, 0, 1)
-
-	var/h_int = round(h/60)
-	var/c = (1 - abs(2 * l - 1)) * s
-	var/x = c * (1 - abs((h / 60) % 2 - 1))
-	var/m = l - c * 0.5
-	x = (x + m) * 255
-	c = (c + m) * 255
-	m *= 255
-	switch(h_int)
-		if(0)
-			return "#[num2hex(c, 2)][num2hex(x, 2)][num2hex(m, 2)]"
-		if(1)
-			return "#[num2hex(x, 2)][num2hex(c, 2)][num2hex(m, 2)]"
-		if(2)
-			return "#[num2hex(m, 2)][num2hex(c, 2)][num2hex(x, 2)]"
-		if(3)
-			return "#[num2hex(m, 2)][num2hex(x, 2)][num2hex(c, 2)]"
-		if(4)
-			return "#[num2hex(x, 2)][num2hex(m, 2)][num2hex(c, 2)]"
-		if(5)
-			return "#[num2hex(c, 2)][num2hex(m, 2)][num2hex(x, 2)]"
 
 /obj/item/cigarette/handle_reagents(seconds_per_tick)
 	..()
@@ -170,11 +133,6 @@
 
 	StartCooldown()
 	return TRUE
-
-#undef CM_COLOR_LUM_MAX
-#undef CM_COLOR_LUM_MIN
-#undef CM_COLOR_SAT_MAX
-#undef CM_COLOR_SAT_MIN
 
 #undef GET_ATOM_SHIFF_FINGERPRINTS
 #undef GET_ATOM_SHIFF_BLOOD_DNA
