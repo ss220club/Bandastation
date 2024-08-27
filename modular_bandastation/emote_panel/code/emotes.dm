@@ -660,10 +660,8 @@
 	message_mime = "делает вид, что воет."
 	message_param = "воет на %t."
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
-	cooldown = 10 SECONDS
-
-/datum/emote/living/carbon/human/vulpkanin/howl/get_sound(mob/living/user)
-	return 'modular_bandastation/emote_panel/audio/howl.ogg'
+	cooldown = 6 SECONDS
+	sound = 'modular_bandastation/emote_panel/audio/howl.ogg'
 
 /datum/emote/living/carbon/human/vulpkanin/growl
 	key = "growl"
@@ -671,11 +669,42 @@
 	message = "рычит."
 	message_mime = "бусшумно рычит."
 	message_param = "рычит на %t."
+	cooldown = 2 SECONDS
 	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
 
-/datum/emote/living/carbon/human/vulpkanin/get_sound(mob/living/user)
+/datum/emote/living/carbon/human/vulpkanin/growl/get_sound(mob/living/user)
 	return pick(
 		'modular_bandastation/emote_panel/audio/growl1.ogg',
 		'modular_bandastation/emote_panel/audio/growl2.ogg',
 		'modular_bandastation/emote_panel/audio/growl3.ogg',
 	)
+
+/datum/emote/living/carbon/human/vulpkanin/purr
+	key = "purr"
+	key_third_person = "purrs"
+	message = "урчит."
+	message_param = "урчит на %t."
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+	cooldown = 2 SECONDS
+	sound = 'modular_bandastation/emote_panel/audio/purr.ogg'
+
+/datum/emote/living/carbon/human/vulpkanin/bark
+	key = "bark"
+	key_third_person = "bark"
+	message = "гавкает."
+	message_param = "гавкает на %t."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	vary = TRUE
+	cooldown = 2 SECONDS
+	sound = 'modular_bandastation/emote_panel/audio/bark.ogg'
+
+/datum/emote/living/carbon/human/vulpkanin/wbark
+	key = "wbark"
+	key_third_person = "wbark"
+	message = "дважды гавкает."
+	message_param = "дважды гавкает на %t."
+	emote_type = EMOTE_AUDIBLE | EMOTE_VISIBLE
+	vary = TRUE
+	cooldown = 2 SECONDS
+	sound = 'modular_bandastation/emote_panel/audio/wbark.ogg'

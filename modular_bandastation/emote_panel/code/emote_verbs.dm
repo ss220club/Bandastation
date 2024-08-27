@@ -94,6 +94,21 @@
 	set category = "Эмоции"
 	emote("growl", intentional = TRUE)
 
+/mob/living/carbon/human/species/vulpkanin/proc/emote_purr()
+	set name = "▷ " + EMOTE_HUMAN_RUMBLE + " "
+	set category = "Эмоции"
+	emote("purr", intentional = TRUE)
+
+/mob/living/carbon/human/species/vulpkanin/proc/emote_bark()
+	set name = "▷ " + EMOTE_HUMAN_BARK + " "
+	set category = "Эмоции"
+	emote("bark", intentional = TRUE)
+
+/mob/living/carbon/human/species/vulpkanin/proc/emote_wbark()
+	set name = "▷ " + EMOTE_HUMAN_WBARK + " "
+	set category = "Эмоции"
+	emote("wbark", intentional = TRUE)
+
 /// Action Emotes ///
 /mob/living/carbon/human/verb/emote_collapse()
 	set name = "○ " + EMOTE_COLLAPSE + " "
