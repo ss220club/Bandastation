@@ -6,7 +6,7 @@
 	category = PREFERENCE_CATEGORY_FEATURES
 	main_feature_name = "Раскраска тела"
 	should_generate_icons = TRUE
-	relevant_mutant_bodypart = "vulpkanin_body_markings"
+	relevant_body_markings = /datum/bodypart_overlay/simple/body_marking/vulpkanin
 
 /datum/preference/choiced/vulpkanin_body_markings/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.vulpkanin_body_markings_list)
@@ -32,7 +32,7 @@
 	var/icon/icon_with_markings = new(body)
 
 	if (value != "None")
-		var/icon/body_part_icon = icon(markings.icon, "m_vulpkanin_body_markings_[markings.icon_state]_ADJ")
+		var/icon/body_part_icon = icon(markings.icon, "male_[markings.icon_state]_chest")
 		body_part_icon.Crop(1, 1, 32, 32)
 		body_part_icon.Blend(COLOR_VERY_LIGHT_GRAY, ICON_MULTIPLY)
 		icon_with_markings.Blend(body_part_icon, ICON_OVERLAY)
@@ -60,8 +60,7 @@
 	target.dna.features["tail_vulpkanin"] = value
 
 /datum/preference/choiced/tail_vulpkanin/create_default_value()
-	var/datum/sprite_accessory/tails/vulpkanin/fluffy/tail = /datum/sprite_accessory/tails/vulpkanin/fluffy
-	return initial(tail.name)
+	return /datum/sprite_accessory/tails/vulpkanin/fluffy::name
 
 /datum/preference/choiced/vulpkanin_body_markings/compile_constant_data()
 	var/list/data = ..()
@@ -75,7 +74,7 @@
 	savefile_key = "vulpkanin_body_markings_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	relevant_mutant_bodypart = "vulpkanin_body_markings"
+	relevant_body_markings = /datum/bodypart_overlay/simple/body_marking/vulpkanin
 
 /datum/preference/color/vulpkanin_body_markings_color/create_default_value()
 	return COLOR_WHITE
@@ -283,7 +282,7 @@
 	savefile_key = "feature_vulpkanin_tail_markings"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_mutant_bodypart = "vulpkanin_tail_markings"
+	relevant_external_organ = /obj/item/organ/external/tail/vulpkanin
 
 /datum/preference/choiced/vulpkanin_tail_markings/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.vulpkanin_tail_markings_list)
@@ -312,7 +311,7 @@
 	savefile_key = "vulpkanin_tail_markings_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	relevant_mutant_bodypart = "vulpkanin_tail_markings"
+	relevant_external_organ = /obj/item/organ/external/tail/vulpkanin
 
 /datum/preference/color/vulpkanin_tail_markings_color/create_default_value()
 	return COLOR_WHITE

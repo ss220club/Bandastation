@@ -1,5 +1,12 @@
 // BODY
 
+/datum/bodypart_overlay/simple/body_marking/vulpkanin
+	dna_feature_key = "vulpkanin_body_markings"
+	applies_to = list(/obj/item/bodypart/chest)
+
+/datum/bodypart_overlay/simple/body_marking/vulpkanin/get_accessory(name)
+	return SSaccessories.vulpkanin_body_markings_list[name]
+
 /datum/sprite_accessory/vulpkanin_body_markings
 	icon = 'modular_bandastation/species/icons/mob/species/vulpkanin/body_markings.dmi'
 	name = "None"

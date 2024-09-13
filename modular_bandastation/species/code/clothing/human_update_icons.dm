@@ -48,7 +48,7 @@
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
 
 	apply_overlay(FACEMASK_LAYER)
-	update_mutant_bodyparts()
+	update_body_parts()
 
 /mob/living/carbon/human/update_worn_head(update_obscured = TRUE)
 	remove_overlay(HEAD_LAYER)
@@ -130,6 +130,6 @@
 		my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
 		overlays_standing[SUIT_LAYER] = suit_overlay
 	update_body_parts()
-	update_mutant_bodyparts()
+	update_body_parts()
 
 	apply_overlay(SUIT_LAYER)

@@ -17,17 +17,11 @@
 	mutanttongue = /obj/item/organ/internal/tongue/vulpkanin
 	mutantliver = /obj/item/organ/internal/liver/vulpkanin
 	mutantstomach = /obj/item/organ/internal/stomach/vulpkanin
-
-	external_organs = list(
+	mutant_organs = list(
 		/obj/item/organ/external/tail/vulpkanin = "Default",
 	)
 
-	mutant_bodyparts = list(
-		"wings" = "None",
-		"vulpkanin_body_markings" = "None",
-		"vulpkanin_tail_markings" = "None",
-	)
-
+	body_markings = list(/datum/bodypart_overlay/simple/body_marking/vulpkanin = "None")
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/vulpkanin,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/vulpkanin,
@@ -214,90 +208,30 @@
 		'sound/voice/human/manlaugh2.ogg',
 	)
 
-/datum/species/vulpkanin/handle_mutant_bodyparts(mob/living/carbon/human/source, forced_colour)
-	var/list/bodyparts_to_add = mutant_bodyparts.Copy()
-	var/list/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER)
-	var/list/standing = list()
+/datum/species/vulpkanin/add_body_markings(mob/living/carbon/human/vulp)
+	for(var/markings_type in body_markings)
+		var/datum/bodypart_overlay/simple/body_marking/markings = new markings_type()
+		var/accessory_name = vulp.dna.features[markings.dna_feature_key]
+		var/datum/sprite_accessory/vulpkanin_body_markings/accessory = markings.get_accessory(accessory_name)
 
-	source.remove_overlay(BODY_BEHIND_LAYER)
-	source.remove_overlay(BODY_ADJ_LAYER)
-	source.remove_overlay(BODY_FRONT_LAYER)
+		if(isnull(accessory))
+			CRASH("Value: [accessory_name] did not have a corresponding sprite accessory!")
 
-	if(!mutant_bodyparts || HAS_TRAIT(source, TRAIT_INVISIBLE_MAN))
-		return
+		for(var/obj/item/bodypart/part as anything in markings.applies_to) //check through our limbs
+			var/obj/item/bodypart/people_part = vulp.get_bodypart(initial(part.body_zone)) // and see if we have a compatible marking for that limb
 
-	var/obj/item/bodypart/head/noggin = source.get_bodypart(BODY_ZONE_HEAD)
-
-
-	if(mutant_bodyparts["ears"])
-		if(!source.dna.features["ears"] || source.dna.features["ears"] == "None" || source.head && (source.head.flags_inv & HIDEHAIR) || (source.wear_mask && (source.wear_mask.flags_inv & HIDEHAIR)) || !noggin || IS_ROBOTIC_LIMB(noggin))
-			bodyparts_to_add -= "ears"
-
-	if(!bodyparts_to_add)
-		return
-
-	var/g = (source.physique == FEMALE) ? "f" : "m"
-
-	for(var/layer in relevent_layers)
-		var/layertext = mutant_bodyparts_layertext(layer)
-
-		for(var/bodypart in bodyparts_to_add)
-			var/datum/sprite_accessory/accessory
-			switch(bodypart)
-				if("ears")
-					accessory = SSaccessories.ears_list[source.dna.features["ears"]]
-				if("vulpkanin_body_markings")
-					accessory = SSaccessories.vulpkanin_body_markings_list[source.dna.features["vulpkanin_body_markings"]]
-
-			if(!accessory || accessory.icon_state == "none")
+			if(!people_part)
 				continue
 
-			var/mutable_appearance/accessory_overlay = mutable_appearance(accessory.icon, layer = -layer)
+			var/datum/bodypart_overlay/simple/body_marking/overlay = new markings_type ()
 
-			if(accessory.gender_specific)
-				accessory_overlay.icon_state = "[g]_[bodypart]_[accessory.icon_state]_[layertext]"
-			else
-				accessory_overlay.icon_state = "m_[bodypart]_[accessory.icon_state]_[layertext]"
+			// Tell the overlay what it should look like
+			overlay.icon = accessory.icon
+			overlay.icon_state = accessory.icon_state
+			overlay.use_gender = accessory.gender_specific
+			overlay.draw_color = accessory.color_src ? vulp.dna.features["furcolor_first"] : null
 
-			if(accessory.em_block)
-				accessory_overlay.overlays += emissive_blocker(accessory_overlay.icon, accessory_overlay.icon_state, source, accessory_overlay.alpha)
-
-			if(accessory.center)
-				accessory_overlay = center_image(accessory_overlay, accessory.dimension_x, accessory.dimension_y)
-
-			if(!(HAS_TRAIT(source, TRAIT_HUSK)))
-				if(!forced_colour)
-					switch(accessory.color_src)
-						if(MUTANT_COLOR)
-							accessory_overlay.color = fixed_mut_color || source.dna.features["mcolor"]
-						if(HAIR_COLOR)
-							accessory_overlay.color = get_fixed_hair_color(source) || source.hair_color
-						if(EYE_COLOR)
-							accessory_overlay.color = source.eye_color_left
-						if("vulpkanin_body_markings_color")
-							accessory_overlay.color = source.dna.features["furcolor_first"]
-				else
-					accessory_overlay.color = forced_colour
-			standing += accessory_overlay
-
-			if(accessory.hasinner)
-				var/mutable_appearance/inner_accessory_overlay = mutable_appearance(accessory.icon, layer = -layer)
-				if(accessory.gender_specific)
-					inner_accessory_overlay.icon_state = "[g]_[bodypart]inner_[accessory.icon_state]_[layertext]"
-				else
-					inner_accessory_overlay.icon_state = "m_[bodypart]inner_[accessory.icon_state]_[layertext]"
-
-				if(accessory.center)
-					inner_accessory_overlay = center_image(inner_accessory_overlay, accessory.dimension_x, accessory.dimension_y)
-
-				standing += inner_accessory_overlay
-
-		source.overlays_standing[layer] = standing.Copy()
-		standing = list()
-
-	source.apply_overlay(BODY_BEHIND_LAYER)
-	source.apply_overlay(BODY_ADJ_LAYER)
-	source.apply_overlay(BODY_FRONT_LAYER)
+			people_part.add_bodypart_overlay(overlay)
 
 /obj/item/bodypart/head/get_hair_and_lips_icon(dropped)
 	. = ..()
