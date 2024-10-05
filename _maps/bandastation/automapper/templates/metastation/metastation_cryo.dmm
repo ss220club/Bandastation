@@ -3,13 +3,24 @@
 /turf/template_noop,
 /area/template_noop)
 "e" = (
+/obj/machinery/computer/cryopod/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
 /obj/machinery/light/directional/west,
+/obj/effect/turf_decal/trimline/dark_green/line,
+/obj/effect/turf_decal/trimline/dark_green/line{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "i" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
@@ -18,15 +29,27 @@
 /turf/open/floor/plating,
 /area/station/common/cryopods)
 "p" = (
+/obj/effect/turf_decal/siding/white,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "q" = (
+/obj/machinery/cryopod{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/white{
+	dir = 1
+	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "v" = (
+/obj/machinery/cryopod,
+/obj/effect/turf_decal/siding/white,
+/obj/machinery/camera/directional/north{
+	c_tag = "Cryogenics Pods"
+	},
 /turf/open/floor/iron/dark,
 /area/station/common/cryopods)
 "x" = (
@@ -37,6 +60,12 @@
 	name = "Cryopods"
 	},
 /obj/effect/landmark/navigate_destination,
+/obj/effect/turf_decal/trimline/dark_green/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/dark_green/corner{
+	dir = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "C" = (
@@ -47,6 +76,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/trimline/dark_green/line,
+/obj/effect/turf_decal/trimline/dark_green/line{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "L" = (

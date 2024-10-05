@@ -35,3 +35,4 @@
 #include "jukebox/_jukebox.dme"
 #include "objects/_objects.dme"
 #include "hair/_hair.dme"
+#include "cryosleep/_cryosleep.dme"
