@@ -142,70 +142,68 @@
 
 /datum/species/vulpkanin/get_scream_sound(mob/living/carbon/human/human)
 	if(human.physique == MALE)
-		if(prob(1))
-			return 'sound/voice/human/wilhelm_scream.ogg'
 		return pick(
-			'sound/voice/human/malescream_1.ogg',
-			'sound/voice/human/malescream_2.ogg',
-			'sound/voice/human/malescream_3.ogg',
-			'sound/voice/human/malescream_4.ogg',
-			'sound/voice/human/malescream_5.ogg',
-			'sound/voice/human/malescream_6.ogg',
+			'sound/mobs/humanoids/human/scream/malescream_1.ogg',
+			'sound/mobs/humanoids/human/scream/malescream_2.ogg',
+			'sound/mobs/humanoids/human/scream/malescream_3.ogg',
+			'sound/mobs/humanoids/human/scream/malescream_4.ogg',
+			'sound/mobs/humanoids/human/scream/malescream_5.ogg',
+			'sound/mobs/humanoids/human/scream/malescream_6.ogg',
 		)
 
 	return pick(
-		'sound/voice/human/femalescream_1.ogg',
-		'sound/voice/human/femalescream_2.ogg',
-		'sound/voice/human/femalescream_3.ogg',
-		'sound/voice/human/femalescream_4.ogg',
-		'sound/voice/human/femalescream_5.ogg',
+		'sound/mobs/humanoids/human/scream/femalescream_1.ogg',
+		'sound/mobs/humanoids/human/scream/femalescream_2.ogg',
+		'sound/mobs/humanoids/human/scream/femalescream_3.ogg',
+		'sound/mobs/humanoids/human/scream/femalescream_4.ogg',
+		'sound/mobs/humanoids/human/scream/femalescream_5.ogg',
 	)
 
 /datum/species/vulpkanin/get_cough_sound(mob/living/carbon/human/human)
 	if(human.physique == FEMALE)
 		return pick(
-			'sound/voice/human/female_cough1.ogg',
-			'sound/voice/human/female_cough2.ogg',
-			'sound/voice/human/female_cough3.ogg',
-			'sound/voice/human/female_cough4.ogg',
-			'sound/voice/human/female_cough5.ogg',
-			'sound/voice/human/female_cough6.ogg',
+			'sound/mobs/humanoids/human/cough/female_cough1.ogg',
+			'sound/mobs/humanoids/human/cough/female_cough2.ogg',
+			'sound/mobs/humanoids/human/cough/female_cough3.ogg',
+			'sound/mobs/humanoids/human/cough/female_cough4.ogg',
+			'sound/mobs/humanoids/human/cough/female_cough5.ogg',
+			'sound/mobs/humanoids/human/cough/female_cough6.ogg',
 		)
 	return pick(
-		'sound/voice/human/male_cough1.ogg',
-		'sound/voice/human/male_cough2.ogg',
-		'sound/voice/human/male_cough3.ogg',
-		'sound/voice/human/male_cough4.ogg',
-		'sound/voice/human/male_cough5.ogg',
-		'sound/voice/human/male_cough6.ogg',
+		'sound/mobs/humanoids/human/cough/male_cough1.ogg',
+		'sound/mobs/humanoids/human/cough/male_cough2.ogg',
+		'sound/mobs/humanoids/human/cough/male_cough3.ogg',
+		'sound/mobs/humanoids/human/cough/male_cough4.ogg',
+		'sound/mobs/humanoids/human/cough/male_cough5.ogg',
+		'sound/mobs/humanoids/human/cough/male_cough6.ogg',
 	)
 
 /datum/species/vulpkanin/get_cry_sound(mob/living/carbon/human/human)
 	if(human.physique == FEMALE)
 		return pick(
-			'sound/voice/human/female_cry1.ogg',
-			'sound/voice/human/female_cry2.ogg',
+			'sound/mobs/humanoids/human/cry/female_cry1.ogg',
+			'sound/mobs/humanoids/human/cry/female_cry2.ogg',
 		)
 	return pick(
-		'sound/voice/human/male_cry1.ogg',
-		'sound/voice/human/male_cry2.ogg',
-		'sound/voice/human/male_cry3.ogg',
+		'sound/mobs/humanoids/human/cry/male_cry1.ogg',
+		'sound/mobs/humanoids/human/cry/male_cry2.ogg',
+		'sound/mobs/humanoids/human/cry/male_cry3.ogg',
 	)
 
 
 /datum/species/vulpkanin/get_sneeze_sound(mob/living/carbon/human/human)
 	if(human.physique == FEMALE)
-		return 'sound/voice/human/female_sneeze1.ogg'
-	return 'sound/voice/human/male_sneeze1.ogg'
+		return 'sound/mobs/humanoids/human/sneeze/female_sneeze1.ogg'
+	return 'sound/mobs/humanoids/human/sneeze/male_sneeze1.ogg'
 
 /datum/species/vulpkanin/get_laugh_sound(mob/living/carbon/human/human)
 	if(!ishuman(human))
 		return
 	if(human.physique == FEMALE)
-		return 'sound/voice/human/womanlaugh.ogg'
+		return 'sound/mobs/humanoids/human/laugh/womanlaugh.ogg'
 	return pick(
-		'sound/voice/human/manlaugh1.ogg',
-		'sound/voice/human/manlaugh2.ogg',
+		'sound/mobs/humanoids/human/laugh/manlaugh1.ogg',
+		'sound/mobs/humanoids/human/laugh/manlaugh2.ogg',
 	)
 
 /datum/species/vulpkanin/add_body_markings(mob/living/carbon/human/vulp)
@@ -215,7 +213,7 @@
 		var/datum/sprite_accessory/vulpkanin_body_markings/accessory = markings.get_accessory(accessory_name)
 
 		if(isnull(accessory))
-			CRASH("Value: [accessory_name] did not have a corresponding sprite accessory!")
+			return
 
 		for(var/obj/item/bodypart/part as anything in markings.applies_to) //check through our limbs
 			var/obj/item/bodypart/people_part = vulp.get_bodypart(initial(part.body_zone)) // and see if we have a compatible marking for that limb

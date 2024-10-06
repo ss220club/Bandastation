@@ -21,8 +21,8 @@
 	unarmed_attack_verbs = list("slash")
 	grappled_attack_verb = "lacerate"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
-	unarmed_attack_sound = 'sound/weapons/slash.ogg'
-	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	unarmed_attack_sound = 'sound/items/weapons/slice.ogg'
+	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 
 /obj/item/bodypart/arm/right/vulpkanin
 	icon_greyscale = 'modular_bandastation/species/icons/mob/species/vulpkanin/body.dmi'
@@ -30,8 +30,8 @@
 	unarmed_attack_verbs = list("slash")
 	grappled_attack_verb = "lacerate"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
-	unarmed_attack_sound = 'sound/weapons/slash.ogg'
-	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	unarmed_attack_sound = 'sound/items/weapons/slice.ogg'
+	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 
 /obj/item/bodypart/leg/left/vulpkanin
 	icon_greyscale = 'modular_bandastation/species/icons/mob/species/vulpkanin/body.dmi'
