@@ -67,7 +67,7 @@
 			concurrent_users += user_ref
 		// Turn on the console
 		if(length(concurrent_users) == 1 && is_living)
-			playsound(src, 'sound/machines/terminal_on.ogg', 25, FALSE)
+			playsound(src, 'sound/machines/terminal/terminal_on.ogg', 25, FALSE)
 			use_energy(active_power_usage)
 		// Register map objects
 		cam_screen.display_to(user)
@@ -104,8 +104,16 @@
 		data["cameras"] += list(list(
 			name = C.c_tag,
 			ref = REF(C),
+		// BANDASTATION EDIT START - Nanomap
+			x = C.x,
+			y = C.y,
+			z = C.z,
+			status = C.camera_enabled,
 		))
-
+		if(("[C.z]" in z_levels) || !C.nanomap_png)
+			continue
+		z_levels += list("[C.z]" = C.nanomap_png)
+		// BANDASTATION EDIT END - Nanomap
 	return data
 
 /obj/machinery/computer/security/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
@@ -171,7 +179,7 @@
 	if(length(concurrent_users) == 0 && is_living)
 		active_camera = null
 		last_camera_turf = null
-		playsound(src, 'sound/machines/terminal_off.ogg', 25, FALSE)
+		playsound(src, 'sound/machines/terminal/terminal_off.ogg', 25, FALSE)
 
 /obj/machinery/computer/security/proc/show_camera_static()
 	cam_screen.vis_contents.Cut()
