@@ -4,7 +4,7 @@
 /obj/machinery/smartfridge
 	name = "smartfridge"
 	RU_NAMES_LIST_INIT("smartfridge", "умный холодильник", "умного холодильника", "умному холодильнику", "умный холодильник", "умным холодильником", "умном холодильнике")
-	desc = "Keeps cold things cold and hot things cold."
+	desc = "Сохраняет холодные вещи холодными, а горячие - холодными."
 	icon = 'icons/obj/machines/smartfridge.dmi'
 	icon_state = "smartfridge-icon"
 	base_icon_state = "smartfridge"
@@ -65,56 +65,56 @@
 			return ITEM_INTERACT_BLOCKING
 
 		user.visible_message(
-			span_notice("[user.name] starts to cut the [name] free from the floor."),
-			span_notice("You start to cut [src] free from the floor..."),
-			span_hear("You hear welding."),
+			span_notice("[capitalize(declent_ru(NOMINATIVE))] начинает отваривать [declent_ru(ACCUSATIVE)] от пола."),
+			span_notice("Вы начинаете отваривать [declent_ru(ACCUSATIVE)] от пола..."),
+			span_hear("Вы слышите звук сварки."),
 		)
 
 		if(!tool.use_tool(src, user, delay=100, volume=100))
 			return ITEM_INTERACT_BLOCKING
 
 		welded_down = FALSE
-		to_chat(user, span_notice("You cut [src] free from the floor."))
+		to_chat(user, span_notice("Вы отварили [declent_ru(ACCUSATIVE)] от пола."))
 		return ITEM_INTERACT_SUCCESS
 
 	if(!anchored)
-		balloon_alert(user, "wrench it first!")
+		balloon_alert(user, "не прикручено!")
 		return ITEM_INTERACT_BLOCKING
 
 	if(!tool.tool_start_check(user, amount=2))
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user.name] starts to weld the [name] to the floor."),
-		span_notice("You start to weld [src] to the floor..."),
-		span_hear("You hear welding."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает приваривать [declent_ru(ACCUSATIVE)] к полу."),
+		span_notice("Вы начинаете приваривать [declent_ru(ACCUSATIVE)] к полу..."),
+		span_hear("Вы слышите звук сварки."),
 	)
 
 	if(!tool.use_tool(src, user, delay = 100, volume = 100))
 		return ITEM_INTERACT_BLOCKING
 
 	welded_down = TRUE
-	to_chat(user, span_notice("You weld [src] to the floor."))
+	to_chat(user, span_notice("Вы приварили [declent_ru(ACCUSATIVE)] к полу."))
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/smartfridge/welder_act_secondary(mob/living/user, obj/item/tool)
 	if(!(machine_stat & BROKEN))
-		balloon_alert(user, "no repair needed!")
+		balloon_alert(user, "ремонт не требуется!")
 		return ITEM_INTERACT_BLOCKING
 
 	if(!tool.tool_start_check(user, amount=1))
 		return ITEM_INTERACT_BLOCKING
 
 	user.visible_message(
-		span_notice("[user] is repairing [src]."),
-		span_notice("You begin repairing [src]..."),
-		span_hear("You hear welding."),
+		span_notice("[capitalize(user.declent_ru(NOMINATIVE))] начинает ремонтировать  [declent_ru(ACCUSATIVE)]."),
+		span_notice("Вы начинаете ремонтировать [declent_ru(ACCUSATIVE)]..."),
+		span_hear("Вы слышите звук сварки."),
 	)
 
 	if(tool.use_tool(src, user, delay = 40, volume = 50))
 		if(!(machine_stat & BROKEN))
 			return ITEM_INTERACT_BLOCKING
-		to_chat(user, span_notice("You repair [src]"))
+		to_chat(user, span_notice("Вы отремонтировали [declent_ru(ACCUSATIVE)]"))
 		atom_integrity = max_integrity
 		set_machine_stat(machine_stat & ~BROKEN)
 		update_icon()
@@ -132,7 +132,7 @@
 
 /obj/machinery/smartfridge/can_be_unfasten_wrench(mob/user, silent)
 	if(welded_down)
-		balloon_alert(user, "unweld first!")
+		balloon_alert(user, "нужно отварить!")
 		return FAILED_UNFASTEN
 	return ..()
 
@@ -153,7 +153,7 @@
 		return ITEM_INTERACT_SUCCESS
 
 	if(welded_down)
-		balloon_alert(user, "unweld first!")
+		balloon_alert(user, "нужно отварить!")
 	else
 		default_deconstruction_crowbar(tool)
 	return ITEM_INTERACT_SUCCESS
@@ -165,26 +165,26 @@
 	var/tool_tip_set = FALSE
 	if(held_item.tool_behaviour == TOOL_WELDER)
 		if(welded_down)
-			context[SCREENTIP_CONTEXT_LMB] = "Unweld"
+			context[SCREENTIP_CONTEXT_LMB] = "Отварить"
 			tool_tip_set = TRUE
 		else if (!welded_down && anchored && can_be_welded_down)
-			context[SCREENTIP_CONTEXT_LMB] = "Weld down"
+			context[SCREENTIP_CONTEXT_LMB] = "Приварить"
 			tool_tip_set = TRUE
 		if(machine_stat & BROKEN)
-			context[SCREENTIP_CONTEXT_RMB] = "Repair"
+			context[SCREENTIP_CONTEXT_RMB] = "Отремонтировать"
 			tool_tip_set = TRUE
 
 	else if(held_item.tool_behaviour == TOOL_SCREWDRIVER)
-		context[SCREENTIP_CONTEXT_LMB] = "[panel_open ? "close" : "open"] panel"
+		context[SCREENTIP_CONTEXT_LMB] = "[panel_open ? "Закрыть" : "Открыть"] панель"
 		tool_tip_set = TRUE
 
 	else if(held_item.tool_behaviour == TOOL_CROWBAR)
 		if(panel_open)
-			context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
+			context[SCREENTIP_CONTEXT_LMB] = "Разобрать"
 			tool_tip_set = TRUE
 
 	else if(held_item.tool_behaviour == TOOL_WRENCH)
-		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Una" : "A"]nchor"
+		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "От" : "При"]крутить"
 		tool_tip_set = TRUE
 
 	return tool_tip_set ? CONTEXTUAL_SCREENTIP_SET : NONE
@@ -198,7 +198,7 @@
 	. = ..()
 
 	if(in_range(user, src) || isobserver(user))
-		. += span_notice("The status display reads: This unit can hold a maximum of <b>[max_n_of_items]</b> items.")
+		. += span_notice("На дисплее состояния отображается: Это устройство может вмещать максимум <b>[max_n_of_items]</b> предметов.")
 
 	. += structure_examine()
 
@@ -207,14 +207,15 @@
 	. = list()
 
 	if(welded_down)
-		. += span_info("It's moorings are firmly [EXAMINE_HINT("welded")] to the floor.")
+		. += span_info("Крепежи накрепко [EXAMINE_HINT("приварены")] к полу.")
 	else if (can_be_welded_down)
-		. += span_info("It's moorings are loose and can be [EXAMINE_HINT("welded")] down.")
+		. += span_info("Крепежи свободны и могут быть [EXAMINE_HINT("приварены")].")
+
 
 	if(anchored)
-		. += span_info("It is [EXAMINE_HINT("wrenched")] down on the floor.")
+		. += span_info("Машина [EXAMINE_HINT("прикручена")] к полу.")
 	else
-		. += span_info("It could be [EXAMINE_HINT("wrenched")] down.")
+		. += span_info("Можно [EXAMINE_HINT("открутить")] от пола.")
 
 /obj/machinery/smartfridge/update_appearance(updates=ALL)
 	. = ..()
@@ -266,7 +267,7 @@
 	if(!machine_stat)
 		var/shown_contents_length = visible_items()
 		if(shown_contents_length >= max_n_of_items)
-			balloon_alert(user, "no space!")
+			balloon_alert(user, "нет места!")
 			return FALSE
 
 		if(!(weapon.item_flags & ABSTRACT) && \
@@ -274,7 +275,7 @@
 			accept_check(weapon) \
 		)
 			load(weapon, user)
-			user.visible_message(span_notice("[user] adds \the [weapon] to \the [src]."), span_notice("You add \the [weapon] to \the [src]."))
+			user.visible_message(span_notice("[capitalize(user.declent_ru(NOMINATIVE))] перемещает [weapon.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]."), span_notice("Вы переместили [weapon.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]."))
 			SStgui.update_uis(src)
 			if(visible_contents)
 				update_appearance()
@@ -296,26 +297,26 @@
 
 			if(loaded)
 				if(shown_contents_length >= max_n_of_items)
-					user.visible_message(span_notice("[user] loads \the [src] with \the [weapon]."), \
-						span_notice("You fill \the [src] with \the [weapon]."))
+					user.visible_message(span_notice("[capitalize(user.declent_ru(NOMINATIVE))] перекладывает предметы из [weapon.declent_ru(GENITIVE)] в [declent_ru(ACCUSATIVE)]."), \
+						span_notice("Вы перемещаете содержимое [weapon.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]."))
 				else
-					user.visible_message(span_notice("[user] loads \the [src] with \the [weapon]."), \
-						span_notice("You load \the [src] with \the [weapon]."))
+					user.visible_message(span_notice("[capitalize(user.declent_ru(NOMINATIVE))] перекладывает предметы из [weapon.declent_ru(GENITIVE)] в [declent_ru(ACCUSATIVE)]."), \
+						span_notice("Вы перемещаете содержимое [weapon.declent_ru(GENITIVE)] в [declent_ru(ACCUSATIVE)]."))
 				if(weapon.contents.len)
-					to_chat(user, span_warning("Some items are refused."))
+					to_chat(user, span_warning("Некоторые предметы не влазят."))
 				if (visible_contents)
 					update_appearance()
 				return TRUE
 			else
-				to_chat(user, span_warning("There is nothing in [weapon] to put in [src]!"))
+				to_chat(user, span_warning("В [weapon.declent_ru(PREPOSITIONAL)] нет ничего, что можно положить в [declent_ru(ACCUSATIVE)]!"))
 				return FALSE
 
 	if(!powered())
-		to_chat(user, span_warning("\The [src]'s magnetic door won't open without power!"))
+		to_chat(user, span_warning("Магнитные двери [declent_ru(GENITIVE)] не откроются без энергии!"))
 		return FALSE
 
 	if(!user.combat_mode || (weapon.item_flags & NOBLUDGEON))
-		to_chat(user, span_warning("\The [src] smartly refuses [weapon]."))
+		to_chat(user, span_warning("[capitalize(declent_ru(NOMINATIVE))] отказывается принимать [weapon.declent_ru(ACCUSATIVE)]."))
 		return FALSE
 
 	else
@@ -344,7 +345,7 @@
 	if(ismob(weapon.loc))
 		var/mob/owner = weapon.loc
 		if(!owner.transferItemToLoc(weapon, src))
-			to_chat(owner, span_warning("\the [weapon] is stuck to your hand, you cannot put it in \the [src]!"))
+			to_chat(owner, span_warning("[capitalize(weapon.declent_ru(NOMINATIVE))] застревает на вашей руке - нельзя переместить [weapon.declent_ru(ACCUSATIVE)] в [declent_ru(ACCUSATIVE)]!"))
 			return FALSE
 		return TRUE
 	else
@@ -407,8 +408,8 @@
 			var/dispensed_amount = 0
 
 			if(isAI(living_mob))
-				to_chat(living_mob, span_warning("[src] does not respect your authority!"))
-				return TRUE
+				to_chat(living_mob, span_warning("[capitalize(declent_ru(NOMINATIVE))] вне зоны вашего контроля!"))
+				return
 
 			for(var/obj/item/dispensed_item in contents)
 				if(amount <= 0)
@@ -439,11 +440,10 @@
 /obj/machinery/smartfridge/drying
 	name = "dehydrator"
 	RU_NAMES_LIST_INIT("dehydrator", "иссушатель", "иссушателя", "иссушателю", "иссушатель", "иссушателем", "иссушателе")
-	desc = "A machine meant to remove moisture from various food."
+	desc = "Механизм, используемый для сушки растительных продуктов, еды и шкур."
 	icon_state = "dehydrator-icon"
 	base_icon_state = "dehydrator"
 	contents_overlay_icon = "contents"
-	circuit = /obj/item/circuitboard/machine/dehydrator
 	light_power = 0.5
 	base_build_path = /obj/machinery/smartfridge/drying //should really be seeing this without admin fuckery.
 	has_emissive = FALSE
@@ -547,7 +547,7 @@
 /obj/machinery/smartfridge/drying/rack
 	name = "drying rack"
 	RU_NAMES_LIST_INIT("drying rack", "сушилка", "сушилки", "сушилке", "сушилку", "сушилкой", "сушилке")
-	desc = "A wooden contraption, used to dry plant products, food and hide."
+	desc = "Машина, предназначенная для удаления влаги из различных продуктов питания."
 	icon_state = "drying-rack"
 	base_icon_state = "drying-rack"
 	resistance_flags = FLAMMABLE
@@ -570,10 +570,10 @@
 
 	var/tool_tip_set = FALSE
 	if(held_item.tool_behaviour == TOOL_CROWBAR)
-		context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
+		context[SCREENTIP_CONTEXT_LMB] = "Разобрать"
 		tool_tip_set = TRUE
 	else if(held_item.tool_behaviour == TOOL_WRENCH)
-		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "Un" : ""]anchore"
+		context[SCREENTIP_CONTEXT_LMB] = "[anchored ? "От" : "За"]крутить"
 		tool_tip_set = TRUE
 
 	return tool_tip_set ? CONTEXTUAL_SCREENTIP_SET : NONE
@@ -608,7 +608,7 @@
 /obj/machinery/smartfridge/drinks
 	name = "drink showcase"
 	RU_NAMES_LIST_INIT("drink showcase", "витрина дла напитков", "витрины дла напитков", "витрине дла напитков", "витрину дла напитков", "витриной дла напитков", "витрине дла напитков")
-	desc = "A refrigerated storage unit for tasty tasty alcohol."
+	desc = "Холодильник для хранения вкусного-вкусного алкоголя."
 	base_build_path = /obj/machinery/smartfridge/drinks
 	contents_overlay_icon = "drink"
 
@@ -628,7 +628,7 @@
 //  Food smartfridge
 // ----------------------------
 /obj/machinery/smartfridge/food
-	desc = "A refrigerated storage unit for food."
+	desc = "Холодильник для хранения продуктов."
 	base_build_path = /obj/machinery/smartfridge/food
 	contents_overlay_icon = "food"
 
@@ -647,7 +647,7 @@
 /obj/machinery/smartfridge/extract
 	name = "smart slime extract storage"
 	RU_NAMES_LIST_INIT("smart slime extract storage", "умное хранилище экстрактов слаймов", "умного хранилища экстрактов слаймов", "умному хранилищу экстрактов слаймов", "умное хранилище экстрактов слаймов", "умным хранилищем экстрактов слаймов", "умном хранилище экстрактов слаймов")
-	desc = "A refrigerated storage unit for slime extracts."
+	desc = "Холодильник для хранения экстракта слаймов."
 	base_build_path = /obj/machinery/smartfridge/extract
 	contents_overlay_icon = "slime"
 
@@ -663,7 +663,7 @@
 /obj/machinery/smartfridge/petri
 	name = "smart petri dish storage"
 	RU_NAMES_LIST_INIT("smart petri dish storage", "умное хранилище чашек Петри", "умного хранилища чашек Петри", "умному хранилищу чашек Петри", "умное хранилище чашек Петри", "умным хранилищем чашек Петри", "умном хранилище чашек Петри")
-	desc = "A refrigerated storage unit for petri dishes."
+	desc = "Холодильник для хранения чашек Петри."
 	base_build_path = /obj/machinery/smartfridge/petri
 	contents_overlay_icon = "petri"
 
@@ -679,7 +679,7 @@
 /obj/machinery/smartfridge/organ
 	name = "smart organ storage"
 	RU_NAMES_LIST_INIT("smart organ storage", "умное хранилище органов", "умного хранилища органов", "умному хранилищу органов", "умное хранилище органов", "умным хранилищем органов", "умном хранилище органов")
-	desc = "A refrigerated storage unit for organ storage."
+	desc = "Холодильник для хранения органов."
 	max_n_of_items = 20 //vastly lower to prevent processing too long
 	base_build_path = /obj/machinery/smartfridge/organ
 	contents_overlay_icon = "organ"
@@ -734,7 +734,7 @@
 /obj/machinery/smartfridge/chemistry
 	name = "smart chemical storage"
 	RU_NAMES_LIST_INIT("smart chemical storage", "умное хранилище химикатов", "умного хранилища химикатов", "умному хранилищу химикатов", "умное хранилище химикатов", "умным хранилищем химикатов", "умном хранилище химикатов")
-	desc = "A refrigerated storage unit for medicine storage."
+	desc = "Холодильник для хранения лекарств."
 	base_build_path = /obj/machinery/smartfridge/chemistry
 	contents_overlay_icon = "chem"
 	default_list_view = TRUE
@@ -786,7 +786,7 @@
 /obj/machinery/smartfridge/chemistry/virology
 	name = "smart virus storage"
 	RU_NAMES_LIST_INIT("smart virus storage", "умное хранилище вирусов", "умного хранилища вирусов", "умному хранилищу вирусов", "умное хранилище вирусов", "умным хранилищем вирусов", "умном хранилище вирусов")
-	desc = "A refrigerated storage unit for volatile sample storage."
+	desc = "Холодильник для хранения летучих образцов."
 	base_build_path = /obj/machinery/smartfridge/chemistry/virology
 	contents_overlay_icon = "viro"
 	default_list_view = TRUE
@@ -809,7 +809,7 @@
 /obj/machinery/smartfridge/disks
 	name = "disk compartmentalizer"
 	RU_NAMES_LIST_INIT("disk compartmentalizer", "сортировщик дисков", "сортировщика дисков", "сортировщику дисков", "сортировщик дисков", "сортировщиком дисков", "сортировщике дисков")
-	desc = "A machine capable of storing a variety of disks. Denoted by most as the DSU (disk storage unit)."
+	desc = "Машина, способная хранить множество дисков. В большинстве случаев обозначается как DSU (disk storage unit)."
 	icon_state = "disktoaster"
 	base_icon_state = "disktoaster"
 	has_emissive = TRUE
