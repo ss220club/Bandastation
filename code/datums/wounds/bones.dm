@@ -53,7 +53,7 @@
 			I = victim.get_inactive_held_item()
 
 		if(I && victim.dropItemToGround(I))
-			victim.visible_message(span_danger("[victim] drops [I] in shock!"), span_warning("<b>The force on your [limb.plaintext_zone] causes you to drop [I]!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message(span_danger("[victim] бросает [I] от шока!"), span_warning("<b>Потеря хватки [limb.plaintext_zone] заставляет вас выронить [I]!</b>"), vision_distance=COMBAT_MESSAGE_RANGE)
 
 	update_inefficiencies()
 	return ..()
@@ -101,13 +101,13 @@
 		victim.take_bodypart_damage(rand(1, severity * 2), wound_bonus=CANT_WOUND)
 		victim.adjustStaminaLoss(rand(2, severity * 2.5))
 		if(prob(33))
-			to_chat(victim, span_danger("You feel a sharp pain in your body as your bones are reforming!"))
+			to_chat(victim, span_danger("Вы чувствуете острую боль в ваших костях!"))
 
 	if(regen_ticks_current > regen_ticks_needed)
 		if(!victim || !limb)
 			qdel(src)
 			return
-		to_chat(victim, span_green("Your [limb.plaintext_zone] has recovered from its [name]!"))
+		to_chat(victim, span_green("[limb.plaintext_zone] восстановилась от [name]!"))
 		remove_wound()
 
 /// If we're a human who's punching something with a broken arm, we might hurt ourselves doing so
@@ -121,11 +121,11 @@
 	if(prob((severity - 1) * 15))
 		// And you have a 70% or 50% chance to actually land the blow, respectively
 		if(prob(70 - 20 * (severity - 1)))
-			to_chat(victim, span_userdanger("The fracture in your [limb.plaintext_zone] shoots with pain as you strike [target]!"))
+			to_chat(victim, span_userdanger("Перелом в [limb.plaintext_zone] отдает болью, когда вы ударяете [target]!"))
 			limb.receive_damage(brute=rand(1,5))
 		else
-			victim.visible_message(span_danger("[victim] weakly strikes [target] with [victim.p_their()] broken [limb.plaintext_zone], recoiling from pain!"), \
-			span_userdanger("You fail to strike [target] as the fracture in your [limb.plaintext_zone] lights up in unbearable pain!"), vision_distance=COMBAT_MESSAGE_RANGE)
+			victim.visible_message(span_danger("[victim] слабо бьет [target] сломанной [victim.p_their()] [limb.plaintext_zone], пошатываясь от боли!"), \
+			span_userdanger("ВЫ не смогли ударить [target] из-за перелома в вашей руке [limb.plaintext_zone] из-за вызванной боли!"), vision_distance=COMBAT_MESSAGE_RANGE)
 			INVOKE_ASYNC(victim, TYPE_PROC_REF(/mob, emote), "scream")
 			victim.Stun(0.5 SECONDS)
 			limb.receive_damage(brute=rand(3,7))
@@ -148,40 +148,41 @@
 				victim.bleed(blood_bled, TRUE)
 			if(7 to 13)
 				victim.visible_message(
-					span_smalldanger("A thin stream of blood drips from [victim]'s mouth from the blow to [victim.p_their()] chest."),
-					span_danger("You cough up a bit of blood from the blow to your chest."),
+					span_smalldanger("Тонкая струйка крови капает из рта [victim] после удара по [victim.p_their()] груди."),
+					span_danger("Вы откашливаете немного крови после удара в грудь."),
 					vision_distance = COMBAT_MESSAGE_RANGE,
 				)
 				victim.bleed(blood_bled, TRUE)
 			if(14 to 19)
 				victim.visible_message(
-					span_smalldanger("Blood spews out of [victim]'s mouth from the blow to [victim.p_their()] chest!"),
-					span_danger("You spit out a string of blood from the blow to your chest!"),
+					span_smalldanger("Кровь брызгает из рта [victim] после удара по [victim.p_their()] груди!"),
+					span_danger("Вы плевок струей крови после удара в грудь!"),
 					vision_distance = COMBAT_MESSAGE_RANGE,
 				)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.bleed(blood_bled)
 			if(20 to INFINITY)
 				victim.visible_message(
-					span_danger("Blood spurts out of [victim]'s mouth from the blow to [victim.p_their()] chest!"),
-					span_bolddanger("You choke up on a spray of blood from the blow to your chest!"),
+					span_danger("Кровь фонтанирует из рта [victim] после удара по [victim.p_their()] груди!"),
+					span_bolddanger("Вы задыхаетесь от струи крови после удара в грудь!"),
 					vision_distance = COMBAT_MESSAGE_RANGE,
 				)
 				victim.bleed(blood_bled)
 				new /obj/effect/temp_visual/dir_setting/bloodsplatter(victim.loc, victim.dir)
 				victim.add_splatter_floor(get_step(victim.loc, victim.dir))
 
+
 /datum/wound/blunt/bone/modify_desc_before_span(desc)
 	. = ..()
 
 	if (!limb.current_gauze)
 		if(taped)
-			. += ", [span_notice("and appears to be reforming itself under some surgical tape!")]"
+			. += ", [span_notice("и, похоже, начинает восстанавливаться под хирургической лентой!")]"
 		else if(gelled)
-			. += ", [span_notice("with fizzing flecks of blue bone gel sparking off the bone!")]"
+			. += ", [span_notice("с шипящими кусочками синего костного геля, искрящимися от кости!")]"
 
 /datum/wound/blunt/get_limb_examine_description()
-	return span_warning("The bones in this limb appear badly cracked.")
+	return span_warning("Кости выглядят сильно поврежденными.")
 
 /*
 	New common procs for /datum/wound/blunt/bone/
@@ -197,13 +198,13 @@
 
 /// Joint Dislocation (Moderate Blunt)
 /datum/wound/blunt/bone/moderate
-	name = "Joint Dislocation"
-	desc = "Patient's limb has been unset from socket, causing pain and reduced motor function."
-	treat_text = "Apply Bonesetter to the affected limb. \
-		Manual relocation by via an aggressive grab and a tight hug to the affected limb may also suffice."
-	treat_text_short = "Apply Bonesetter, or manually relocate the limb."
-	examine_desc = "is awkwardly janked out of place"
-	occur_text = "janks violently and becomes unseated"
+	name = "Вывих сустава"
+	desc = "Конечность пациента выпала из пазухи, вызывая моторную дисфункцию."
+	treat_text = "Используйте костоправ на поврежденной конечности. \
+		Можно вправить руками если крепко схватить конечность и твердым объятием вставить на место."
+	treat_text_short = "Используйте костоправ или вручную вправьте сустав."
+	examine_desc = "выглядит не на своем месте"
+	occur_text = "отталкивающе выглядит и безвольно шатается"
 	severity = WOUND_SEVERITY_MODERATE
 	interaction_efficiency_penalty = 1.3
 	limp_slowdown = 3
@@ -213,9 +214,9 @@
 	status_effect_type = /datum/status_effect/wound/blunt/bone/moderate
 	scar_keyword = "dislocate"
 
-	simple_desc = "Patient's bone has been dislocated, causing limping or reduced dexterity."
-	simple_treat_text = "<b>Bandaging</b> the wound will reduce its impact until treated with a bonesetter. Most commonly, it is treated by aggressively grabbing someone and helpfully wrenching the limb in place, though there's room for malfeasance when doing this."
-	homemade_treat_text = "Besides bandaging and wrenching, <b>bone setters</b> can be printed in lathes and utilized on oneself at the cost of great pain. As a last resort, <b>crushing</b> the patient with a <b>firelock</b> has sometimes been noted to fix their dislocated limb."
+	simple_desc = "Сустав пациента вывихнут, вызывая хромату и снижая общую ловкость."
+	simple_treat_text = "<b>Перевязывание</b> раны уменьшит ее влияние, пока не будет вправлена костопроавом. Чаще их вправляют сильным хватом и последующим крепким объятием, хотя этим не стоит злоупотреблять."
+	homemade_treat_text = "Помимо бинтования и использования гаечного ключа, <b>костоправ</b> можно изготовить на станке и использовать на себе, но это будет сопровождаться сильной болью. В крайнем случае, <b>раздавливание</b>  пациента с помощью <b>шлюза</b> иногда может помочь вправить конечность."
 
 /datum/wound_pregen_data/bone/dislocate
 	abstract = FALSE
@@ -244,7 +245,7 @@
 /datum/wound/blunt/bone/moderate/proc/door_crush()
 	SIGNAL_HANDLER
 	if(prob(40))
-		victim.visible_message(span_danger("[victim]'s dislocated [limb.plaintext_zone] pops back into place!"), span_userdanger("Your dislocated [limb.plaintext_zone] pops back into place! Ow!"))
+		victim.visible_message(span_danger("[limb.plaintext_zone] [victim] встала обратно на место!"), span_userdanger("Сустав в районе [limb.plaintext_zone] встал обратно на место! Ой!"))
 		remove_wound()
 
 /datum/wound/blunt/bone/moderate/try_handling(mob/living/user)
@@ -254,12 +255,12 @@
 		return FALSE
 
 	if(user.grab_state == GRAB_PASSIVE)
-		to_chat(user, span_warning("You must have [victim] in an aggressive grab to manipulate [victim.p_their()] [LOWER_TEXT(name)]!"))
+		to_chat(user, span_warning("Вы должны держать [victim] в агрессивном захвате, чтобы заниматься [victim.p_their()] [LOWER_TEXT(name)]!"))
 		return TRUE
 
 	if(user.grab_state >= GRAB_AGGRESSIVE)
-		user.visible_message(span_danger("[user] begins twisting and straining [victim]'s dislocated [limb.plaintext_zone]!"), span_notice("You begin twisting and straining [victim]'s dislocated [limb.plaintext_zone]..."), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] begins twisting and straining your dislocated [limb.plaintext_zone]!"))
+		user.visible_message(span_danger("[user] начинает вкручивать сустав [limb.plaintext_zone] [victim]!"), span_notice("Вы начинаете вкручивать сустав [limb.plaintext_zone] [victim]..."), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] начинает править ваш вывих [limb.plaintext_zone]!"))
 		if(!user.combat_mode)
 			chiropractice(user)
 		else
@@ -274,14 +275,14 @@
 		return
 
 	if(prob(65))
-		user.visible_message(span_danger("[user] snaps [victim]'s dislocated [limb.plaintext_zone] back into place!"), span_notice("You snap [victim]'s dislocated [limb.plaintext_zone] back into place!"), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] snaps your dislocated [limb.plaintext_zone] back into place!"))
+		user.visible_message(span_danger("[user] вправляет вывих в [limb.plaintext_zone] [victim]!"), span_notice("Вы вправляете вывих [limb.plaintext_zone] [victim]!"), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] вправляет ваш вывих в [limb.plaintext_zone]!"))
 		victim.emote("scream")
 		limb.receive_damage(brute=20, wound_bonus=CANT_WOUND)
 		qdel(src)
 	else
-		user.visible_message(span_danger("[user] wrenches [victim]'s dislocated [limb.plaintext_zone] around painfully!"), span_danger("You wrench [victim]'s dislocated [limb.plaintext_zone] around painfully!"), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] wrenches your dislocated [limb.plaintext_zone] around painfully!"))
+		user.visible_message(span_danger("[user] болезнено вправляет вывих [limb.plaintext_zone] [victim]!"), span_danger("Вы болезненно вправляете вывих [limb.plaintext_zone] [victim]!"), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] болезнено вправляет ваш вывих в [limb.plaintext_zone]!"))
 		limb.receive_damage(brute=10, wound_bonus=CANT_WOUND)
 		chiropractice(user)
 
@@ -293,13 +294,13 @@
 		return
 
 	if(prob(65))
-		user.visible_message(span_danger("[user] snaps [victim]'s dislocated [limb.plaintext_zone] with a sickening crack!"), span_danger("You snap [victim]'s dislocated [limb.plaintext_zone] with a sickening crack!"), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] snaps your dislocated [limb.plaintext_zone] with a sickening crack!"))
+		user.visible_message(span_danger("[user] вправляет вывих в [limb.plaintext_zone] [victim] с хрустом!"), span_danger("Вы вправляете вывих [limb.plaintext_zone] [victim] с хрустом!"), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] вправляет ваш вывих в [limb.plaintext_zone] с хрустом!"))
 		victim.emote("scream")
 		limb.receive_damage(brute=25, wound_bonus=30)
 	else
-		user.visible_message(span_danger("[user] wrenches [victim]'s dislocated [limb.plaintext_zone] around painfully!"), span_danger("You wrench [victim]'s dislocated [limb.plaintext_zone] around painfully!"), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] wrenches your dislocated [limb.plaintext_zone] around painfully!"))
+		user.visible_message(span_danger("[user] болезнено вправляет вывих [limb.plaintext_zone] [victim]!"), span_danger("Вы болезненно вправляете вывих [limb.plaintext_zone] [victim]!"), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] болезнено вправляет ваш вывих в [limb.plaintext_zone]!"))
 		limb.receive_damage(brute=10, wound_bonus=CANT_WOUND)
 		malpractice(user)
 
@@ -311,20 +312,20 @@
 	var/treatment_delay = base_treat_time * self_penalty_mult * scanned_mult
 
 	if(victim == user)
-		victim.visible_message(span_danger("[user] begins [scanned ? "expertly" : ""] resetting [victim.p_their()] [limb.plaintext_zone] with [I]."), span_warning("You begin resetting your [limb.plaintext_zone] with [I][scanned ? ", keeping the holo-image's indications in mind" : ""]..."))
+		victim.visible_message(span_danger("[user] начинет [scanned ? "опытно" : ""] вправлять [victim.p_their()] [limb.plaintext_zone] при помощи [I]."), span_warning("Вы вправляете себе [limb.plaintext_zone] при помощи [I][scanned ? ", держа в голове показатели сканера" : ""]..."))
 	else
-		user.visible_message(span_danger("[user] begins [scanned ? "expertly" : ""] resetting [victim]'s [limb.plaintext_zone] with [I]."), span_notice("You begin resetting [victim]'s [limb.plaintext_zone] with [I][scanned ? ", keeping the holo-image's indications in mind" : ""]..."))
+		user.visible_message(span_danger("[user] начинет [scanned ? "опытно" : ""] вправлять [victim]'s [limb.plaintext_zone] при помощи [I]."), span_notice("Вы вправляете [victim] [limb.plaintext_zone] при помощи [I][scanned ? ", держа в голове показатели сканера" : ""]..."))
 
 	if(!do_after(user, treatment_delay, target = victim, extra_checks=CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	if(victim == user)
 		limb.receive_damage(brute=15, wound_bonus=CANT_WOUND)
-		victim.visible_message(span_danger("[user] finishes resetting [victim.p_their()] [limb.plaintext_zone]!"), span_userdanger("You reset your [limb.plaintext_zone]!"))
+		victim.visible_message(span_danger("[user] заканчивает лечение вывиха [limb.plaintext_zone] [victim.p_their()]!"), span_userdanger("Вы вправили вывих себе в [limb.plaintext_zone]!"))
 	else
 		limb.receive_damage(brute=10, wound_bonus=CANT_WOUND)
-		user.visible_message(span_danger("[user] finishes resetting [victim]'s [limb.plaintext_zone]!"), span_nicegreen("You finish resetting [victim]'s [limb.plaintext_zone]!"), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] resets your [limb.plaintext_zone]!"))
+		user.visible_message(span_danger("[user] заканчивает лечение вывиха [limb.plaintext_zone] [victim.p_their()]!!"), span_nicegreen("YВы вправили вывих [limb.plaintext_zone] [victim]!"), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] заканивает лечение вывиха [limb.plaintext_zone]!"))
 
 	victim.emote("scream")
 	qdel(src)
@@ -334,13 +335,14 @@
 */
 
 /datum/wound/blunt/bone/severe
-	name = "Hairline Fracture"
-	desc = "Patient's bone has suffered a crack in the foundation, causing serious pain and reduced limb functionality."
-	treat_text = "Repair surgically. In the event of an emergency, an application of bone gel over the affected area will fix over time. \
-		A splint or sling of medical gauze can also be used to prevent the fracture from worsening."
-	treat_text_short = "Repair surgically, or apply bone gel. A splint or gauze sling can also be used."
-	examine_desc = "appears grotesquely swollen, jagged bumps hinting at chips in the bone"
-	occur_text = "sprays chips of bone and develops a nasty looking bruise"
+	name = "Трещина в кости"
+	desc = "Кость пациента имеет трещину, вызывая сильную боль и снижение функциональности конечности."
+	treat_text = "Вылечить хирургически. В случае крайней необходимости нанесение костного геля на пораженную область позволит зажить со временем. \
+		Также можно использовать шину или повязку из медицинской марли, чтобы предотвратить ухудшение трещины."
+	treat_text_short = "Хирургическое лечение или нанесение костного геля. Можно также использовать шину или повязку из марли."
+	examine_desc = "выглядит ужасно опухшей, с зазубренными буграми, указывающими на трещины в кости"
+	occur_text = "сыпется костная крошка, и виден ужасный синяк"
+
 
 	severity = WOUND_SEVERITY_SEVERE
 	interaction_efficiency_penalty = 2
@@ -356,9 +358,9 @@
 	wound_flags = (ACCEPTS_GAUZE | MANGLES_INTERIOR)
 	regen_ticks_needed = 120 // ticks every 2 seconds, 240 seconds, so roughly 4 minutes default
 
-	simple_desc = "Patient's bone has cracked in the middle, drastically reducing limb functionality."
-	simple_treat_text = "<b>Bandaging</b> the wound will reduce its impact until <b>surgically treated</b> with bone gel and surgical tape."
-	homemade_treat_text = "<b>Bone gel and surgical tape</b> may be applied directly to the wound, though this is quite difficult for most people to do so individually unless they've dosed themselves with one or more <b>painkillers</b> (Morphine and Miner's Salve have been known to help)"
+	simple_desc = "Кость пациента треснула посередине, значительно снижая функциональность конечности."
+	simple_treat_text = "<b>Перевязка</b> раны уменьшит её влияние до тех пор, пока не будет проведено <b>хирургическое лечение</b> с использованием костного геля и хирургической ленты."
+	homemade_treat_text = "<b>Костный гель и хирургическая лента</b> могут быть нанесены непосредственно на рану, хотя это довольно сложно для большинства людей сделать самостоятельно, если только они не приняли одну или несколько <b>обезболивающих</b> (известно, что морфин и мазь шахтёра помогают)."
 
 
 /datum/wound_pregen_data/bone/hairline
@@ -370,14 +372,15 @@
 
 /// Compound Fracture (Critical Blunt)
 /datum/wound/blunt/bone/critical
-	name = "Compound Fracture"
-	desc = "Patient's bones have suffered multiple fractures, \
-		couped with a break in the skin, causing significant pain and near uselessness of limb."
-	treat_text = "Immediately bind the affected limb with gauze or a splint. Repair surgically. \
-		In the event of an emergency, bone gel and surgical tape can be applied to the affected area to fix over a long period of time."
-	treat_text_short = "Repair surgically, or apply bone gel and surgical tape. A splint or gauze sling should also be used."
-	examine_desc = "is thoroughly pulped and cracked, exposing shards of bone to open air"
-	occur_text = "cracks apart, exposing broken bones to open air"
+	name = "Открытый перелом"
+	desc = "Кости пациента получили множественные переломы, \
+		сопровождающиеся разрывом кожи, вызывая значительную боль и практически полную бесполезность конечности."
+	treat_text = "Немедленно перевяжите поврежденную конечность марлей или наложите шину. Проведите хирургическое лечение. \
+		В случае чрезвычайной ситуации можно нанести костный гель и хирургическую ленту на пораженную область для восстановления в течение длительного времени."
+	treat_text_short = "Проведите хирургическое лечение или нанесите костный гель и хирургическую ленту. Также следует использовать шину или повязку из марли."
+	examine_desc = "полностью раздроблена и треснута, обнажая осколки кости на воздух"
+	occur_text = "раскалывается, обнажая сломанные кости на воздух"
+
 
 	severity = WOUND_SEVERITY_CRITICAL
 	interaction_efficiency_penalty = 2.5
@@ -395,9 +398,9 @@
 	wound_flags = (ACCEPTS_GAUZE | MANGLES_INTERIOR)
 	regen_ticks_needed = 240 // ticks every 2 seconds, 480 seconds, so roughly 8 minutes default
 
-	simple_desc = "Patient's bones have effectively shattered completely, causing total immobilization of the limb."
-	simple_treat_text = "<b>Bandaging</b> the wound will slightly reduce its impact until <b>surgically treated</b> with bone gel and surgical tape."
-	homemade_treat_text = "Although this is extremely difficult and slow to function, <b>Bone gel and surgical tape</b> may be applied directly to the wound, though this is nigh-impossible for most people to do so individually unless they've dosed themselves with one or more <b>painkillers</b> (Morphine and Miner's Salve have been known to help)"
+	simple_desc = "Кости пациента фактически полностью раздроблены, вызывая полную неподвижность конечности."
+	simple_treat_text = "<b>Перевязка</b> раны немного уменьшит её влияние до тех пор, пока не будет проведено <b>хирургическое лечение</b> с использованием костного геля и хирургической ленты."
+	homemade_treat_text = "Хотя это крайне сложно и медленно в исполнении, <b>Костный гель и хирургическая лента</b> могут быть нанесены непосредственно на рану, однако для большинства людей это практически невозможно выполнить самостоятельно, если только они не приняли одну или несколько <b>обезболивающих</b> (Известно, что морфин и мазь шахтёра могут помочь)"
 
 /datum/wound_pregen_data/bone/compound
 	abstract = FALSE
@@ -409,8 +412,8 @@
 // doesn't make much sense for "a" bone to stick out of your head
 /datum/wound/blunt/bone/critical/apply_wound(obj/item/bodypart/L, silent = FALSE, datum/wound/old_wound = null, smited = FALSE, attack_direction = null, wound_source = "Unknown", replacing = FALSE)
 	if(L.body_zone == BODY_ZONE_HEAD)
-		occur_text = "splits open, exposing a bare, cracked skull through the flesh and blood"
-		examine_desc = "has an unsettling indent, with bits of skull poking out"
+		occur_text = "раскрывается, обнажая голую, треснувшую черепную кость сквозь плоть и кровь"
+		examine_desc = "имеет тревожную вмятину, из которой торчат кусочки черепа"
 	. = ..()
 
 /// if someone is using bone gel on our wound
@@ -420,10 +423,10 @@
 		return skelly_gel(I, user)
 
 	if(gelled)
-		to_chat(user, span_warning("[user == victim ? "Your" : "[victim]'s"] [limb.plaintext_zone] is already coated with bone gel!"))
+		to_chat(user, span_warning("[user == victim ? "Ваш" : "[victim]"] [limb.plaintext_zone] уже покрыта костным гелем!"))
 		return TRUE
 
-	user.visible_message(span_danger("[user] begins hastily applying [I] to [victim]'s' [limb.plaintext_zone]..."), span_warning("You begin hastily applying [I] to [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone], disregarding the warning label..."))
+	user.visible_message(span_danger("[user] начинает в спешке наносить [I] на [limb.plaintext_zone] [victim]..."), span_warning("Вы начинаете в спешке наносить [I] на [user == victim ? "вашу" : "[victim]"] [limb.plaintext_zone], игнорируя предупреждающую наклейку..."))
 
 	if(!do_after(user, base_treat_time * 1.5 * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, PROC_REF(still_exists))))
 		return TRUE
@@ -431,12 +434,12 @@
 	I.use(1)
 	victim.emote("scream")
 	if(user != victim)
-		user.visible_message(span_notice("[user] finishes applying [I] to [victim]'s [limb.plaintext_zone], emitting a fizzing noise!"), span_notice("You finish applying [I] to [victim]'s [limb.plaintext_zone]!"), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] finishes applying [I] to your [limb.plaintext_zone], and you can feel the bones exploding with pain as they begin melting and reforming!"))
+		user.visible_message(span_notice("[user] заканчивает нанесение [I] на [limb.plaintext_zone] [victim]а, раздаётся шипящий звук!"), span_notice("Вы заканчиваете нанесение [I] на [limb.plaintext_zone] [victim]а!"), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] завершает нанесение [I] на вашу [limb.plaintext_zone], и вы чувствуете, как кости взрываются болью, когда начинают плавиться и реформироваться!"))
 	else
 		if(!HAS_TRAIT(victim, TRAIT_ANALGESIA))
 			if(prob(25 + (20 * (severity - 2)) - min(victim.get_drunk_amount(), 10))) // 25%/45% chance to fail self-applying with severe and critical wounds, modded by drunkenness
-				victim.visible_message(span_danger("[victim] fails to finish applying [I] to [victim.p_their()] [limb.plaintext_zone], passing out from the pain!"), span_notice("You pass out from the pain of applying [I] to your [limb.plaintext_zone] before you can finish!"))
+				victim.visible_message(span_danger("[victim] не успевает завершить нанесение [I] на [victim.p_their()] [limb.plaintext_zone], теряя сознание от боли!"), span_notice("Вы теряете сознание от боли при нанесении [I] на вашу [limb.plaintext_zone], не успев завершить!"))
 				victim.AdjustUnconscious(5 SECONDS)
 				return TRUE
 		victim.visible_message(span_notice("[victim] finishes applying [I] to [victim.p_their()] [limb.plaintext_zone], grimacing from the pain!"), span_notice("You finish applying [I] to your [limb.plaintext_zone], and your bones explode in pain!"))
@@ -449,20 +452,20 @@
 /// skellies are less averse to bone gel, since they're literally all bone
 /datum/wound/blunt/bone/proc/skelly_gel(obj/item/stack/medical/bone_gel/I, mob/user)
 	if(gelled)
-		to_chat(user, span_warning("[user == victim ? "Your" : "[victim]'s"] [limb.plaintext_zone] is already coated with bone gel!"))
+		to_chat(user, span_warning("[user == victim ? "Ваша" : "[victim]'s"] [limb.plaintext_zone] уже покрыта костным гелем!"))
 		return
 
-	user.visible_message(span_danger("[user] begins applying [I] to [victim]'s' [limb.plaintext_zone]..."), span_warning("You begin applying [I] to [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone]..."))
+	user.visible_message(span_danger("[user] начинает наносить [I] на [limb.plaintext_zone] [victim]..."), span_warning("Вы начинаете наносить [I] на [user == victim ? "свою" : "[victim]'s"] [limb.plaintext_zone]..."))
 
 	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, PROC_REF(still_exists))))
 		return
 
 	I.use(1)
 	if(user != victim)
-		user.visible_message(span_notice("[user] finishes applying [I] to [victim]'s [limb.plaintext_zone], emitting a fizzing noise!"), span_notice("You finish applying [I] to [victim]'s [limb.plaintext_zone]!"), ignored_mobs=victim)
-		to_chat(victim, span_userdanger("[user] finishes applying [I] to your [limb.plaintext_zone], and you feel a funny fizzy tickling as they begin to reform!"))
+		user.visible_message(span_notice("[user] завершает нанесение [I] на [limb.plaintext_zone] [victim], издавая шипящий звук!"), span_notice("Вы завершаете нанесение [I] на [limb.plaintext_zone] [victim]!"), ignored_mobs=victim)
+		to_chat(victim, span_userdanger("[user] завершает нанесение [I] на вашу [limb.plaintext_zone], и вы чувствуете странное щекочущее покалывание, пока кости начинают восстанавливаться!"))
 	else
-		victim.visible_message(span_notice("[victim] finishes applying [I] to [victim.p_their()] [limb.plaintext_zone], emitting a funny fizzing sound!"), span_notice("You finish applying [I] to your [limb.plaintext_zone], and feel a funny fizzy tickling as the bone begins to reform!"))
+		victim.visible_message(span_notice("[victim] завершает нанесение [I] на [victim.p_their()] [limb.plaintext_zone], издавая забавный шипящий звук!"), span_notice("Вы завершаете нанесение [I] на вашу [limb.plaintext_zone] и чувствуете странное щекочущее покалывание, пока кость начинает восстанавливаться!"))
 
 	gelled = TRUE
 	processes = TRUE
@@ -471,13 +474,13 @@
 /// if someone is using surgical tape on our wound
 /datum/wound/blunt/bone/proc/tape(obj/item/stack/sticky_tape/surgical/I, mob/user)
 	if(!gelled)
-		to_chat(user, span_warning("[user == victim ? "Your" : "[victim]'s"] [limb.plaintext_zone] must be coated with bone gel to perform this emergency operation!"))
+		to_chat(user, span_warning("[user == victim ? "Ваша" : "[victim]'s"] [limb.plaintext_zone] должна быть покрыта костным гелем, чтобы выполнить эту экстренную операцию!"))
 		return TRUE
 	if(taped)
-		to_chat(user, span_warning("[user == victim ? "Your" : "[victim]'s"] [limb.plaintext_zone] is already wrapped in [I.name] and reforming!"))
+		to_chat(user, span_warning("[user == victim ? "Ваша" : "[victim]'s"] [limb.plaintext_zone] уже обернута в [I.name] и восстанавливается!"))
 		return TRUE
 
-	user.visible_message(span_danger("[user] begins applying [I] to [victim]'s' [limb.plaintext_zone]..."), span_warning("You begin applying [I] to [user == victim ? "your" : "[victim]'s"] [limb.plaintext_zone]..."))
+	user.visible_message(span_danger("[user] начинает наносить [I] на [victim]'s [limb.plaintext_zone]..."), span_warning("Вы начинаете наносить [I] на [user == victim ? "вашу" : "[victim]'s"] [limb.plaintext_zone]..."))
 
 	if(!do_after(user, base_treat_time * (user == victim ? 1.5 : 1), target = victim, extra_checks=CALLBACK(src, PROC_REF(still_exists))))
 		return TRUE
@@ -487,10 +490,10 @@
 
 	I.use(1)
 	if(user != victim)
-		user.visible_message(span_notice("[user] finishes applying [I] to [victim]'s [limb.plaintext_zone], emitting a fizzing noise!"), span_notice("You finish applying [I] to [victim]'s [limb.plaintext_zone]!"), ignored_mobs=victim)
-		to_chat(victim, span_green("[user] finishes applying [I] to your [limb.plaintext_zone], you immediately begin to feel your bones start to reform!"))
+		user.visible_message(span_notice("[user] завершает нанесение [I] на [victim]'s [limb.plaintext_zone], издавая шипящий звук!"), span_notice("Вы завершаете нанесение [I] на [victim]'s [limb.plaintext_zone]!"), ignored_mobs=victim)
+		to_chat(victim, span_green("[user] завершает нанесение [I] на вашу [limb.plaintext_zone], и вы сразу начинаете чувствовать, как ваши кости начинают восстанавливаться!"))
 	else
-		victim.visible_message(span_notice("[victim] finishes applying [I] to [victim.p_their()] [limb.plaintext_zone], !"), span_green("You finish applying [I] to your [limb.plaintext_zone], and you immediately begin to feel your bones start to reform!"))
+		victim.visible_message(span_notice("[victim] завершает нанесение [I] на [victim.p_their()] [limb.plaintext_zone], !"), span_green("Вы завершаете нанесение [I] на вашу [limb.plaintext_zone], и вы сразу начинаете чувствовать, как ваши кости начинают восстанавливаться!"))
 
 	taped = TRUE
 	processes = TRUE
@@ -510,19 +513,19 @@
 	if(severity > WOUND_SEVERITY_MODERATE)
 		if((limb.biological_state & BIO_BONE) && !(limb.biological_state & BIO_FLESH))
 			if(!gelled)
-				. += "Recommended Treatment: Apply bone gel directly to injured limb. Creatures of pure bone don't seem to mind bone gel application nearly as much as fleshed individuals. Surgical tape will also be unnecessary.\n"
+				. += "Рекомендуемое лечение: Нанесите костный гель непосредственно на поврежденную конечность. Существо из костей, похоже, не так сильно реагирует на нанесение костного геля, как особь с плотью. Хирургический скотч также будет ненужен.\n"
 			else
-				. += "[span_notice("Note: Bone regeneration in effect. Bone is [round(regen_ticks_current*100/regen_ticks_needed)]% regenerated.")]\n"
+				. += "[span_notice("Примечание: Регенерация костей в процессе. Кости восстановлены на [round(regen_ticks_current*100/regen_ticks_needed)]%.")]\n"
 		else
 			if(!gelled)
-				. += "Alternative Treatment: Apply bone gel directly to injured limb, then apply surgical tape to begin bone regeneration. This is both excruciatingly painful and slow, and only recommended in dire circumstances.\n"
+				. += "Альтернативное лечение: Нанесите костный гель непосредственно на поврежденную конечность, затем нанесите хирургический скотч, чтобы начать регенерацию костей. Это крайне болезненно и медленно, рекомендуется только в крайних случаях.\n"
 			else if(!taped)
-				. += "[span_notice("Continue Alternative Treatment: Apply surgical tape directly to injured limb to begin bone regeneration. Note, this is both excruciatingly painful and slow, though sleep or laying down will speed recovery.")]\n"
+				. += "[span_notice("Продолжайте альтернативное лечение: Нанесите хирургический скотч непосредственно на поврежденную конечность, чтобы начать регенерацию костей. Обратите внимание, что это крайне болезненно и медленно, хотя сон или лежание ускорят восстановление.")]\n"
 			else
-				. += "[span_notice("Note: Bone regeneration in effect. Bone is [round(regen_ticks_current*100/regen_ticks_needed)]% regenerated.")]\n"
+				. += "[span_notice("Примечание: Регенерация костей в процессе. Кости восстановлены на [round(regen_ticks_current*100/regen_ticks_needed)]%.")]\n"
 
 	if(limb.body_zone == BODY_ZONE_HEAD)
-		. += "Cranial Trauma Detected: Patient will suffer random bouts of [severity == WOUND_SEVERITY_SEVERE ? "mild" : "severe"] brain traumas until bone is repaired."
+		. += "Обнаружена черепная травма: Пациент будет страдать от случайных приступов [severity == WOUND_SEVERITY_SEVERE ? "незначительных" : "серьезных"] травм головного мозга до восстановления кости."
 	else if(limb.body_zone == BODY_ZONE_CHEST && victim.blood_volume)
-		. += "Ribcage Trauma Detected: Further trauma to chest is likely to worsen internal bleeding until bone is repaired."
+		. += "Обнаружена травма грудной клетки: Дальнейшая травма груди, вероятно, усугубит внутреннее кровотечение до восстановления кости."
 	. += "</div>"

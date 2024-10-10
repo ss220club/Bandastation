@@ -27,14 +27,14 @@
 /// Will allow other players to take your eyes out of your head, and slipping
 /// will cause your brain to fall out of your head.
 /datum/wound/cranial_fissure
-	name = "Cranial Fissure"
-	desc = "Patient's crown is agape, revealing severe damage to the skull."
-	treat_text = "Surgical reconstruction of the skull is necessary."
-	treat_text_short = "Surgical reconstruction required."
-	examine_desc = "is split open"
-	occur_text = "is split into two separated chunks"
+	name = "Черепная трещина"
+	desc = "Кровля пациента разъята, открывая серьезные повреждения черепа."
+	treat_text = "Необходима хирургическая реконструкция черепа."
+	treat_text_short = "Необходима хирургическая реконструкция."
+	examine_desc = "разделен на две части"
+	occur_text = "разделен на две отделенные части"
 
-	simple_desc = "Patient's skull is split open."
+	simple_desc = "Череп пациента расколот."
 	threshold_penalty = 40
 
 	severity = WOUND_SEVERITY_CRITICAL
@@ -77,8 +77,8 @@
 	brain.throw_at(get_step(source_turf, source.dir), 1, 1)
 
 	source.visible_message(
-		span_boldwarning("[source]'s brain spills right out of [source.p_their()] head!"),
-		span_userdanger("Your brain spills right out of your head!"),
+		span_boldwarning("Мозг [source] вытекает из [source.p_their()] головы!"),
+		span_userdanger("Вы чувствуете, как ваш мозг вытекает из вашей головы!"),
 	)
 
 /datum/wound/cranial_fissure/try_handling(mob/living/user)
@@ -93,19 +93,19 @@
 
 	var/obj/item/organ/internal/eyes/eyes = victim.get_organ_by_type(/obj/item/organ/internal/eyes)
 	if (isnull(eyes))
-		victim.balloon_alert(user, "no eyes to take!")
+		victim.balloon_alert(user, "нет глаз для изъятия!")
 		return TRUE
 
 	playsound(victim, 'sound/items/handling/surgery/organ2.ogg', 50, TRUE)
-	victim.balloon_alert(user, "pulling out eyes...")
+	victim.balloon_alert(user, "вырывает глаза...")
 	user.visible_message(
-		span_boldwarning("[user] reaches inside [victim]'s skull..."),
+		span_boldwarning("[user] достигнает внутренности черепа [victim]..."),
 		ignored_mobs = user
 	)
 	victim.show_message(
-		span_userdanger("[victim] starts to pull out your eyes!"),
+		span_userdanger("[victim] начинает тянуть ваши глазаs!"),
 		MSG_VISUAL,
-		span_userdanger("An arm reaches inside your brain, and starts pulling on your eyes!"),
+		span_userdanger("Достигает внутренностей вашей головы и начинает тянуть глаза!"),
 	)
 
 	if (!do_after(user, 10 SECONDS, victim, extra_checks = CALLBACK(src, PROC_REF(still_has_eyes), eyes)))
@@ -114,19 +114,19 @@
 	eyes.Remove(victim)
 	user.put_in_hands(eyes)
 
-	log_combat(user, victim, "pulled out the eyes of")
+	log_combat(user, victim, "вытащил глаза)
 
 	playsound(victim, 'sound/items/handling/surgery/organ1.ogg', 75, TRUE)
 	user.visible_message(
-		span_boldwarning("[user] rips out [victim]'s eyes!"),
-		span_boldwarning("You rip out [victim]'s eyes!"),
+		span_boldwarning("[user] вырывает глаза [victim]!"),
+		span_boldwarning("Вы вырываете глаза [victim]!"),
 		ignored_mobs = victim,
 	)
 
 	victim.show_message(
-		span_userdanger("[user] rips out your eyes!"),
+		span_userdanger("[user] вырывает ваши глаза!"),
 		MSG_VISUAL,
-		span_userdanger("You feel an arm yank from inside your head, as you feel something very important is missing!"),
+		span_userdanger("Вы чувствуете, как рука выдёргивается из вашей головы, и понимаете, что что-то очень важное пропало!"),
 	)
 
 	return TRUE
