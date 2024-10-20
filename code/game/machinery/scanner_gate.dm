@@ -183,20 +183,20 @@
 			return
 		if(SCANGATE_WANTED)
 			if(ishuman(thing))
-				detected_thing = "Warrant"
+				detected_thing = "Ордер на задержание"
 				var/mob/living/carbon/human/scanned_human = thing
 				var/perpname = scanned_human.get_face_name(scanned_human.get_id_name())
 				var/datum/record/crew/target = find_record(perpname)
 				if(!target || (target.wanted_status == WANTED_ARREST))
 					beep = TRUE
 		if(SCANGATE_MINDSHIELD)
-			detected_thing = "Mindshield"
+			detected_thing = "Имплант защиты разума"
 			if(ishuman(thing))
 				var/mob/living/carbon/human/scanned_human = thing
 				if(HAS_TRAIT(scanned_human, TRAIT_MINDSHIELD))
 					beep = TRUE
 		if(SCANGATE_DISEASE)
-			detected_thing = "[disease_threshold] infection"
+			detected_thing = "Инфекция уровня «[disease_threshold]»"
 			if(iscarbon(thing))
 				var/mob/living/carbon/scanned_carbon = thing
 				if(get_disease_severity_value(scanned_carbon.check_virus()) >= get_disease_severity_value(disease_threshold))
@@ -236,11 +236,11 @@
 				if(is_species(scanned_human, scan_species))
 					beep = TRUE
 				if(detect_species == SCANGATE_ZOMBIE) //Can detect dormant zombies
-					detected_thing = "Romerol infection"
+					detected_thing = "Вирус Ромерола"
 					if(scanned_human.get_organ_slot(ORGAN_SLOT_ZOMBIE))
 						beep = TRUE
 		if(SCANGATE_GUNS)
-			detected_thing = "Weapons"
+			detected_thing = "Оружие"
 			if(isgun(thing))
 				beep = TRUE
 			else if(ishuman(thing))
@@ -251,7 +251,7 @@
 						if((!HAS_TRAIT(scanned_human, TRAIT_MINDSHIELD)) && (isnull(idcard) || !(ACCESS_WEAPONS in idcard.access))) // mindshield or ID card with weapons access, like bartender
 							beep = TRUE
 							break
-						say("[detected_thing] detection bypassed.")
+						say("Произведен пропуск сканирования на «[detected_thing]».")
 						break
 			else
 				for(var/obj/item/content in thing.get_all_contents_skipping_traits(TRAIT_CONTRABAND_BLOCKER))
@@ -263,13 +263,13 @@
 				var/mob/living/carbon/human/scanned_human = thing
 				if(scanned_human.nutrition <= detect_nutrition && detect_nutrition == NUTRITION_LEVEL_STARVING)
 					beep = TRUE
-					detected_thing = "Starvation"
+					detected_thing = "Голодание"
 				if(scanned_human.nutrition >= detect_nutrition && detect_nutrition == NUTRITION_LEVEL_FAT)
 					beep = TRUE
-					detected_thing = "Obesity"
+					detected_thing = "Ожирение"
 		if(SCANGATE_CONTRABAND)
 			for(var/obj/item/content in thing.get_all_contents_skipping_traits(TRAIT_CONTRABAND_BLOCKER))
-				detected_thing = "Contraband"
+				detected_thing = "Контрабанда"
 				if(content.is_contraband())
 					beep = TRUE
 					break
@@ -304,7 +304,7 @@
 		return
 
 	if(detected_thing)
-		say("[detected_thing][reverse ? " not " : " "]detected!!")
+		say("[detected_thing][reverse ? " не " : " "]было обнаружено!")
 
 	COOLDOWN_START(src, next_beep, 2 SECONDS)
 	playsound(source = src, soundin = 'sound/machines/scanner/scanbuzz.ogg', vol = 30, vary = FALSE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, falloff_distance = 4)
