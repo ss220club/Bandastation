@@ -1,0 +1,5 @@
+#include "_jobs.dm"
+
+#include "code/jobs/job_types/blueshield.dm"
+#include "code/jobs/job_types/magistrate.dm"
+#include "code/jobs/job_types/ntr.dm"
