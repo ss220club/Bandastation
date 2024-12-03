@@ -2,6 +2,9 @@
 
 #include "code/detective/detective.dm"
 #include "code/detective/forensics.dm"
-#include "code/jobs/job_types/blueshield.dm"
-#include "code/jobs/job_types/magistrate.dm"
-#include "code/jobs/job_types/ntr.dm"
+#include "code/blueshield/blueshield.dm"
+#include "code/magistrate/magistrate.dm"
+#include "code/ntr/ntr.dm"
+#include "code/blueshield/closet.dm"
+#include "code/blueshield/landmarks.dm"
+#include "code/blueshield/radio.dm"
