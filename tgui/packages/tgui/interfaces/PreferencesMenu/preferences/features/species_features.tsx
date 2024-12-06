@@ -86,6 +86,15 @@ export const feature_lizard_legs: FeatureChoiced = {
   },
 };
 
+export const feature_vulpkanin_legs: FeatureChoiced = {
+  name: 'Лапки',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
 export const feature_lizard_spines: FeatureChoiced = {
   name: 'Spines',
   component: (
@@ -121,5 +130,77 @@ export const feature_vampire_status: Feature<string> = {
 
 export const heterochromatic: Feature<string> = {
   name: 'Heterochromatic (Right Eye) color',
+  component: FeatureColorInput,
+};
+
+// BANDASTATION EDIT START
+
+export const feature_vulpkanin_tail: FeatureChoiced = {
+  name: 'Хвост',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const feature_vulpkanin_head_markings: FeatureChoiced = {
+  name: 'Раскраска головы',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_head_markings_color: Feature<string> = {
+  name: 'Раскраска головы - цвет',
+  component: FeatureColorInput,
+};
+
+export const vulpkanin_body_markings_color: Feature<string> = {
+  name: 'Раскраска тела - цвет',
+  component: FeatureColorInput,
+};
+
+export const feature_vulpkanin_head_accessories: FeatureChoiced = {
+  name: 'Кастомизация головы',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_head_accessories_color: Feature<string> = {
+  name: 'Кастомизация головы - цвет',
+  component: FeatureColorInput,
+};
+
+export const feature_vulpkanin_facial_hair: FeatureChoiced = {
+  name: 'Волосы на лице',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_facial_hair_color: Feature<string> = {
+  name: 'Волосы на лице - цвет',
+  component: FeatureColorInput,
+};
+
+export const feature_vulpkanin_tail_markings: FeatureChoiced = {
+  name: 'Хвост - раскраска',
+  component: (
+    props: FeatureValueProps<string, string, FeatureChoicedServerData>,
+  ) => {
+    return <FeatureDropdownInput buttons {...props} />;
+  },
+};
+
+export const vulpkanin_tail_markings_color: Feature<string> = {
+  name: 'Хвост - цвет',
   component: FeatureColorInput,
 };
