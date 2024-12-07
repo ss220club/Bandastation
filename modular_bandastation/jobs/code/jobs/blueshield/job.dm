@@ -8,7 +8,7 @@
 	spawn_positions = 0
 	supervisors = "Представитель НаноТрейзен и центральное командование"
 	minimal_player_age = 30
-	exp_requirements = 7200
+	exp_requirements = 1500
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND
 	exp_granted_type = EXP_TYPE_CREW
@@ -54,27 +54,25 @@
 	ears = /obj/item/radio/headset/blueshield/alt
 	glasses = /obj/item/clothing/glasses/hud/security/sunglasses
 	implants = list(/obj/item/implant/mindshield)
+
 	backpack = /obj/item/storage/backpack/blueshield
 	satchel = /obj/item/storage/backpack/satchel/blueshield
 	duffelbag = /obj/item/storage/backpack/duffelbag/blueshield
 
 	head = /obj/item/clothing/head/beret/blueshield
 	box = /obj/item/storage/box/survival/security
-	belt = /obj/item/storage/belt/security/blueshield
-	// l_pocket = /obj/item/sensor_device/blueshield
-	// r_pocket = /obj/item/modular_computer/pda/blueshield
+	l_pocket = /obj/item/modular_computer/pda/heads/blueshield
 
 /datum/outfit/plasmaman/blueshield
 	name = "Blueshield Plasmaman"
 	head = /obj/item/clothing/head/helmet/space/plasmaman/blueshield
 	uniform = /obj/item/clothing/under/plasmaman/blueshield
 
-/datum/job_department/nanotrasen_representation
-	department_name = "Представительство НаноТрейзен"
-	department_bitflags = /* DEPARTMENT_BITFLAG_NANOTRASEN_REPRESENTATION | */ DEPARTMENT_BITFLAG_COMMAND
-	department_head = /datum/job/ntr
-	department_experience_type = EXP_TYPE_COMMAND
-	display_order = 1.5
-	label_class = "nanotrasen_representation"
-	ui_color = "#0e60d1"
-	head_of_staff_access = ACCESS_CAPTAIN
+/obj/item/modular_computer/pda/heads/blueshield
+	name = "blueshield PDA"
+	greyscale_colors = "#0000cc#EA3232"
+	starting_programs = list(
+		/datum/computer_file/program/records/security,
+		/datum/computer_file/program/records/medical,
+		/datum/computer_file/program/robocontrol,
+	)
