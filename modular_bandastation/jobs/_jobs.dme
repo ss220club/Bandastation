@@ -1,0 +1,8 @@
+#include "_jobs.dm"
+
+#include "code/blueshield/blueshield.dm"
+#include "code/magistrate/magistrate.dm"
+#include "code/ntr/ntr.dm"
+#include "code/blueshield/closet.dm"
+#include "code/blueshield/landmarks.dm"
+#include "code/blueshield/radio.dm"
