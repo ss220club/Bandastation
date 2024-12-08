@@ -243,6 +243,10 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 
 	//Set news report and mode result
 	SSdynamic.set_round_result()
+	 /// BANDASTATION EDIT START - STORYTELLER
+	SSgamemode.round_end_report()
+	SSgamemode.store_roundend_data() // store data on roundend for next round
+	 /// BANDASTATION EDIT END - STORYTELLER
 
 	to_chat(world, span_infoplain(span_big(span_bold("<BR><BR><BR>The round has ended."))))
 	log_game("The round has ended.")
@@ -304,6 +308,9 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 //Common part of the report
 /datum/controller/subsystem/ticker/proc/build_roundend_report()
 	var/list/parts = list()
+
+	//might want to make this a full section
+	parts += "<div class='panel stationborder'><span class='header'>[("Storyteller: [SSgamemode.current_storyteller ? SSgamemode.current_storyteller.name : "N/A"]")]</span></div>" //BANDASTATION EDIT - STORYTELLER
 
 	//AI laws
 	parts += law_report()

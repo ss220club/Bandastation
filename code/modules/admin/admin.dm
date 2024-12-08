@@ -20,7 +20,10 @@
 		return
 
 	var/dat = "<center><B>Game Panel</B></center><hr>"
+	/// BANDASTATION EDIT START- STORYTELLER
+	/*
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
+
 		dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_ruleset_manage=1'>(Manage Dynamic Rulesets)</A><br>"
 		dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_roundstart=1'>(Force Roundstart Rulesets)</A><br>"
 		if (GLOB.dynamic_forced_roundstart_ruleset.len > 0)
@@ -30,8 +33,10 @@
 		dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_options=1'>(Dynamic mode options)</A><br>"
 	dat += "<hr/>"
 	if(SSticker.IsRoundInProgress())
-		dat += "<a href='?src=[REF(src)];[HrefToken()];gamemode_panel=1'>(Game Mode Panel)</a><BR>"
 		dat += "<A href='?src=[REF(src)];[HrefToken()];f_dynamic_ruleset_manage=1'>(Manage Dynamic Rulesets)</A><br>"
+		*/
+	dat += "<a href='byond://?src=[REF(src)];[HrefToken()];gamemode_panel=1'>(Game Mode Panel)</a><BR>"
+		/// BANDASTATION EDIT END - STORYTELLER
 	dat += {"
 		<BR>
 		<A href='?src=[REF(src)];[HrefToken()];create_object=1'>Create Object</A><br>
