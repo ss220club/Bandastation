@@ -4607,6 +4607,7 @@
 /area/station/maintenance/port/greater)
 "bjb" = (
 /obj/effect/turf_decal/tile/red,
+/obj/machinery/computer/cryopod/directional/south,
 /turf/open/floor/iron,
 /area/station/security/prison)
 "bje" = (
@@ -8165,6 +8166,9 @@
 /area/station/maintenance/ghetto/port)
 "cdr" = (
 /obj/effect/turf_decal/tile/green/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/cryopod{
 	dir = 4
 	},
 /turf/open/floor/iron/white,
@@ -28126,6 +28130,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron,
 /area/station/engineering/atmos/hfr_room)
+"hlh" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/red/half/contrasted,
+/obj/machinery/cryopod/prison/directional/south,
+/turf/open/floor/iron,
+/area/station/security/prison)
 "hll" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/blood,
@@ -32715,6 +32725,9 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 8
 	},
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "ivw" = (
@@ -34268,6 +34281,9 @@
 /area/station/medical/surgery/theatre)
 "iPy" = (
 /obj/effect/turf_decal/tile/green,
+/obj/machinery/cryopod{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "iPz" = (
@@ -39523,6 +39539,7 @@
 /obj/effect/turf_decal/tile/green/fourcorners,
 /obj/machinery/light/directional/north,
 /obj/machinery/holopad,
+/obj/machinery/computer/cryopod/directional/north,
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "kjI" = (
@@ -52169,6 +52186,9 @@
 /obj/effect/turf_decal/tile/green{
 	dir = 4
 	},
+/obj/machinery/cryopod{
+	dir = 4
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "nvj" = (
@@ -62150,6 +62170,9 @@
 	dir = 1
 	},
 /obj/machinery/light_switch/directional/east,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "pWG" = (
@@ -74867,6 +74890,9 @@
 	dir = 8
 	},
 /obj/machinery/airalarm/directional/east,
+/obj/machinery/cryopod{
+	dir = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/common/cryopods)
 "tqY" = (
@@ -180671,7 +180697,7 @@ uYG
 oxI
 gPp
 oZK
-nGb
+hlh
 rkC
 xSi
 tNX
