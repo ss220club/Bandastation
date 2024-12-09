@@ -4,6 +4,8 @@
 /datum/preferences
 	max_save_slots = 5
 	var/loadout_points = 0
+	///our current antag rep (base is 10)
+	var/antag_rep = 10
 
 /datum/preferences/proc/get_loadout_points()
 	var/donation_level = parent.donator_level
