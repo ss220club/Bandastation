@@ -6,6 +6,8 @@
 #include "code/platform.dm"
 #include "code/shuttles.dm"
 #include "code/wallets.dm"
+#include "code/containers.dm"
+#include "code/fake_light.dm"
 
 #include "code/clothing/eyes/eyes.dm"
 #include "code/clothing/gloves/gloves.dm"
@@ -33,6 +35,8 @@
 #include "code/structures/statues.dm"
 
 #include "code/vending/vending.dm"
+
+#include "code/mecha/mecha.dm"
 
 #include "code/weapons/ranged/awaymission_gun.dm"
 #include "code/weapons/melee/centcom/rapier.dm"
