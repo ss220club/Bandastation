@@ -119,7 +119,7 @@ SUBSYSTEM_DEF(vote)
 	)
 	log_vote("vote finalized", vote_log_data)
 	if(to_display)
-		to_chat(world, span_infoplain(vote_font("\n[to_display]")))
+		to_chat(world, "\n" + examine_block(span_infoplain(vote_font("[to_display]"))) + "\n", type = MESSAGE_TYPE_OOC) // BANDASTATION EDIT - STORYTELLER: wrap in examine block, use MESSAGE_TYPE_OOC
 
 	// Finally, doing any effects on vote completion
 	current_vote.finalize_vote(final_winner)
@@ -134,6 +134,10 @@ SUBSYSTEM_DEF(vote)
 		return
 	if(CONFIG_GET(flag/no_dead_vote) && voter.stat == DEAD && !voter.client?.holder)
 		return
+	// BANDASTATION EDIT START - STORYTELLER
+	if(!current_vote.can_vote(voter))
+		return
+	// BANDASTATION EDIT END - STORYTELLER
 
 	// If user has already voted, remove their specific vote
 	if(voter.ckey in current_vote.choices_by_ckey)
@@ -156,6 +160,10 @@ SUBSYSTEM_DEF(vote)
 		return
 	if(!voter?.ckey)
 		return
+	// BANDASTATION EDIT START - STORYTELLER
+	if(!current_vote.can_vote(voter))
+		return
+	// BANDASTATION EDIT END - STORYTELLER
 	if(CONFIG_GET(flag/no_dead_vote) && voter.stat == DEAD && !voter.client?.holder)
 		return
 
@@ -230,9 +238,9 @@ SUBSYSTEM_DEF(vote)
 	var/to_display = current_vote.initiate_vote(vote_initiator_name, duration)
 
 	log_vote(to_display)
-	to_chat(world, span_infoplain(vote_font("\n[span_bold(to_display)]\n\
+	to_chat(world, "\n" + examine_block(span_infoplain(vote_font("[span_bold(to_display)]\n\
 		Type <b>vote</b> or click <a href='byond://winset?command=vote'>here</a> to place your votes.\n\
-		You have [DisplayTimeText(duration)] to vote.")))
+		You have [DisplayTimeText(duration)] to vote."))) + "\n", type = MESSAGE_TYPE_OOC) // monkestation edit: wrap in examine block, use MESSAGE_TYPE_OOC
 
 	// And now that it's going, give everyone a voter action
 	for(var/client/new_voter as anything in GLOB.clients)
@@ -330,6 +338,11 @@ SUBSYSTEM_DEF(vote)
 			"message" = can_vote == VOTE_AVAILABLE ? vote.default_message : can_vote,
 		)
 
+		/// BANDASTATION EDIT START - STORYTELLER
+		if(vote.has_desc)
+			vote_data += list("desc" = vote.return_desc(vote_name))
+		/// BANDASTATION EDIT END - STORYTELLER
+
 		if(vote == current_vote)
 			var/list/choices = list()
 			for(var/key in current_vote.choices)
@@ -346,6 +359,7 @@ SUBSYSTEM_DEF(vote)
 				"displayStatistics" = current_vote.display_statistics,
 				"choices" = choices,
 				"vote" = vote_data,
+				"canVote" = current_vote.can_vote(user), // BANDASTATION EDIT - STORYTELLER
 			)
 
 		all_vote_data += list(vote_data)

@@ -86,8 +86,8 @@ SUBSYSTEM_DEF(events)
 			continue
 		if(!event_to_check.can_spawn_event(players_amt))
 			continue
-		if(event_to_check.weight < 0) //for round-start events etc.
-			var/res = TriggerEvent(event_to_check)
+		if(event_to_check.roundstart) //for round-start events etc.
+			var/res = SSgamemode.TriggerEvent(event_to_check)
 			if(res == EVENT_INTERRUPTED)
 				continue //like it never happened
 			if(res == EVENT_CANT_RUN)
@@ -100,12 +100,19 @@ SUBSYSTEM_DEF(events)
 		TriggerEvent(event_to_run)
 
 ///Does the last pre-flight checks for the passed event, and runs it if the event is ready.
+
 /datum/controller/subsystem/events/proc/TriggerEvent(datum/round_event_control/event_to_trigger)
 	. = event_to_trigger.preRunEvent()
 	if(. == EVENT_CANT_RUN)//we couldn't run this event for some reason, set its max_occurrences to 0
 		event_to_trigger.max_occurrences = 0
 	else if(. == EVENT_READY)
-		event_to_trigger.run_event(random = TRUE)
+		/// BANDASTATION EDIT START - STORYTELLER
+		//event_to_trigger.run_event(random = TRUE)
+		message_admins("<font color='[COLOR_DARK_MODERATE_LIME_GREEN]'>SSevents</font> runs and try to buy a event: [event_to_trigger.name]!")
+		log_game("<font color='[COLOR_DARK_MODERATE_LIME_GREEN]'>SSevents</font> runs and try to buy a event: [event_to_trigger.name]!")
+		SSgamemode.current_storyteller.try_buy_event(src)
+		/// BANDASTATION EDIT END - STORYTELLER
+
 
 ///Toggles whether or not wizard events will be in the event pool, and sends a notification to the admins.
 /datum/controller/subsystem/events/proc/toggleWizardmode()
