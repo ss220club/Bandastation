@@ -290,7 +290,7 @@ SUBSYSTEM_DEF(garbage)
 		LAZYADD(type_info.extra_details, detail)
 
 	var/tick_usage = TICK_USAGE
-	del(D)
+	// del(D) // BANDASTATION REMOVE
 	tick_usage = TICK_USAGE_TO_MS(tick_usage)
 
 	type_info.hard_deletes++
