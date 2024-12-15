@@ -26,7 +26,7 @@
 /obj/structure/closet/secure_closet/blueshield
 	name = "blueshield's locker"
 	icon_state = "bs"
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/closet.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/closet.dmi'
 	req_access = list(ACCESS_BLUESHIELD)
 
 /obj/structure/closet/secure_closet/blueshield/New()

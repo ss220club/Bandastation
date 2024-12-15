@@ -150,9 +150,7 @@ export const JobSelection = (props) => {
                   <StyleableSection
                     title={
                       <>
-                        {DEPARTMENTS_RU[departmentName]
-                          ? DEPARTMENTS_RU[departmentName]
-                          : departmentName}
+                        {DEPARTMENTS_RU[departmentName] || departmentName}
                         <span
                           style={{
                             fontSize: '1rem',

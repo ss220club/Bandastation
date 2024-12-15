@@ -1,5 +1,5 @@
 /datum/job_department/nanotrasen_representation
-	department_name = "Представительство НТ"
+	department_name = "NT_Representation"
 	department_bitflags = /* DEPARTMENT_BITFLAG_NANOTRASEN_REPRESENTATION | */ DEPARTMENT_BITFLAG_COMMAND
 	department_head = /datum/job/ntr
 	department_experience_type = EXP_TYPE_COMMAND

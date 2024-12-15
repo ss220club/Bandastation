@@ -1,16 +1,16 @@
 /obj/item/clothing/head/helmet/space/plasmaman/blueshield
 	name = "blueshield envirosuit helmet"
 	desc = "A plasmaman containment helmet designed for certified blueshields, who's job guarding heads should not include self-combustion... most of the time."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/plasmaman_hats.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/plasmaman_head.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/plasmaman_hats.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/plasmaman_head.dmi'
 	icon_state = "blueshield_envirohelm"
 	armor_type = /datum/armor/suit_armor
 
 /obj/item/clothing/under/plasmaman/blueshield
 	name = "blueshield envirosuit"
 	desc = "A plasmaman containment suit designed for certified blueshields, offering a limited amount of extra protection."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/plasmaman.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/plasmaman.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/plasmaman.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/plasmaman.dmi'
 	icon_state = "blueshield_envirosuit"
 	armor_type = /datum/armor/clothing_under/under_plasmaman_blueshield
 	sensor_mode = SENSOR_COORDS
@@ -39,38 +39,38 @@
 /obj/item/storage/backpack/blueshield
 	name = "blueshield backpack"
 	desc = "A robust backpack issued to Nanotrasen's finest."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/backpacks.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/back.dmi'
-	lefthand_file = 'modular_bandastation/jobs/icons/blueshield/mob/backpack_lefthand.dmi'
-	righthand_file = 'modular_bandastation/jobs/icons/blueshield/mob/backpack_righthand.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/backpacks.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/back.dmi'
+	lefthand_file = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/backpack_lefthand.dmi'
+	righthand_file = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/backpack_righthand.dmi'
 	icon_state = "backpack_blueshield"
 	inhand_icon_state = "backpack_blueshield"
 
 /obj/item/storage/backpack/satchel/blueshield
 	name = "blueshield satchel"
 	desc = "A robust satchel issued to Nanotrasen's finest."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/backpacks.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/back.dmi'
-	lefthand_file = 'modular_bandastation/jobs/icons/blueshield/mob/backpack_lefthand.dmi'
-	righthand_file = 'modular_bandastation/jobs/icons/blueshield/mob/backpack_righthand.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/backpacks.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/back.dmi'
+	lefthand_file = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/backpack_lefthand.dmi'
+	righthand_file = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/backpack_righthand.dmi'
 	icon_state = "satchel_blueshield"
 	inhand_icon_state = "satchel_blueshield"
 
 /obj/item/storage/backpack/duffelbag/blueshield
 	name = "blueshield duffelbag"
 	desc = "A robust duffelbag issued to Nanotrasen's finest."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/backpacks.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/back.dmi'
-	lefthand_file = 'modular_bandastation/jobs/icons/blueshield/mob/backpack_lefthand.dmi'
-	righthand_file = 'modular_bandastation/jobs/icons/blueshield/mob/backpack_righthand.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/backpacks.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/back.dmi'
+	lefthand_file = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/backpack_lefthand.dmi'
+	righthand_file = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/backpack_righthand.dmi'
 	icon_state = "duffel_blueshield"
 	inhand_icon_state = "duffel_blueshield"
 
 /obj/item/clothing/suit/armor/vest/blueshield
 	name = "blueshield's armor"
 	desc = "A tight-fitting kevlar-lined vest with a blue badge on the chest of it."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/armor.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/armor.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/armor.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/armor.dmi'
 	icon_state = "blueshield_armor"
 	body_parts_covered = CHEST
 	unique_reskin = list(
@@ -82,8 +82,8 @@
 /obj/item/clothing/suit/armor/vest/blueshield_jacket
 	name = "blueshield's jacket"
 	desc = "An expensive kevlar-lined jacket with a golden badge on the chest and \"NT\" emblazoned on the back. It weighs surprisingly little, despite how heavy it looks."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/armor.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/armor.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/armor.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/armor.dmi'
 	icon_state = "blueshield"
 	body_parts_covered = CHEST|ARMS
 
@@ -94,8 +94,8 @@
 /obj/item/clothing/suit/hooded/wintercoat/blueshield
 	name = "blueshield's winter coat"
 	desc = "A comfy kevlar-lined coat with blue highlights, fit to keep the blueshield armored and warm."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/wintercoat.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/wintercoat.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/wintercoat.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/wintercoat.dmi'
 	icon_state = "coat_blueshield"
 	hoodtype = /obj/item/clothing/head/hooded/winterhood/blueshield
 	armor_type = /datum/armor/suit_armor
@@ -106,8 +106,8 @@
 
 /obj/item/clothing/head/hooded/winterhood/blueshield
 	desc = "A comfy kevlar-lined hood to go with the comfy kevlar-lined coat."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/winterhood.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/winterhood.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/winterhood.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/winterhood.dmi'
 	icon_state = "hood_blueshield"
 	armor_type = /datum/armor/suit_armor
 
@@ -121,8 +121,8 @@
 	acid = 50
 
 /obj/item/clothing/under/rank/blueshield
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/blueshield.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/blueshield.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/blueshield.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/blueshield.dmi'
 	name = "blueshield's suit"
 	desc = "A classic bodyguard's suit, with custom-fitted Blueshield-Blue cuffs and a Nanotrasen insignia over one of the pockets."
 	icon_state = "blueshield"
@@ -177,8 +177,8 @@
 /obj/item/clothing/neck/cloak/blueshield
 	name = "blueshield's cloak"
 	desc = "A cloak fit for only the best of bodyguards."
-	icon = 'modular_bandastation/jobs/icons/blueshield/obj/neck.dmi'
-	worn_icon = 'modular_bandastation/jobs/icons/blueshield/mob/neck.dmi'
+	icon = 'modular_bandastation/jobs/jobs/blueshield/icons/obj/neck.dmi'
+	worn_icon = 'modular_bandastation/jobs/jobs/blueshield/icons/mob/neck.dmi'
 	icon_state = "blueshield_cloak"
 
 /obj/item/radio/headset/blueshield
