@@ -3,6 +3,9 @@
 // NT Representation department
 #include "code/departments/nt_representation.dm"
 
+// Captain
+#include "code/job_types/captain/trim.dm"
+
 // Blueshield job
 #include "code/job_types/blueshield/access_helpers.dm"
 #include "code/job_types/blueshield/areas.dm"
@@ -15,13 +18,22 @@
 #include "code/job_types/detective/detective.dm"
 #include "code/job_types/detective/forensics.dm"
 
+// Head of Security
+#include "code/job_types/head_of_security/trim.dm"
+
 // Magistrate job
 #include "code/job_types/magistrate/job.dm"
 
-// NanoTrasen Representative job
+// Nanotrasen Representative job
 #include "code/job_types/nanotrasen_representative/access_helpers.dm"
 #include "code/job_types/nanotrasen_representative/areas.dm"
 #include "code/job_types/nanotrasen_representative/job.dm"
 #include "code/job_types/nanotrasen_representative/landmarks.dm"
 #include "code/job_types/nanotrasen_representative/pda.dm"
 #include "code/job_types/nanotrasen_representative/trim.dm"
+
+// Research Scientist
+#include "code/job_types/research_director/trim.dm"
+
+// Scientist
+#include "code/job_types/scientist/trim.dm"
