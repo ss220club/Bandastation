@@ -7,7 +7,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "Центральное Командование"
-	minimal_player_age = 30
+	minimal_player_age = 14
 	exp_requirements = 1500
 	exp_required_type = EXP_TYPE_CREW
 	exp_required_type_department = EXP_TYPE_COMMAND

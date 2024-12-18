@@ -1,0 +1,1 @@
+#define EXP_TYPE_NANOTRASEN_REPRESENTATION "Nanotrasen Representation"
