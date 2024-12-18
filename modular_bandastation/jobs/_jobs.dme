@@ -1,29 +1,36 @@
 #include "_jobs.dm"
 
 // NT Representation department
-#include "departments/nt_representation.dm"
+#include "code/departments/nt_representation.dm"
 
 // Blueshield job
-#include "jobs/blueshield/code/__DEFINES/access.dm"
-#include "jobs/blueshield/code/__DEFINES/atom_hud.dm"
-#include "jobs/blueshield/code/__DEFINES/jobs.dm"
-#include "jobs/blueshield/code/access_helpers.dm"
-#include "jobs/blueshield/code/areas.dm"
-#include "jobs/blueshield/code/closet.dm"
-#include "jobs/blueshield/code/clothing.dm"
-#include "jobs/blueshield/code/job.dm"
-#include "jobs/blueshield/code/landmarks.dm"
-#include "jobs/blueshield/code/outfit.dm"
-#include "jobs/blueshield/code/pda.dm"
-#include "jobs/blueshield/code/radio.dm"
-#include "jobs/blueshield/code/trim.dm"
+#include "code/job_types/blueshield/access_helpers.dm"
+#include "code/job_types/blueshield/areas.dm"
+#include "code/job_types/blueshield/job.dm"
+#include "code/job_types/blueshield/landmarks.dm"
+#include "code/job_types/blueshield/pda.dm"
+#include "code/job_types/blueshield/trim.dm"
 
 // Detective job
-#include "jobs/detective/code/detective.dm"
-#include "jobs/detective/code/forensics.dm"
+#include "code/job_types/detective/detective.dm"
+#include "code/job_types/detective/forensics.dm"
 
 // Magistrate job
-#include "jobs/magistrate/code/magistrate.dm"
+#include "code/job_types/magistrate/job.dm"
 
 // NanoTrasen Representative job
-#include "jobs/ntr/code/ntr.dm"
+#include "code/job_types/nanotrasen_representative/access_helpers.dm"
+#include "code/job_types/nanotrasen_representative/areas.dm"
+#include "code/job_types/nanotrasen_representative/job.dm"
+#include "code/job_types/nanotrasen_representative/landmarks.dm"
+#include "code/job_types/nanotrasen_representative/pda.dm"
+#include "code/job_types/nanotrasen_representative/trim.dm"
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+// END_INCLUDE
