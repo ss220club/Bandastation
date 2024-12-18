@@ -25,12 +25,3 @@
 #include "code/job_types/nanotrasen_representative/landmarks.dm"
 #include "code/job_types/nanotrasen_representative/pda.dm"
 #include "code/job_types/nanotrasen_representative/trim.dm"
-// BEGIN_INTERNALS
-// END_INTERNALS
-// BEGIN_FILE_DIR
-#define FILE_DIR .
-// END_FILE_DIR
-// BEGIN_PREFERENCES
-// END_PREFERENCES
-// BEGIN_INCLUDE
-// END_INCLUDE
