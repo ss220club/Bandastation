@@ -10,6 +10,8 @@
 	extra_wildcard_access = list()
 	minimal_access = list(
 		ACCESS_ALL_PERSONAL_LOCKERS,
+		ACCESS_MAGISTRATE,
+		ACCESS_LAWYER,
 		ACCESS_ARMORY,
 		ACCESS_AUX_BASE,
 		ACCESS_BIT_DEN,

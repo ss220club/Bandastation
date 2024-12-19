@@ -5,3 +5,4 @@
 	departments_list = list(
 		/datum/job_department/procedure,
 	)
+	outfit = /datum/outfit/job/lawyer_formal

@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/magistrate
 	name = "magistrate's locker"
-	// icon_state = "magistrate"
+	icon_state = "magistrate"
 	icon = 'modular_bandastation/objects/icons/obj/storage/closet.dmi'
 	req_access = list(ACCESS_MAGISTRATE)
 

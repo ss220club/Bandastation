@@ -1,6 +1,6 @@
 /obj/structure/closet/secure_closet/nanotrasen_representative
 	name = "nanotrasen representative's locker"
-	// icon_state = "nanotrasen_representative"
+	icon_state = "nanotrasen_representative"
 	icon = 'modular_bandastation/objects/icons/obj/storage/closet.dmi'
 	req_access = list(ACCESS_NANOTRASEN_REPRESENTATIVE)
 

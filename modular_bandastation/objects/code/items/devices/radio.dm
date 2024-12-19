@@ -2,7 +2,7 @@
 /obj/item/encryptionkey/heads/blueshield
 	name = "blueshield's encryption key"
 	icon_state = "cypherkey_centcom"
-	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1)
+	channels = list(RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_SECURITY = 1, RADIO_CHANNEL_PROCEDURE = 1)
 	greyscale_config = /datum/greyscale_config/encryptionkey_centcom
 	greyscale_colors = "#1d2657#dca01b"
 
@@ -78,6 +78,6 @@
 /obj/item/radio/headset/lawyer
 	name = "lawyer's headset"
 	desc = "Простой наушник адвоката, имеющий доступ к процедурному каналу и каналу безопасности."
-	icon_state = "srvsec_headset"
-	worn_icon_state = "srvsec_headset"
+	icon_state = "procedure_headset"
+	worn_icon_state = "procedure_headset"
 	keyslot = /obj/item/encryptionkey/lawyer
