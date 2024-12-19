@@ -77,7 +77,7 @@
 
 /obj/item/radio/headset/lawyer
 	name = "lawyer's headset"
-	desc = "Простой наушник адвоката, имеющий доступ к процедурному каналу и каналу безопасности."
+	desc = "Простой наушник юриста, имеющий доступ к процедурному каналу и каналу безопасности."
 	icon_state = "procedure_headset"
 	worn_icon_state = "procedure_headset"
 	keyslot = /obj/item/encryptionkey/lawyer

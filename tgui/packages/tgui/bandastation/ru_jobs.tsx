@@ -42,7 +42,7 @@ export const JOBS_RU = {
   Clown: 'Клоун',
   Mime: 'Мим',
   Curator: 'Куратор',
-  Lawyer: 'Адвокат',
+  Lawyer: 'Юрист',
   Chaplain: 'Священник',
   Psychologist: 'Психолог',
 };
