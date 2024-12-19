@@ -117,3 +117,12 @@
 
 /datum/id_trim/job/human_ai
 	assignment = JOB_HUMAN_AI_RU
+
+/datum/id_trim/job/nanotrasen_representative
+	assignment = JOB_NANOTRASEN_REPRESENTATIVE_RU
+
+/datum/id_trim/job/blueshield
+	assignment = JOB_BLUESHIELD_RU
+
+/datum/id_trim/job/magistrate
+	assignment = JOB_MAGISTRATE_RU

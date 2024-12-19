@@ -127,8 +127,8 @@
 
 /obj/machinery/telecomms/server/presets/security
 	id = "Security Server"
-	freq_listening = list(FREQ_SECURITY)
-	autolinkers = list("security")
+	freq_listening = list(FREQ_SECURITY, FREQ_PROCEDURE)
+	autolinkers = list("security", "procedure")
 
 /obj/machinery/telecomms/server/presets/common/birdstation/Initialize(mapload)
 	. = ..()

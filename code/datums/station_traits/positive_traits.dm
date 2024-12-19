@@ -294,6 +294,9 @@
 		/datum/job/shaft_miner = /obj/item/organ/monster_core/rush_gland,
 		/datum/job/station_engineer = /obj/item/organ/cyberimp/arm/toolset,
 		/datum/job/warden = /obj/item/organ/cyberimp/eyes/hud/security,
+		/datum/job/nanotrasen_representative = /obj/item/organ/cyberimp/arm/paperwork, // BANDASTATION ADD - Jobs Module
+		/datum/job/blueshield = /obj/item/organ/cyberimp/arm/flash, // BANDASTATION ADD - Jobs Module
+		/datum/job/magistrate = /obj/item/organ/cyberimp/arm/paperwork, // BANDASTATION ADD - Jobs Module
 	)
 
 /datum/station_trait/cybernetic_revolution/New()
