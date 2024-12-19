@@ -31,20 +31,20 @@
 	greyscale_config = /datum/greyscale_config/encryptionkey_centcom
 	greyscale_colors = "#1d2657#dca01b"
 
-/obj/item/radio/headset/nanotrasen_representative
+/obj/item/radio/headset/heads/nanotrasen_representative
 	name = "nanotrasen representative's headset"
 	desc = "The headset of the guy who keeps the administration alive."
 	icon_state = "com_headset"
 	worn_icon_state = "com_headset"
 	keyslot = /obj/item/encryptionkey/heads/nanotrasen_representative
 
-/obj/item/radio/headset/nanotrasen_representative/alt
+/obj/item/radio/headset/heads/nanotrasen_representative/alt
 	name = "nanotrasen representative's bowman headset"
 	desc = "The headset of the guy who keeps the administration alive. Protects your ears from flashbangs."
 	icon_state = "com_headset_alt"
 	worn_icon_state = "com_headset_alt"
 
-/obj/item/radio/headset/nanotrasen_representative/alt/Initialize(mapload)
+/obj/item/radio/headset/heads/nanotrasen_representative/alt/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/wearertargeting/earprotection, list(ITEM_SLOT_EARS))
 
