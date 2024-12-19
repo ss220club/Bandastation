@@ -41,7 +41,6 @@
 #include "orderables/_orderables.dme"
 #include "automatic_crew_transfer/_automatic_crew_transfer.dme"
 #include "outfits/_outfits.dme"
-#include "jobs/_jobs.dme"
 #include "overrides/_overrides.dme"
 
 

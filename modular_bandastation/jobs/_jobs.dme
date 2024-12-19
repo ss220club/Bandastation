@@ -36,9 +36,6 @@
 #include "code/job_types/magistrate/pda.dm"
 #include "code/job_types/magistrate/trim.dm"
 
-// Magistrate job
-#include "code/job_types/magistrate/job.dm"
-
 // Nanotrasen Representative job
 #include "code/job_types/nanotrasen_representative/access_helpers.dm"
 #include "code/job_types/nanotrasen_representative/areas.dm"

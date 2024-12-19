@@ -20,7 +20,6 @@
 #include "code/items/clothing/suits/jobs.dm"
 #include "code/items/clothing/suits/wintercoats.dm"
 #include "code/items/clothing/under/jobs/blueshield.dm"
-#include "code/items/clothing/under/jobs/magistrate.dm"
 #include "code/items/clothing/under/jobs/centcom.dm"
 #include "code/items/clothing/under/jobs/magistrate.dm"
 #include "code/items/clothing/under/jobs/nanotrasen_representative.dm"
