@@ -1,5 +1,5 @@
 /datum/id_trim/job/blueshield
-	assignment = "Blueshield"
+	assignment = JOB_BLUESHIELD
 	trim_icon = 'modular_bandastation/jobs/icons/obj/card.dmi'
 	trim_state = "trim_blueshield"
 	department_color = COLOR_COMMAND_BLUE

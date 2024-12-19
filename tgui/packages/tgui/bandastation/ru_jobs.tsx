@@ -2,11 +2,14 @@ export const JOBS_RU = {
   Assistant: 'Ассистент',
   Prisoner: 'Заключенный',
   Captain: 'Капитан',
+  'Nanotrasen Representative': 'Представитель Нанотрейзен',
   'Head of Personnel': 'Глава персонала',
   'Head of Security': 'Глава службы безопасности',
   'Research Director': 'Директор исследований',
   'Chief Engineer': 'Главный инженер',
   'Chief Medical Officer': 'Главный врач',
+  Blueshield: 'Офицер «Синий щит»',
+  Magistrate: 'Магистрат',
   AI: 'ИИ',
   Cyborg: 'Киборг',
   'Personal AI': 'Персональный ИИ',
@@ -58,6 +61,8 @@ export function ReverseJobsRu(value: string) {
 
 export const DEPARTMENTS_RU = {
   Command: 'Командование',
+  'NT Representation': 'Представительство НТ',
+  Procedure: 'Процедурный',
   Security: 'Безопасность',
   Service: 'Обслуживание',
   Cargo: 'Снабжение',

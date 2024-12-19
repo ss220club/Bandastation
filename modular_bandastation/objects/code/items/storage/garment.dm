@@ -37,3 +37,16 @@
 	new /obj/item/clothing/under/rank/nanotrasen_representative/skirt(src)
 	new /obj/item/clothing/under/rank/nanotrasen_representative/formal(src)
 	new /obj/item/clothing/under/suit/nanotrasen_representative_female_suit(src)
+
+/obj/item/storage/bag/garment/magistrate
+	name = "magistrate's garment bag"
+	desc = "A bag for storing extra clothes and shoes. This one belongs to the magistrate."
+
+/obj/item/storage/bag/garment/magistrate/PopulateContents()
+	new /obj/item/clothing/under/rank/magistrate(src)
+	new /obj/item/clothing/under/rank/magistrate/skirt(src)
+	new /obj/item/clothing/under/rank/magistrate/formal(src)
+	new /obj/item/clothing/suit/magirobe(src)
+	new /obj/item/clothing/shoes/laceup(src)
+	new /obj/item/clothing/glasses/sunglasses(src)
+	new /obj/item/clothing/gloves/color/white(src)

@@ -60,3 +60,4 @@
 	name = "blueshield's formal suit"
 	desc = "A formal bodyguard's suit, with custom-fitted Blueshield-Blue cuffs and a Nanotrasen insignia over one of the pockets."
 	icon_state = "blueshield_formal"
+	can_adjust = FALSE

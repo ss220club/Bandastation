@@ -3,6 +3,9 @@
 // NT Representation department
 #include "code/departments/nt_representation.dm"
 
+// Procedure department
+#include "code/departments/procedure.dm"
+
 // Captain
 #include "code/job_types/captain/trim.dm"
 
@@ -18,8 +21,20 @@
 #include "code/job_types/detective/detective.dm"
 #include "code/job_types/detective/forensics.dm"
 
+// Lawyer
+#include "code/job_types/lawyer/job.dm"
+#include "code/job_types/lawyer/trim.dm"
+
 // Head of Security
 #include "code/job_types/head_of_security/trim.dm"
+
+// Magistrate
+#include "code/job_types/magistrate/access_helpers.dm"
+#include "code/job_types/magistrate/areas.dm"
+#include "code/job_types/magistrate/job.dm"
+#include "code/job_types/magistrate/landmarks.dm"
+#include "code/job_types/magistrate/pda.dm"
+#include "code/job_types/magistrate/trim.dm"
 
 // Magistrate job
 #include "code/job_types/magistrate/job.dm"

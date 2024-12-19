@@ -1,11 +1,10 @@
 /obj/structure/closet/secure_closet/nanotrasen_representative
 	name = "nanotrasen representative's locker"
 	// icon_state = "nanotrasen_representative"
-	// icon = 'modular_bandastation/jobs/job_types/nanotrasen_representative/icons/obj/closet.dmi'
+	icon = 'modular_bandastation/objects/icons/obj/storage/closet.dmi'
 	req_access = list(ACCESS_NANOTRASEN_REPRESENTATIVE)
 
-/obj/structure/closet/secure_closet/nanotrasen_representative/New()
-	..()
+/obj/structure/closet/secure_closet/nanotrasen_representative/PopulateContents()
 	new /obj/item/storage/briefcase/secure(src)
 	new /obj/item/radio/headset/headset_cent(src)
 	new /obj/item/radio/headset/headset_cent/alt(src)

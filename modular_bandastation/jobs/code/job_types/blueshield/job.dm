@@ -1,8 +1,8 @@
 /datum/job/blueshield
-	title = "Blueshield"
+	title = JOB_BLUESHIELD
 	description = "Персональная охрана глав"
-	department_head = list("Центральное Командование")
-	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY|DEADMIN_POSITION_HEAD
+	department_head = list("Представитель Нанотрейзен")
+	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	faction = FACTION_STATION
 	total_positions = 1
 	spawn_positions = 1
@@ -26,7 +26,7 @@
 	bounty_types = CIV_JOB_SEC
 	departments_list = list(
 		/datum/job_department/nanotrasen_representation,
-		/datum/job_department/security
+		/datum/job_department/security,
 	)
 
 	family_heirlooms = list(/obj/item/bedsheet/captain, /obj/item/clothing/head/beret/blueshield)
@@ -39,4 +39,4 @@
 	)
 
 	rpg_title = "Guard"
-	job_flags = STATION_JOB_FLAGS|JOB_CANNOT_OPEN_SLOTS
+	job_flags = STATION_JOB_FLAGS | JOB_CANNOT_OPEN_SLOTS

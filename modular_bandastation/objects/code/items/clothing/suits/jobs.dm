@@ -6,6 +6,16 @@
 	worn_icon = 'modular_bandastation/objects/icons/mob/clothing/suits/jacket.dmi'
 	icon_state = "nanotrasen_representative"
 
+// Magistrate
+/obj/item/clothing/suit/magirobe
+	name = "magistrate's robe"
+	desc = "An opulent robe that commands authority. Issued only to licensed magistrates."
+	icon_state = "magirobe"
+	worn_icon_state = "magirobe"
+	icon = 'modular_bandastation/objects/icons/obj/clothing/suits/magistrate.dmi'
+	worn_icon = 'modular_bandastation/objects/icons/mob/clothing/suits/magistrate.dmi'
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
+
 // Roboticist
 /obj/item/clothing/suit/toggle/jacket/roboticist
 	name = "roboticist's jacket"

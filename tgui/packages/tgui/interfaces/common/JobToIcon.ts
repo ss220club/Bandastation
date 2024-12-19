@@ -58,4 +58,5 @@ export const JOB2ICON = {
   Warden: 'handcuffs',
   Blueshield: 'shield',
   'NanoTrasen Representative': 'user-tie',
+  Magistrate: 'scale-balanced',
 } as const;

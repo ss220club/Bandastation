@@ -83,7 +83,7 @@
 	if(!payload?["channel"] || !payload["entry"])
 		CRASH("[usr] entered in a null payload to the chat window.")
 	if(length(payload["entry"]) > max_length)
-		CRASH("[usr] has entered more characters than allowed into a TGUI-Say")
+		CRASH("[usr] has enцtered more characters than allowed into a TGUI-Say")
 	if(type == "entry")
 		delegate_speech(payload["entry"], payload["channel"])
 		return TRUE

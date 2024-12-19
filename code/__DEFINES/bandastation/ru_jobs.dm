@@ -11,6 +11,12 @@
 #define JOB_CHIEF_MEDICAL_OFFICER_RU "Главный врач"
 #define JOB_BRIDGE_ASSISTANT_RU "Bridge Assistant"
 #define JOB_VETERAN_ADVISOR_RU "Veteran Security Advisor"
+//NT Reprsentation
+#define JOB_NANOTRASEN_REPRESENTATIVE_RU "Представитель Нанотрейзен"
+#define JOB_BLUESHIELD_RU "Офицер «Синий щит»"
+//Procedure
+#define JOB_MAGISTRATE_RU "Магистрат"
+#define JOB_LAWYER_RU "Адвокат"
 //Silicon
 #define JOB_AI_RU "ИИ"
 #define JOB_CYBORG_RU "Киборг"
@@ -51,7 +57,6 @@
 #define JOB_CLOWN_RU "Клоун"
 #define JOB_MIME_RU "Мим"
 #define JOB_CURATOR_RU "Куратор"
-#define JOB_LAWYER_RU "Адвокат"
 #define JOB_CHAPLAIN_RU "Священник"
 #define JOB_PSYCHOLOGIST_RU "Психолог"
 
@@ -68,6 +73,12 @@ GLOBAL_LIST_INIT(job_titles_ru, list(
 	JOB_CHIEF_MEDICAL_OFFICER = JOB_CHIEF_MEDICAL_OFFICER_RU,
 	JOB_BRIDGE_ASSISTANT = JOB_BRIDGE_ASSISTANT_RU,
 	JOB_VETERAN_ADVISOR = JOB_VETERAN_ADVISOR_RU,
+	//NT Representation
+	JOB_NANOTRASEN_REPRESENTATIVE = JOB_NANOTRASEN_REPRESENTATIVE_RU,
+	JOB_BLUESHIELD = JOB_BLUESHIELD_RU,
+	//Procedure
+	JOB_MAGISTRATE = JOB_MAGISTRATE_RU,
+	JOB_LAWYER = JOB_LAWYER_RU,
 	//Silicon
 	JOB_AI = JOB_AI_RU,
 	JOB_CYBORG = JOB_CYBORG_RU,
@@ -108,7 +119,6 @@ GLOBAL_LIST_INIT(job_titles_ru, list(
 	JOB_CLOWN = JOB_CLOWN_RU,
 	JOB_MIME = JOB_MIME_RU,
 	JOB_CURATOR = JOB_CURATOR_RU,
-	JOB_LAWYER = JOB_LAWYER_RU,
 	JOB_CHAPLAIN = JOB_CHAPLAIN_RU,
 	JOB_PSYCHOLOGIST = JOB_PSYCHOLOGIST_RU,
 ))

@@ -86,11 +86,9 @@ export const JobEntry = (data: {
       <>
         {jobIcon && <Icon style={{ marginRight: '0.1em' }} name={jobIcon} />}
         {job.command ? (
-          <b>{JOBS_RU[jobName] ? JOBS_RU[jobName] : jobName}</b>
-        ) : JOBS_RU[jobName] ? (
-          JOBS_RU[jobName]
+          <b>{JOBS_RU[jobName] || jobName}</b>
         ) : (
-          jobName
+          JOBS_RU[jobName] || jobName
         )}
         <span
           style={{

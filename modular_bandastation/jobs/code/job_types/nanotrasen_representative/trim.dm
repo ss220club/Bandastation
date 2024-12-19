@@ -1,5 +1,5 @@
 /datum/id_trim/job/nanotrasen_representative
-	assignment = "Nanotrasen Representative"
+	assignment = JOB_NANOTRASEN_REPRESENTATIVE
 	trim_icon = 'modular_bandastation/jobs/icons/obj/card.dmi'
 	trim_state = "trim_nanotrasen_representative"
 	department_color = COLOR_CENTCOM_BLUE
@@ -33,3 +33,5 @@
 		ACCESS_CHANGE_IDS
 	)
 	job = /datum/job/nanotrasen_representative
+	big_pointer = TRUE
+	pointer_color = COLOR_CENTCOM_BLUE

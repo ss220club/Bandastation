@@ -1,5 +1,5 @@
 /datum/job/nanotrasen_representative
-	title = "NanoTrasen Representative"
+	title = "Nanotrasen Representative"
 	description = "Следите за работой глав, держите связь с Центральным Командованием, следите за выполнением задач смены"
 	department_head = list("Центральное Командование")
 	auto_deadmin_role_flags = DEADMIN_POSITION_HEAD
