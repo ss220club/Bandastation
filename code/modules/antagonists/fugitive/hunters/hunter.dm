@@ -20,7 +20,7 @@
 /datum/antagonist/fugitive_hunter/forge_objectives() //this isn't an actual objective because it's about round end rosters
 	var/datum/objective/capture = new /datum/objective
 	capture.owner = owner
-	capture.explanation_text = "Capture the fugitives in the station and put them into the bluespace capture machine on your ship."
+	capture.explanation_text = "Отловите беглецов на станции и поместите их в bluespace capture machine на вашем корабле."
 	objectives += capture
 
 /datum/antagonist/fugitive_hunter/greet()

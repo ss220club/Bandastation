@@ -72,14 +72,14 @@
 
 /datum/objective/loot
 	var/obj/machinery/computer/piratepad_control/cargo_hold
-	explanation_text = "Acquire valuable loot and store it in the designated area."
+	explanation_text = "Соберите ценную добычу и храните ее в специально отведенном месте."
 	var/target_value = 50000
 
 
 /datum/objective/loot/update_explanation_text()
 	if(cargo_hold)
 		var/area/storage_area = get_area(cargo_hold)
-		explanation_text = "Acquire loot and store [target_value] of credits worth in [storage_area.name] cargo hold."
+		explanation_text = "Соберите ценную добычу и сохраните [target_value] кредитов в грузовом отсеке [storage_area.name]."
 
 /datum/objective/loot/proc/loot_listing()
 	//Lists notable loot.

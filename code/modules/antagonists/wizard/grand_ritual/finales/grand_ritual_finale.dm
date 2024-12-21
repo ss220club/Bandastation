@@ -57,7 +57,7 @@
 	var/datum/objective/assassinate/wizard_murder = new
 	wizard_murder.owner = aggrieved_crewmate
 	wizard_murder.target = wizard
-	wizard_murder.explanation_text = "Kill [wizard.current.name], the one who did this."
+	wizard_murder.explanation_text = "Убейте [wizard.current.name], того, кто это сделал."
 	antag_datum.objectives += wizard_murder
 
 	to_chat(aggrieved_crewmate.current, span_warning("No! This isn't right!"))

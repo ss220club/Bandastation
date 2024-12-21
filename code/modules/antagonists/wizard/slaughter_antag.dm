@@ -8,7 +8,7 @@
 	show_to_ghosts = TRUE
 	antagpanel_category = ANTAG_GROUP_WIZARDS
 	var/fluff = "You're a Demon of Wrath, often dragged into reality by wizards to terrorize their enemies."
-	var/objective_verb = "Kill"
+	var/objective_verb = "Убейте"
 	var/datum/mind/summoner
 
 /datum/antagonist/slaughter/on_gain()
@@ -25,11 +25,11 @@
 		var/datum/objective/assassinate/new_objective = new /datum/objective/assassinate
 		new_objective.owner = owner
 		new_objective.target = summoner
-		new_objective.explanation_text = "[objective_verb] [summoner.name], the one who summoned you."
+		new_objective.explanation_text = "[objective_verb] [summoner.name], того, кто осмелился призвать вас."
 		objectives += new_objective
 	var/datum/objective/new_objective2 = new /datum/objective
 	new_objective2.owner = owner
-	new_objective2.explanation_text = "[objective_verb] everyone[summoner ? " else while you're at it":""]."
+	new_objective2.explanation_text = "[objective_verb] всех[summoner ? " остальных, раз уж вы этим занимаетесь":""]."
 	objectives += new_objective2
 
 /datum/antagonist/slaughter/ui_static_data(mob/user)
@@ -65,5 +65,5 @@
 
 /datum/antagonist/slaughter/laughter
 	name = "Laughter demon"
-	objective_verb = "Hug and Tickle"
+	objective_verb = "Обнимите и защекотайте"
 	fluff = "You're a Demon of Envy, sometimes dragged into reality by wizards as a way to cause wanton chaos."

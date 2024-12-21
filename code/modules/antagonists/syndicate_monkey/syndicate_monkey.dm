@@ -32,6 +32,6 @@
 /datum/antagonist/syndicate_monkey/forge_objectives(mob/monky_master)
 	var/datum/objective/syndicate_monkey/objective = new
 	objective.monky_master = monky_master
-	objective.explanation_text = "You are a badass monkey syndicate agent. Protect and obey all of your master [monky_master]'s orders!"
+	objective.explanation_text = "Вы - суперкрутой агент обезьяньего синдиката. Защищайте и выполняйте все приказы своего хозяина [monky_master]!"
 	objective.owner = owner
 	objectives += objective

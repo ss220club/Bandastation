@@ -672,7 +672,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 		if (!custom_name)
 			return
 		steal_target = custom_target
-		explanation_text = "Steal [custom_name]."
+		explanation_text = "Украдите [custom_name]."
 
 	else
 		set_target(new_target)
@@ -713,7 +713,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 
 /datum/objective/capture/update_explanation_text()
 	. = ..()
-	explanation_text = "Capture [target_amount] lifeform\s with an energy net. Live, rare specimens are worth more."
+	explanation_text = "Захватите [target_amount] жизненных форм с помощью энергетической сети. Живые, редкие образцы стоят дороже."
 
 /datum/objective/capture/check_completion()//Basically runs through all the mobs in the area to determine how much they are worth.
 	var/captured_amount = 0

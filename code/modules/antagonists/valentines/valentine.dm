@@ -88,4 +88,4 @@
 	human_check = FALSE
 
 /datum/objective/protect/valentine/update_explanation_text()
-	explanation_text = "Protect [target.name], your date."
+	explanation_text = "Защити [target.name], свою пару."

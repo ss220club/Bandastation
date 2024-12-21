@@ -39,17 +39,17 @@
 
 /datum/objective/bitrunning_glitch_fluff/New()
 	var/list/explanation_texts = list(
-		"Execute termination protocol on unauthorized entities.",
-		"Initialize system purge of irregular anomalies.",
-		"Deploy correction algorithms on aberrant code.",
-		"Run debug routine on intruding elements.",
-		"Start elimination procedure for system threats.",
-		"Execute defense routine against non-conformity.",
-		"Commence operation to neutralize intruding scripts.",
-		"Commence clean-up protocol on corrupt data.",
-		"Begin scan for aberrant code for termination.",
-		"Initiate lockdown on all rogue scripts.",
-		"Run integrity check and purge for digital disorder."
+		"Выполните протокол завершения для несанкционированных сущностей.",
+		"Инициализируйте системный сброс от нерегулярных аномалий.",
+		"Разверните алгоритмы коррекции на аномальном коде.",
+		"Запустите отладочную процедуру для вторгающихся элементов.",
+		"Начните процедуру устранения системных угроз.",
+		"Выполните защитную процедуру против несоответствий.",
+		"Начните операцию по ликвидации вредоносного кода.",
+		"Начните протокол очистки для поврежденных данных.",
+		"Начните сканирование на аномальный код для нейтрализации.",
+		"Инициируйте блокировку неавторизованного сценария.",
+		"Запустите проверку целостности и очистку для цифрового беспорядка."
 	)
 	explanation_text = pick(explanation_texts)
 	return ..()
