@@ -36,11 +36,13 @@
 		if (ruleset.weight == 0)
 			continue
 
+		/// BANDASTATION EDIT START - STORYTELLER
 		if (ruleset.cost > max_threat_level)
 			continue
 
 		if (!ruleset.acceptable(GLOB.alive_player_list.len, threat_level))
 			continue
+		/// BANDASTATION EDIT END - STORYTELLER
 
 		if (ruleset.minimum_round_time > world.time - SSticker.round_start_time)
 			continue
