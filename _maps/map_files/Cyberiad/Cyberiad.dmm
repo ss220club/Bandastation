@@ -3437,11 +3437,11 @@
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/captain)
 "aTN" = (
-/obj/structure/table/glass,
 /obj/item/taperecorder{
 	pixel_x = -6;
 	pixel_y = 4
 	},
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/light{
 	icon_state = "light_on-7";
 	state = 7;
@@ -7920,6 +7920,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock,
 /obj/effect/mapping_helpers/airlock/autoname,
+/obj/effect/mapping_helpers/airlock/access/all/service/bar,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "cbm" = (
@@ -20754,10 +20755,10 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/ghetto/south)
 "fnW" = (
-/obj/structure/table/glass,
 /obj/item/toy/cards/deck{
 	pixel_y = 4
 	},
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/light{
 	icon_state = "light_on-7";
 	state = 7;
@@ -21328,6 +21329,7 @@
 /obj/effect/mapping_helpers/airlock/autoname,
 /obj/effect/mapping_helpers/airlock/access/all/service/bar,
 /obj/machinery/door/firedoor,
+/obj/effect/mapping_helpers/airlock/access/all/service/kitchen,
 /turf/open/floor/iron/dark,
 /area/station/service/bar)
 "fwa" = (
@@ -27627,7 +27629,7 @@
 /turf/open/floor/wood,
 /area/station/security/courtroom)
 "hfy" = (
-/obj/structure/table/glass,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/light{
 	icon_state = "light_on-7";
 	state = 7;
@@ -47541,8 +47543,8 @@
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
 "miT" = (
-/obj/structure/table/glass,
 /obj/item/storage/dice,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/light{
 	icon_state = "light_on-7";
 	state = 7;
@@ -68488,8 +68490,8 @@
 /turf/open/floor/plating,
 /area/station/maintenance/ghetto/central/fore)
 "rHD" = (
-/obj/structure/table/glass,
 /obj/item/clothing/head/utility/hardhat/cakehat,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/light{
 	icon_state = "light_on-7";
 	state = 7;
