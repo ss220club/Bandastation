@@ -1,0 +1,11 @@
+// BEGIN_INTERNALS
+// END_INTERNALS
+// BEGIN_FILE_DIR
+#define FILE_DIR .
+// END_FILE_DIR
+// BEGIN_PREFERENCES
+// END_PREFERENCES
+// BEGIN_INCLUDE
+#include "_lizardcustom.dm"
+#include "code\lizardcustom.dm"
+// END_INCLUDE
