@@ -252,7 +252,7 @@ const JobRow = (props: { className?: string; job: Job; name: string }) => {
 
 const Department = (props: { department: string } & PropsWithChildren) => {
   const { children, department: name } = props;
-  const className = `PreferencesMenu__Jobs__departments--${name}`;
+  const className = `PreferencesMenu__Jobs__departments--${name.replace(' ', '')}`;
 
   return (
     <ServerPreferencesFetcher
@@ -384,6 +384,10 @@ export const JobsPage = () => {
                 <Gap amount={6} />
               </Department>
 
+              <Department department="NT Representation">
+                <Gap amount={6} />
+              </Department>
+
               <Department department="Service">
                 <Gap amount={6} />
               </Department>
@@ -397,6 +401,10 @@ export const JobsPage = () => {
               <PriorityHeaders />
 
               <Department department="Security">
+                <Gap amount={6} />
+              </Department>
+
+              <Department department="Justice">
                 <Gap amount={6} />
               </Department>
 

@@ -1,4 +1,20 @@
-// MARK: Jacket //
+// Nanotrasen Representative
+/obj/item/clothing/suit/toggle/nanotrasen_representative
+	name = "Nanotrasen Representative jacket"
+	desc = "A fancy black jacket; standard issue to Nanotrasen Representatives."
+	icon = 'modular_bandastation/objects/icons/obj/clothing/suits/jacket.dmi'
+	worn_icon = 'modular_bandastation/objects/icons/mob/clothing/suits/jacket.dmi'
+	icon_state = "nanotrasen_representative"
+
+// Magistrate
+/obj/item/clothing/suit/magirobe
+	name = "magistrate's robe"
+	desc = "An opulent robe that commands authority. Issued only to licensed magistrates."
+	icon_state = "magirobe"
+	worn_icon_state = "magirobe"
+	icon = 'modular_bandastation/objects/icons/obj/clothing/suits/magistrate.dmi'
+	worn_icon = 'modular_bandastation/objects/icons/mob/clothing/suits/magistrate.dmi'
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 
 // Roboticist
 /obj/item/clothing/suit/toggle/jacket/roboticist

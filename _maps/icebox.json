@@ -47,6 +47,15 @@
 		},
 		"Cook": {
 			"additional_cqc_areas": ["/area/station/service/bar/atrium"]
-		}
+		},
+		"Nanotrasen Representative": {
+            "spawn_positions": 1
+        },
+        "Blueshield": {
+            "spawn_positions": 1
+        },
+        "Magistrate": {
+            "spawn_positions": 1
+        }
 	}
 }

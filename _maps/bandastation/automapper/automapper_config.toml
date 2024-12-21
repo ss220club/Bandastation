@@ -25,7 +25,58 @@ required_map = "builtin"
 coordinates = [12, 53, 1]
 trait_name = "CentCom"
 
-# IceBoxStation Detective's Office
+# DeltaStation
+[templates.deltastation_lawyer_office.dmm]
+map_files = ["deltastation_lawyer_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [123, 143, 1]
+trait_name = "Station"
+
+[templates.deltastation_magistrate_office.dmm]
+map_files = ["deltastation_magistrate_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [185, 122, 1]
+trait_name = "Station"
+
+[templates.deltastation_ntr_blueshield_office.dmm]
+map_files = ["deltastation_ntr_blueshield_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [146, 108, 1]
+trait_name = "Station"
+
+# MetaStation
+[templates.metastation_laywer_office]
+map_files = ["metastation_laywer_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [57, 119, 1]
+trait_name = "Station"
+
+[templates.metastation_magistrate_office]
+map_files = ["metastation_magistrate_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [119, 151, 1]
+trait_name = "Station"
+
+[templates.metastation_ntr_blueshield_office]
+map_files = ["metastation_ntr_blueshield_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/metastation/"
+required_map = "birdshot.dmm"
+coordinates = [101, 115, 1]
+trait_name = "Station"
+
+# IceBoxStation
+[templates.iceboxstation_blueshield_office]
+map_files = ["iceboxstation_blueshield_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [99, 154, 3]
+trait_name = "Station"
+
 [templates.iceboxstation_detective_office]
 map_files = ["iceboxstation_detective_office.dmm"]
 directory = "_maps/bandastation/automapper/templates/iceboxstation/"
@@ -33,7 +84,21 @@ required_map = "IceBoxStation.dmm"
 coordinates = [86, 161, 2]
 trait_name = "Station"
 
-# TramStation Detective's Office
+[templates.iceboxstation_magistrate_office]
+map_files = ["iceboxstation_magistrate_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [99, 150, 2]
+trait_name = "Station"
+
+[templates.iceboxstation_ntr_office]
+map_files = ["iceboxstation_ntr_office.dmm"]
+directory = "_maps/bandastation/automapper/templates/iceboxstation/"
+required_map = "IceBoxStation.dmm"
+coordinates = [92, 147, 2]
+trait_name = "Station"
+
+# TramStation
 [templates.tramstation_detective_office]
 map_files = ["tramstation_detective_office.dmm"]
 directory = "_maps/bandastation/automapper/templates/tramstation/"

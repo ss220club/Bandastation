@@ -145,6 +145,15 @@
 /// Access to the Lawyer's office.
 #define ACCESS_LAWYER "lawyer"
 
+// BANDASTATION ADD - START Jobs Module
+/// Access to Blueshield's office and closet
+#define ACCESS_BLUESHIELD "blueshield"
+/// Access to Nanotrasen Representative's office and closet
+#define ACCESS_NANOTRASEN_REPRESENTATIVE "nanotrasen_representative"
+/// Access to Magistrate's office and closet
+#define ACCESS_MAGISTRATE "magistrate"
+// BANDASTATION ADD - END
+
 /// - - - AWAY MISSIONS - - -
 /*For generic away-mission/ruin access. Why would normal crew have access to a long-abandoned derelict
 	or a 2000 year-old temple? */
@@ -365,6 +374,9 @@
 	ACCESS_HOP, \
 	ACCESS_QM, \
 	ACCESS_RD, \
+	ACCESS_BLUESHIELD, \
+	ACCESS_NANOTRASEN_REPRESENTATIVE, \
+	ACCESS_MAGISTRATE, \
 )
 
 /// Captains private rooms. Do not use direct, access via SSid_access.get_flag_access_list(ACCESS_FLAG_CAPTAIN)

@@ -84,13 +84,11 @@ export const JobEntry = (data: {
       }}
     >
       <>
-        {jobIcon && <Icon name={jobIcon} />}
+        {jobIcon && <Icon style={{ marginRight: '0.1em' }} name={jobIcon} />}
         {job.command ? (
-          <b>{JOBS_RU[jobName] ? JOBS_RU[jobName] : jobName}</b>
-        ) : JOBS_RU[jobName] ? (
-          JOBS_RU[jobName]
+          <b>{JOBS_RU[jobName] || jobName}</b>
         ) : (
-          jobName
+          JOBS_RU[jobName] || jobName
         )}
         <span
           style={{
@@ -150,9 +148,7 @@ export const JobSelection = (props) => {
                   <StyleableSection
                     title={
                       <>
-                        {DEPARTMENTS_RU[departmentName]
-                          ? DEPARTMENTS_RU[departmentName]
-                          : departmentName}
+                        {DEPARTMENTS_RU[departmentName] || departmentName}
                         <span
                           style={{
                             fontSize: '1rem',

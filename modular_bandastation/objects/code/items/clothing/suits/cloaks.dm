@@ -55,3 +55,10 @@
 	офицерского убранства - пафос и защиту. Линейка этих дорогих плащей встречается у крайне состоятельных членов старшего офицерского состава."
 	icon_state = "centcom_admiral"
 
+// Blueshield
+/obj/item/clothing/neck/cloak/blueshield
+	name = "blueshield's cloak"
+	desc = "A cloak fit for only the best of bodyguards."
+	icon = 'modular_bandastation/objects/icons/obj/clothing/cloaks.dmi'
+	worn_icon = 'modular_bandastation/objects/icons/mob/clothing/cloaks.dmi'
+	icon_state = "blueshield_cloak"

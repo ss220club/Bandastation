@@ -294,6 +294,11 @@
 		/datum/job/shaft_miner = /obj/item/organ/monster_core/rush_gland,
 		/datum/job/station_engineer = /obj/item/organ/cyberimp/arm/toolset,
 		/datum/job/warden = /obj/item/organ/cyberimp/eyes/hud/security,
+		// BANDASTATION ADD - START
+		/datum/job/nanotrasen_representative = /obj/item/organ/cyberimp/arm/paperwork,
+		/datum/job/blueshield = /obj/item/organ/cyberimp/arm/flash,
+		/datum/job/magistrate = /obj/item/organ/cyberimp/arm/paperwork,
+		// BANDASTATION ADD - END
 	)
 
 /datum/station_trait/cybernetic_revolution/New()

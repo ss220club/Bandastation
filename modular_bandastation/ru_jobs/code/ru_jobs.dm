@@ -146,3 +146,15 @@
 /datum/job/chaplain/New()
 	. = ..()
 	alternate_titles += list(JOB_CHAPLAIN_RU)
+
+/datum/job/nanotrasen_representative/New()
+	. = ..()
+	alternate_titles += list(JOB_NANOTRASEN_REPRESENTATIVE_RU)
+
+/datum/job/blueshield/New()
+	. = ..()
+	alternate_titles += list(JOB_BLUESHIELD_RU)
+
+/datum/job/magistrate/New()
+	. = ..()
+	alternate_titles += list(JOB_MAGISTRATE_RU)
