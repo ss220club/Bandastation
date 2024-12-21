@@ -79,6 +79,7 @@
 		ready = PLAYER_NOT_READY
 		return FALSE
 
+	SStitle.hide_title_screen_from(client) // BANDASTATION ADDITION - HTML Title Screen
 	var/mob/dead/observer/observer = new()
 	spawning = TRUE
 
@@ -282,6 +283,7 @@
 	. = new_character
 	if(!.)
 		return
+	SStitle.hide_title_screen_from(client) // BANDASTATION ADDITION - HTML Title Screen
 	new_character.key = key //Manually transfer the key to log them in,
 	new_character.stop_sound_channel(CHANNEL_LOBBYMUSIC)
 	var/area/joined_area = get_area(new_character.loc)
