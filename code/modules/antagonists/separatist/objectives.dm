@@ -19,7 +19,7 @@
 	if(target_team)
 		explanation_text = "Make sure no member of [target_team] ([target_team.department.department_name]) nation escapes alive!"
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 
 /datum/objective/destroy_nation/check_completion()
 	if(!target_team)

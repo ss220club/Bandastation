@@ -46,7 +46,7 @@
 /datum/antagonist/fugitive/forge_objectives() //this isn't the actual survive objective because it's about who in the team survives
 	var/datum/objective/survive = new /datum/objective
 	survive.owner = owner
-	survive.explanation_text = "Avoid capture from the fugitive hunters."
+	survive.explanation_text = "Не будьте пойманы охотниками за беглецами."
 	objectives += survive
 
 /datum/antagonist/fugitive/greet(back_story)

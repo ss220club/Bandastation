@@ -307,7 +307,7 @@
 
 /datum/objective/convert_brother
 	name = "convert brother"
-	explanation_text = "Convert a brainwashable person using your flash on them directly. Any handheld flash will work if you lose or break your starting flash."
+	explanation_text = "Конвертируйте лицо, поддающееся промывке мозгов, используя вашу флешку на него. Любая портативная флешка подойдет, если вы потеряете или сломаете свою."
 	admin_grantable = FALSE
 	martyr_compatible = TRUE
 

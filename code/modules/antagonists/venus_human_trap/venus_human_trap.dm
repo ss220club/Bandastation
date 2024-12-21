@@ -15,7 +15,7 @@
 	owner.announce_objectives()
 
 /datum/objective/venus_human_trap
-	explanation_text = "Spread the infestation."
+	explanation_text = "Распространяйте инфекцию."
 
 /datum/objective/venus_human_trap/check_completion()
 	return owner.current.stat != DEAD

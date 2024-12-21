@@ -46,14 +46,14 @@
 
 /datum/objective/voidwalker_objective/New()
 	var/list/explanation_texts = list(
-		"Show them the beauty of the void. Drag them into the cosmic abyss, then impart the truth of the void unto them. Seek to enlighten, not destroy.",
-		"They must see what you have seen. They must walk where you have walked. Bring them to the void and show them the truth. The dead cannot know what you know.",
-		"Recover what you have lost. Bring your children into the inky black and return them to your flock.",
+		"Покажите им красоту пустоты. Затащите их в космическую бездну, а затем откройте им истину пустоты. Стремитесь просветить, а не уничтожить.",
+		"Они должны увидеть то, что видели вы. Они должны пройти там, где прошли вы. Приведите их в пустоту и покажите им истину. Мертвые не могут знать того, что знаете вы.",
+		"Восстановите то, что потеряли. Приведите своих детей в непроглядную темноту и верните их в свою семью.",
 	)
 	explanation_text = pick(explanation_texts)
 
 	if(prob(5))
-		explanation_text = "Man I fucking love glass."
+		explanation_text = "Я бля обожаю стекло."
 	..()
 
 /datum/objective/voidwalker_objective/check_completion()
