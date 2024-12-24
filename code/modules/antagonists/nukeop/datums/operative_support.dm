@@ -48,7 +48,7 @@
 	to_chat(new_teammate, span_notice("You have been equipped with a bodycam, viewable by your Overwatch Intelligence Agent. Make sure to show them a good performance!"))
 
 /datum/objective/overwatch
-	explanation_text = "Provide intelligence support and overwatch to your operative team!"
+	explanation_text = "Обеспечьте оперативную группу разведывательной информацией и осуществляйте наблюдение за выполнением поставленных задач!"
 
 /datum/objective/overwatch/check_completion()
 	return GLOB.station_was_nuked

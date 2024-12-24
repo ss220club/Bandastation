@@ -20,7 +20,7 @@
 	owner.announce_objectives()
 /datum/objective/blob_minion
 	name = "protect the blob core"
-	explanation_text = "Protect the blob core at all costs."
+	explanation_text = "Защищайте ядро блоба любой ценой."
 	var/datum/weakref/overmind
 
 /datum/objective/blob_minion/check_completion()

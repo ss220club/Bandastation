@@ -92,9 +92,9 @@
 /datum/objective/assassinate/paradox_clone/update_explanation_text()
 	. = ..()
 	if(!target?.current)
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 		CRASH("WARNING! [ADMIN_LOOKUPFLW(owner)] paradox clone objectives forged without an original!")
-	explanation_text = "Murder and replace [target.name], [!target_role_type ? job_title_ru(target.assigned_role.title) : target.special_role]. Remember, your mission is to blend in, do not kill anyone else unless you have to!"
+	explanation_text = "Убейте и замените [target.name], [!target_role_type ? job_title_ru(target.assigned_role.title) : target.special_role]. Помните, ваша миссия - слиться с толпой, не убивайте никого, если только это будет необходимо!"
 
 ///Static bluespace stream used in its ghost poll icon.
 /obj/effect/bluespace_stream

@@ -84,7 +84,7 @@
 /datum/objective/escape_captivity
 
 /datum/objective/escape_captivity/New()
-	explanation_text = "Escape from captivity."
+	explanation_text = "Сбегите из плена."
 
 /datum/objective/escape_captivity/check_completion()
 	if(!istype(get_area(owner), GLOB.communications_controller.captivity_area))
@@ -93,7 +93,7 @@
 /datum/objective/advance_hive
 
 /datum/objective/advance_hive/New()
-	explanation_text = "Survive and advance the Hive."
+	explanation_text = "Выживите и развивайте Улей."
 
 /datum/objective/advance_hive/check_completion()
 	return owner.current.stat != DEAD

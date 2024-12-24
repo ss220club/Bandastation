@@ -21,12 +21,12 @@
 	owner.announce_objectives()
 
 /datum/objective/spider
-	explanation_text = "Spread the infestation."
+	explanation_text = "Распространяйте инфекцию."
 
 /datum/objective/spider/New(directive)
 	..()
 	if(directive)
-		explanation_text = "Your queen has given you a directive! Follow it at all costs: [directive]"
+		explanation_text = "Ваша королева дала вам указание! Выполните его любой ценой: [directive]"
 
 /datum/objective/spider/check_completion()
 	return owner.current.stat != DEAD
@@ -43,7 +43,7 @@
 /datum/antagonist/spider/flesh/forge_objectives()
 	var/datum/objective/custom/destroy = new()
 	destroy.owner = owner
-	destroy.explanation_text = "Wreak havoc and consume living flesh."
+	destroy.explanation_text = "Несите хаос и поглощайте живую плоть."
 	objectives += destroy
 
 	var/datum/objective/survive/dont_die = new()
