@@ -203,6 +203,9 @@
 	var/robotic_emp_paralyze_damage_percent_threshold = 0.3
 	/// A potential texturing overlay to put on the limb
 	var/datum/bodypart_overlay/texture/texture_bodypart_overlay
+	// BANDASTATION EDIT START
+	var/species_bodytype
+	// BANDASTATION EDIT STOP
 
 /obj/item/bodypart/apply_fantasy_bonuses(bonus)
 	. = ..()
