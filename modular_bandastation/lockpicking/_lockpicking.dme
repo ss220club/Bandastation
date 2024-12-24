@@ -1,0 +1,3 @@
+#include "_lockpicking.dm"
+
+#include "code/lockpicking.dm"
