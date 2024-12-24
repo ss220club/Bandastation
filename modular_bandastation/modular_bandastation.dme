@@ -42,6 +42,7 @@
 #include "automatic_crew_transfer/_automatic_crew_transfer.dme"
 #include "outfits/_outfits.dme"
 #include "overrides/_overrides.dme"
+#include "species/_species.dme"
 
 
 // --- PRIME --- //
