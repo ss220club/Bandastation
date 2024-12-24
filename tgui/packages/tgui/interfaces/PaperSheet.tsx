@@ -848,7 +848,7 @@ export class PreviewView extends Component<PreviewViewProps> {
       // writing implements.
       input.style.fontFamily = fontFace;
       input.style.color = fontColor;
-      return `[${input.outerHTML}]`;
+      return `${input.outerHTML}`;
     }
 
     // If we don't, make a new one.
@@ -860,6 +860,10 @@ export class PreviewView extends Component<PreviewViewProps> {
     input.style.color = fontColor;
     input.style.minWidth = `${width}px`;
     input.style.maxWidth = `${width}px`;
+    input.style.border = '0';
+    input.style.borderBottom = '2px solid black';
+    input.style.outline = 'none';
+    input.style.background = 'transparent';
 
     input.maxLength = Math.min(max_input_field_length, length);
     input.size = length;
@@ -869,7 +873,7 @@ export class PreviewView extends Component<PreviewViewProps> {
       this.enabledInputFieldCache[id] = input;
     }
 
-    return `[${input.outerHTML}]`;
+    return `${input.outerHTML}`;
   };
 
   // Builds an <input> field from the supplied props, pre-filled with a value
@@ -902,13 +906,17 @@ export class PreviewView extends Component<PreviewViewProps> {
     input.style.minWidth = `${width}px`;
     input.style.maxWidth = `${width}px`;
     input.style.backgroundColor = paperColor;
+    input.style.border = '0';
+    input.style.borderBottom = '2px solid black';
+    input.style.outline = 'none';
+    input.style.background = 'transparent';
     input.id = id;
     input.maxLength = Math.min(max_input_field_length, length);
     input.size = length;
     input.defaultValue = fieldData.raw_text;
     input.disabled = true;
 
-    return `[${input.outerHTML}]`;
+    return `${input.outerHTML}`;
   };
 
   render() {
