@@ -53,9 +53,6 @@
 // Lights
 #include "lights/code/lights.dm"
 
-// Lobby Menu
-#include "lobby/code/lobby.dm"
-
 // Radio
 #include "radio/code/radio.dm"
 
