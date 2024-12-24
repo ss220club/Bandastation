@@ -42,6 +42,8 @@
 #include "automatic_crew_transfer/_automatic_crew_transfer.dme"
 #include "outfits/_outfits.dme"
 #include "overrides/_overrides.dme"
+#include "storyteller/_storyteller.dme"
+#include "game/_game.dme"
 
 
 // --- PRIME --- //
