@@ -2,6 +2,9 @@
 
 #include "code/shuttles.dm"
 
+#include "code/containers.dm"
+#include "code/fake_light.dm"
+
 #include "code/effects/turf_decal.dm"
 
 #include "code/items/banners.dm"
@@ -56,3 +59,5 @@
 #include "code/structures/crates_lockers/closets/secure/lawyer.dm"
 #include "code/structures/crates_lockers/closets/secure/magistrate.dm"
 #include "code/structures/crates_lockers/closets/secure/nanotrasen_representative.dm"
+
+#include "code/mecha/mecha.dm"

@@ -1,0 +1,498 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/table/reinforced,
+/obj/machinery/chem_dispenser/drinks/beer/fullupgrade{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"b" = (
+/obj/structure/table/wood,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"d" = (
+/obj/machinery/suit_storage_unit/standard_unit,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"e" = (
+/turf/template_noop,
+/area/template_noop)
+"h" = (
+/obj/machinery/computer/communications,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"i" = (
+/obj/structure/chair/comfy/corp{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"j" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/food_or_drink/booze,
+/obj/effect/spawner/random/food_or_drink/booze,
+/obj/effect/spawner/random/food_or_drink/booze,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"k" = (
+/obj/structure/table/wood/fancy/black,
+/obj/effect/spawner/random/entertainment/lighter{
+	pixel_x = -5;
+	pixel_y = 0
+	},
+/obj/item/storage/fancy/cigarettes/cigars{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"m" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/argos,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"n" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"p" = (
+/obj/structure/table/wood,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"q" = (
+/turf/template_noop,
+/area/space)
+"r" = (
+/obj/structure/table/reinforced,
+/obj/item/kirbyplants/organic/plant10{
+	pixel_y = 12
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"s" = (
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"u" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"v" = (
+/obj/effect/spawner/structure/window/reinforced/indestructible,
+/turf/open/floor/plating/airless,
+/area/shuttle/argos)
+"w" = (
+/obj/machinery/computer/shuttle/argos,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"y" = (
+/obj/structure/closet/cabinet,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"z" = (
+/obj/machinery/power/shuttle_engine/large,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"A" = (
+/obj/machinery/computer/operating{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"B" = (
+/obj/machinery/stasis{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"C" = (
+/obj/structure/bed,
+/obj/item/bedsheet/centcom,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"D" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/tactical/premium{
+	pixel_y = 3
+	},
+/obj/item/storage/medkit/tactical/premium{
+	pixel_y = 6
+	},
+/obj/item/storage/medkit/tactical/premium{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/obj/item/defibrillator/compact/combat/loaded/nanotrasen{
+	pixel_x = 0;
+	pixel_y = -4
+	},
+/obj/item/defibrillator/compact/combat/loaded/nanotrasen,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"E" = (
+/obj/machinery/door/airlock/centcom,
+/obj/docking_port/mobile/argos,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"F" = (
+/obj/machinery/power/shuttle_engine/large,
+/turf/closed/indestructible/riveted,
+/area/shuttle/argos)
+"G" = (
+/obj/structure/table/reinforced,
+/obj/machinery/chem_dispenser/drinks/fullupgrade{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"H" = (
+/obj/machinery/vending/boozeomat,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"I" = (
+/obj/structure/chair/comfy/corp,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"J" = (
+/obj/structure/dresser,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"K" = (
+/obj/machinery/modular_computer/preset/id/centcom,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"L" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1;
+	name = "prisoner transfer chair"
+	},
+/obj/machinery/door/window/brigdoor/left/directional/north,
+/obj/structure/window/reinforced/spawner/directional/west,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"M" = (
+/turf/closed/indestructible/riveted,
+/area/shuttle/argos)
+"N" = (
+/obj/structure/table/reinforced,
+/obj/item/reagent_containers/cup/rag{
+	pixel_x = 3;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/cup/glass/shaker{
+	pixel_x = 9;
+	pixel_y = 17
+	},
+/obj/item/storage/box/matches{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/item/storage/box/drinkingglasses{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"O" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"P" = (
+/obj/structure/table/wood/fancy/black,
+/obj/item/storage/fancy/cigarettes/cigars/havana{
+	pixel_x = 4;
+	pixel_y = 0
+	},
+/obj/effect/spawner/random/entertainment/lighter{
+	pixel_x = -5;
+	pixel_y = 0
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"Q" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"R" = (
+/obj/structure/table/reinforced,
+/obj/item/surgery_tray/full/advanced,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"S" = (
+/obj/machinery/door/airlock/centcom,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"T" = (
+/obj/machinery/vending/medical,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"V" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1;
+	name = "prisoner transfer chair"
+	},
+/obj/machinery/door/window/brigdoor/right/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"W" = (
+/obj/structure/table/optable,
+/obj/item/tank/internals/anesthetic{
+	pixel_x = -3
+	},
+/obj/item/clothing/mask/breath/medical{
+	pixel_y = 3
+	},
+/obj/item/clothing/gloves/latex/nitrile,
+/obj/item/surgical_drapes,
+/obj/machinery/defibrillator_mount/directional/east,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"X" = (
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"Y" = (
+/obj/structure/chair/comfy/corp{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/shuttle/argos)
+"Z" = (
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/argos)
+
+(1,1,1) = {"
+v
+v
+v
+M
+M
+v
+v
+v
+v
+v
+v
+M
+M
+e
+M
+n
+e
+"}
+(2,1,1) = {"
+v
+m
+O
+u
+M
+a
+s
+I
+P
+s
+i
+s
+M
+v
+M
+M
+z
+"}
+(3,1,1) = {"
+v
+w
+s
+s
+M
+G
+s
+s
+Y
+s
+k
+M
+M
+u
+M
+M
+M
+"}
+(4,1,1) = {"
+v
+M
+M
+S
+M
+M
+N
+s
+s
+s
+Y
+M
+Z
+s
+d
+M
+n
+"}
+(5,1,1) = {"
+q
+v
+Z
+s
+s
+M
+r
+H
+j
+s
+M
+M
+Z
+s
+M
+M
+M
+"}
+(6,1,1) = {"
+q
+v
+Z
+s
+s
+M
+M
+M
+M
+S
+M
+s
+s
+s
+S
+s
+E
+"}
+(7,1,1) = {"
+q
+v
+Z
+s
+s
+S
+s
+s
+s
+s
+s
+s
+s
+s
+S
+s
+S
+"}
+(8,1,1) = {"
+v
+M
+M
+S
+M
+M
+s
+s
+s
+M
+M
+M
+S
+M
+M
+M
+M
+"}
+(9,1,1) = {"
+v
+h
+X
+s
+y
+M
+M
+S
+M
+M
+R
+T
+s
+s
+D
+M
+n
+"}
+(10,1,1) = {"
+v
+K
+O
+s
+J
+M
+u
+s
+V
+M
+s
+s
+s
+B
+M
+M
+F
+"}
+(11,1,1) = {"
+v
+p
+b
+s
+C
+M
+Q
+s
+L
+M
+W
+A
+M
+v
+M
+M
+s
+"}
+(12,1,1) = {"
+v
+v
+v
+M
+M
+M
+M
+M
+M
+M
+M
+M
+M
+e
+M
+n
+e
+"}

@@ -50,3 +50,104 @@
 
 /area/centcom/central_command_areas/planetary_port/restroom
 	name = "Уборная"
+
+// MARK: Centcom NAS "Trurl"
+/area/centcom/central_command_areas/control
+	name = "ЦК - Мостик"
+
+/area/centcom/central_command_areas/fore
+	name = "ЦК - Первый Порт"
+
+/area/centcom/central_command_areas/courtroom
+	name = "ЦК - Зал Суда"
+
+/area/centcom/central_command_areas/admin
+	name = "ЦК - Офисы"
+
+/area/centcom/central_command_areas/admin/storage
+	name = "ЦК - Хранилище"
+
+/area/centcom/central_command_areas/briefing
+	name = "ЦК - Плац"
+
+/area/centcom/central_command_areas/armory
+	name = "ЦК - Оружейная"
+
+/area/centcom/central_command_areas/ferry
+	name = "ЦК - Второй Порт"
+
+/area/centcom/central_command_areas/prison
+	name = "ЦК - Тюрьма"
+
+/area/centcom/central_command_areas/prison/cells
+	name = "ЦК - Тюремная Камера"
+
+/area/centcom/central_command_areas/supply
+	name = "ЦК - Грузовой Ангар"
+
+/area/centcom/central_command_areas/supply/port
+	name = "ЦК - Третий Порт"
+
+/area/centcom/central_command_areas/supplypod
+	name = "ЦК - Ангары Системы Быстрой Доставки"
+
+/area/centcom/central_command_areas/supplypod/loading/ert
+	name = "ЦК - Ангар ОБР"
+
+/area/centcom/central_command_areas/supplypod/loading/one
+	name = "ЦК - Первый Ангар"
+
+/area/centcom/central_command_areas/supplypod/loading/two
+	name = "ЦК - Второй Ангар"
+
+/area/centcom/central_command_areas/supplypod/loading/three
+	name = "ЦК - Третий Ангар"
+
+/area/centcom/central_command_areas/supplypod/loading/four
+	name = "ЦК - Четвертый Ангар"
+
+/area/centcom/central_command_areas/supplypod/pod_storage
+	name = "ЦК - Главный Ангар"
+
+/area/centcom/central_command_areas/supplypod/supplypod_temp_holding
+	name = "Система Быстрой Доставки"
+
+/area/centcom/central_command_areas/hallway
+	name = "ЦК - Коридоры"
+
+/area/centcom/central_command_areas/conference_room
+	name = "ЦК - Конференц Зал"
+	static_lighting = FALSE
+
+/area/centcom/central_command_areas/arboretum
+	name = "ЦК - Сад"
+
+/area/centcom/central_command_areas/bar
+	name = "ЦК - Столовая"
+	static_lighting = FALSE
+
+/area/centcom/central_command_areas/hospital
+	name = "ЦК - Госпиталь"
+
+/area/centcom/central_command_areas/engine
+	name = "ЦК - Двигатели"
+
+/area/centcom/central_command_areas/maintance
+	name = "ЦК - Технические Помещения"
+	static_lighting = FALSE
+
+/area/centcom/central_command_areas/cabin
+	name = "ЦК - Каюта Представителя Флота"
+	static_lighting = FALSE
+
+/area/centcom/central_command_areas/cabin/soo
+	name = "ЦК - Каюта Офицера Специальных Операций"
+
+/area/centcom/central_command_areas/cabin/captain
+	name = "ЦК - Каюта Капитана Корабля"
+
+/area/centcom/central_command_areas/ert
+	name = "ЦК - Зона ОБР"
+
+/area/centcom/central_command_areas/srt
+	name = "ЦК - Зона ГСР"

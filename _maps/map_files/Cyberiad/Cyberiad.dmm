@@ -78265,6 +78265,17 @@
 "tYc" = (
 /turf/open/floor/wood/tile,
 /area/station/service/library/artgallery)
+"tYh" = (
+/obj/docking_port/stationary{
+	shuttle_id = "argos_home";
+	name = "port bay 4";
+	height = 17;
+	width = 12;
+	dwidth = 5;
+	dir = 8
+	},
+/turf/open/space/openspace,
+/area/space)
 "tYi" = (
 /obj/structure/cable,
 /turf/open/floor/iron,
@@ -167842,7 +167853,7 @@ tYD
 tYD
 tYD
 tYD
-tYD
+tYh
 tYD
 tYD
 tYD
