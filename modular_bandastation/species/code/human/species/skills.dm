@@ -140,3 +140,35 @@
 
 #undef GET_ATOM_SHIFF_FINGERPRINTS
 #undef GET_ATOM_SHIFF_BLOOD_DNA
+
+// MARK: Tajaran skills
+// /datum/action/cooldown/night_eyes
+// 	name = "Ночное зрение"
+// 	desc = "Ваши глаза адаптируются под окружающее освещение."
+// 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
+// 	button_icon = 'modular_bandastation/species/icons/mob/species/tajaran/skills.dmi'
+// 	button_icon_state = "night_eyes"
+// 	overlay_icon = 'modular_bandastation/species/icons/mob/species/tajaran/skills.dmi'
+// 	overlay_icon_state = "frame_border"
+// 	background_icon = 'modular_bandastation/species/icons/mob/species/tajaran/skills.dmi'
+// 	background_icon_state = "frame"
+// 	var/active = FALSE
+
+// /datum/action/cooldown/night_eyes/Trigger(trigger_flags, /atom/target)
+// 	var/obj/item/organ/eyes/tajaran/eyes = owner.get_organ_by_type(/obj/item/organ/eyes/tajaran)
+// 	if(!istype(eyes))
+// 		return
+// 	if(!active)
+// 		active = TRUE
+// 		owner.add_client_colour(/datum/client_colour/monochrome)
+// 		eyes.lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
+// 		eyes.flash_protect = FLASH_PROTECTION_HYPER_SENSITIVE
+// 		to_chat(owner, span_notice("Ваши глаза адаптируются к темному освещению."))
+// 		owner.update_sight()
+// 	else
+// 		active = FALSE
+// 		owner.remove_client_colour(/datum/client_colour/monochrome)
+// 		eyes.lighting_cutoff = LIGHTING_CUTOFF_VISIBLE
+// 		eyes.flash_protect = FLASH_PROTECTION_NONE
+// 		to_chat(owner, span_notice("Ваши глаза адаптируются к нормальному освещению."))
+// 		owner.update_sight()
