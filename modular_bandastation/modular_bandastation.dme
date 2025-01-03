@@ -44,6 +44,8 @@
 #include "automatic_crew_transfer/_automatic_crew_transfer.dme"
 #include "outfits/_outfits.dme"
 #include "overrides/_overrides.dme"
+#include "storyteller/_storyteller.dme"
+#include "game/_game.dme"
 
 
 // --- PRIME --- //
@@ -52,4 +54,5 @@
 // Модпаки включены по умолчанию для запуска всех тестов и для этого кода тоже.
 #ifndef DISABLE_PRIME_MODPACKS
 #include "prime_only/_prime_only.dme"
+#include "storyteller/code/storytellers/storyteller_prime.dm"
 #endif
