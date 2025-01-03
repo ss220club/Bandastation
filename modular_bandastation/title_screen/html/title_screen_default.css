@@ -1,4 +1,3 @@
-
 @font-face {
 	font-family: "Pix Cyrillic";
 	src: url("PixCyrillic.ttf");
@@ -147,15 +146,14 @@ img {
 	border-style: none;
 }
 
-hr {
-	border: 0;
-	border-bottom: 0.15em solid rgba(255, 255, 255, 0.1);
-}
-
 input,
 .hidden {
 	display: none !important;
 	visibility: hidden !important;
+}
+
+.invisible {
+	visibility: hidden;
 }
 
 *,
@@ -229,7 +227,7 @@ input,
 	pointer-events: none;
 	position: absolute;
 	left: 31.5px;
-	bottom: -17.5px;
+	bottom: -19.5px;
 	z-index: 1;
 }
 
@@ -237,9 +235,13 @@ input,
 	pointer-events: all;
 	cursor: pointer;
 	width: 19px;
-	height: 15px;
-	text-indent: -2px;
-	transform: translate(3.8px, 53.5px) scale(1.25, 0.75);
+	height: 13px;
+	text-indent: 5.2px;
+	transform: translate(3.8px, 53.5px) scale(1.75, 0.75);
+}
+
+.logo {
+	display: none;
 }
 
 /**
@@ -265,6 +267,7 @@ input,
 
 .lobby_buttons-center {
 	top: 8px;
+	text-transform: uppercase;
 }
 
 .lobby_buttons-bottom {
@@ -367,6 +370,7 @@ input,
 	align-items: center;
 	vertical-align: middle;
 	justify-content: center;
+	text-transform: none;
 	top: -1px;
 	height: 18px;
 	width: 110px;

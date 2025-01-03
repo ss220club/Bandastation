@@ -61,9 +61,6 @@
 
 	INVOKE_ASYNC(current_title_screen, TYPE_PROC_REF(/datum/title_screen, show_to), viewer)
 
-	if(check_rights_for(viewer, R_ADMIN|R_DEBUG))
-		addtimer(CALLBACK(src, PROC_REF(title_output), viewer, "true", "admin_buttons_visibility"), 1.75 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE|TIMER_CLIENT_TIME)
-
 /**
  * Hide the title screen from specific client.
  */
@@ -96,7 +93,7 @@
  * Adds a notice to the main title screen in the form of big red text!
  */
 /datum/controller/subsystem/title/proc/set_notice(new_notice)
-	notice = sanitize_text(new_notice) || null
+	notice = emoji_parse(sanitize_text(new_notice)) || null
 	title_output_to_all(notice, "update_notice")
 
 /**
@@ -134,7 +131,7 @@
 /**
  * Changes title image to desired
  */
-/datum/controller/subsystem/title/proc/set_title_image(desired_image_file)
+/datum/controller/subsystem/title/proc/set_title_image(user, desired_image_file)
 	if(desired_image_file)
 		if(!isfile(desired_image_file))
 			CRASH("Not a file passed to `/datum/controller/subsystem/title/proc/set_title_image`")
@@ -148,6 +145,9 @@
 
 	for(var/mob/dead/new_player/viewer as anything in GLOB.new_player_list)
 		INVOKE_ASYNC(src, PROC_REF(update_title_image_for_client), viewer.client)
+
+	log_admin("[key_name(user)] is changing the title screen.")
+	message_admins("[key_name_admin(user)] is changing the title screen.")
 
 /**
  * Sends title image to client and updates title screen for it

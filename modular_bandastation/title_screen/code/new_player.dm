@@ -97,6 +97,10 @@
 		else
 			SEND_SOUND(src, sound('sound/misc/menu/menu_rolldown1.ogg'))
 
+	else if(href_list["title_ready"])
+		if(check_rights_for(client, R_ADMIN|R_DEBUG))
+			SStitle.title_output(client, "true", "admin_buttons_visibility")
+
 	else if(href_list["focus"])
 		winset(client, "map", "focus=true")
 

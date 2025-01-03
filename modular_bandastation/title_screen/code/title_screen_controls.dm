@@ -9,13 +9,10 @@ ADMIN_VERB(change_title_screen, R_FUN, "Title Screen: Change", ADMIN_VERB_NO_DES
 		if("Меняем")
 			var/file = input(usr) as icon|null
 			if(file)
-				SStitle.set_title_image(file)
+				SStitle.set_title_image(usr, file)
 
 		if("Сбрасываем")
-			SStitle.set_title_image()
-
-	log_admin("[key_name(usr)] is changing the title screen.")
-	message_admins("[key_name_admin(usr)] is changing the title screen.")
+			SStitle.set_title_image(usr)
 
 /**
  * Sets a titlescreen notice, a big red text on the main screen.
@@ -39,7 +36,7 @@ ADMIN_VERB(change_title_screen_notice, R_FUN, "Title Screen: Set Notice", ADMIN_
 	message_admins("Title Screen: [key_name_admin(usr)] setted the title screen notice, which contains: [new_notice]")
 
 	for(var/mob/dead/new_player/new_player as anything in GLOB.new_player_list)
-		to_chat(new_player, span_boldannounce(announce_text))
+		to_chat(new_player, span_boldannounce(emoji_parse(announce_text)))
 		SEND_SOUND(new_player,  sound('sound/mobs/humanoids/moth/scream_moth.ogg'))
 
 /**
@@ -64,7 +61,6 @@ ADMIN_VERB(change_title_screen_css, R_DEBUG, "Title Screen: Set CSS", ADMIN_VERB
 	set category = "Special"
 
 	if(!isnewplayer(src.mob))
-		to_chat(src, span_warning("Вы должны быть в лобби дабы использовать это!"))
 		return
 
 	SStitle.show_title_screen_to(src)

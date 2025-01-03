@@ -1,5 +1,6 @@
 /datum/asset/simple/html_title_screen
 	assets = list(
+		"ss220_logo.png" = 'icons/ui/common/ss220.png',
 		"lobby_background.png" = 'modular_bandastation/title_screen/icons/lobby_background.png',
 		"lobby_toggle_ready.png" = 'modular_bandastation/title_screen/icons/lobby_toggle_ready.png',
 		"lobby_late_join.png" = 'modular_bandastation/title_screen/icons/lobby_late_join.png',

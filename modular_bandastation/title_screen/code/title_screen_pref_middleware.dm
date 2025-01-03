@@ -18,3 +18,18 @@
 
 	SStitle.update_character_name(user, value)
 	return TRUE
+
+// Title Screen Preferences
+/datum/preference/choiced/lobby_style
+	category = PREFERENCE_CATEGORY_GAME_PREFERENCES
+	savefile_key = "lobby_style"
+	savefile_identifier = PREFERENCE_PLAYER
+
+/datum/preference/choiced/lobby_style/init_possible_values()
+	return assoc_to_keys(GLOB.available_lobby_styles)
+
+/datum/preference/choiced/lobby_style/create_default_value()
+	return GLOB.available_lobby_styles[1]
+
+/datum/preference/choiced/lobby_style/apply_to_client(client/client, value)
+	client.fix_title_screen()
