@@ -35,7 +35,7 @@
 #include "species/_species.dme"
 #include "translations/_translations.dme"
 #include "tts/_tts.dme"
-#include "whitelist220/_whitelist220.dme"
+#include "metaserver/_metaserver.dme"
 #include "world_topics/_world_topics.dme"
 #include "preferences/_preferences.dme"
 #include "jukebox/_jukebox.dme"
