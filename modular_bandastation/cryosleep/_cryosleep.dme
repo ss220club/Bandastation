@@ -1,0 +1,15 @@
+#include "_cryosleep.dm"
+
+#include "code/admin.dm"
+#include "code/ai.dm"
+#include "code/config.dm"
+#include "code/cryo_console_return.dm"
+#include "code/cryopod.dm"
+#include "code/cryoconsole.dm"
+#include "code/job.dm"
+#include "code/jobs.dm"
+#include "code/mood.dm"
+#include "code/extra_vv.dm"
+#include "code/ssd_time.dm"
+
+//	tgui/packages/tgui/interfaces/CryopodConsole.jsx
