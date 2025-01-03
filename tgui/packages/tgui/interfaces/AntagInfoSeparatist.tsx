@@ -36,12 +36,12 @@ const IntroductionObjectives = (props) => {
     <Section fill>
       <Stack vertical>
         <Stack.Item textColor="red" fontSize="20px">
-          You are the Separatist for a free {nation}!
+          Вы - Сепаратист за свободу {nation}!
         </Stack.Item>
         <Stack.Item grow>
           <ObjectivePrintout
             objectives={objectives}
-            titleMessage={`${nation}'s objectives:`}
+            titleMessage={`Задачи ${nation}:`}
           />
         </Stack.Item>
       </Stack>
@@ -56,33 +56,33 @@ const FrequentlyAskedQuestions = (props) => {
     <Section fill>
       <Stack vertical>
         <Stack.Item fontSize="18px" bold>
-          <Icon name="info" color="label" /> Frequently Asked Questions:
+          <Icon name="info" color="label" /> Часто задаваемые вопросы:
         </Stack.Item>
         <Stack.Item fontSize="16px">
-          &quot;What even IS a Separatist?&quot;
+          &quot;Что вообще такое Сепаратист?&quot;
         </Stack.Item>
         <Stack.Item>
-          Separatists are semi-antagonists that every department is filled with
-          when the round starts. They do not have the permission to freely go
-          about and kill, but rather defend the soverignity of their department.
-          You may actually recognize them by their historical mode they existed
-          from: Nations!
+          Сепаратисты - это полуантагонисты, которыми заполнен каждый отдел
+          когда начинается раунд. Они не имеют права свободно ходить и убивать,
+          а защищают суверенитет своего департамента. Вы можете даже узнать их
+          по их историческому режиму, в котором они когда-то существовали:
+          Нации!
         </Stack.Item>
         <Stack.Item fontSize="16px">
-          &quot;What am I supposed to do?&quot;
+          &quot;Что я должен делать?&quot;
         </Stack.Item>
         <Stack.Item>
-          Each department (nation) has an objective. It&apos;s a freeform
-          objective, so try your best to follow it as you would a freeform
-          abductor objective. From experience, eventually nations conflict and
-          devolve into war. As long as both departments know what and why
-          conflict is starting, that&apos;s a green light to attack opposing
-          nations.
+          У каждого отдела (нации) есть своя цель. Это условная задача, поэтому
+          старайтесь следовать ей так же, как и условной задаче Абдуктора. Как
+          показывает опыт, в конце концов нации конфликтуют и перерастают в
+          войну. До тех пор пока оба департамента знают, почему конфликт
+          начинается, то это зеленый свет для нападения на противоборствующие
+          нации.
         </Stack.Item>
         <Stack.Item fontSize="16px">
-          &quot;Is {nation} the best nation?&quot;
+          &quot;{nation} - самая лучшая нация?&quot;
         </Stack.Item>
-        <Stack.Item>Yes.</Stack.Item>
+        <Stack.Item>Да.</Stack.Item>
       </Stack>
     </Section>
   );

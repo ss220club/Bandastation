@@ -495,7 +495,7 @@
 		var/datum/record/crew/target_record = find_record(perpname)
 		if(target_record)
 			. += "Должность: [target_record.rank]"
-			. += "<a href='byond://?src=[REF(src)];hud=1;photo_front=1;examine_time=[world.time]'>\[Фото спереди\]</a><a href='?src=[REF(src)];hud=1;photo_side=1;examine_time=[world.time]'>\[Фото сбоку\]</a>"
+			. += "<a href='byond://?src=[REF(src)];hud=1;photo_front=1;examine_time=[world.time]'>\[Фото спереди\]</a><a href='byond://?src=[REF(src)];hud=1;photo_side=1;examine_time=[world.time]'>\[Фото сбоку\]</a>"
 		if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD) && HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 			title = separator_hr("Медицинский и безопасности анализы")
 			. += get_medhud_examine_info(user, target_record)

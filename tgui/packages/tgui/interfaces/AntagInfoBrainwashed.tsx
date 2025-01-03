@@ -25,13 +25,13 @@ export const AntagInfoBrainwashed = (porps) => {
         <Section fill>
           <Stack vertical fill textAlign="center">
             <Stack.Item fontFamily="Wingdings">
-              Hey, no! Stop translating this!
+              Эй, не смейте! Хватит транслировать это!
             </Stack.Item>
             <Stack.Item mt={-0.25} fontSize="20px">
-              Your mind reels...
+              Ваши мысли разбегаются...
             </Stack.Item>
             <Stack.Item mt={-0.25} fontSize="20px">
-              It is focusing on a single purpose...
+              Сосредоточен на одной цели...
             </Stack.Item>
             <Stack.Item mt={3.5} grow>
               <ObjectivePrintout
@@ -39,16 +39,16 @@ export const AntagInfoBrainwashed = (porps) => {
                 objectives={data.objectives}
                 objectiveFollowup={
                   <Box bold textColor="red">
-                    This Directive must be followed.
+                    Необходимо следовать этой директиве.
                   </Box>
                 }
               />
             </Stack.Item>
             <Stack.Item fontSize="20px" textColor="#61e4b9">
-              Follow the directives at any cost!
+              Выполняйте директивы любой ценой!
             </Stack.Item>
             <Stack.Item fontFamily="Wingdings">
-              You ruined my cool font effect.
+              Ты испортил мой классный эффект шрифта.
             </Stack.Item>
           </Stack>
         </Section>

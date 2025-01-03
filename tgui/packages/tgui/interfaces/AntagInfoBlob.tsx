@@ -46,10 +46,10 @@ const Overview = (props) => {
     return (
       <Stack vertical>
         <Stack.Item bold fontSize="14px" textColor={BLOB_COLOR}>
-          You haven&apos;t revealed your true form yet!
+          Вы еще не показали свою истинную форму!
         </Stack.Item>
         <Stack.Item>
-          You must succumb to the infection. Find somewhere safe and pop!
+          Вы должны умереть от инфекции. Найдите безопасное место и взорвитесь!
         </Stack.Item>
       </Stack>
     );
@@ -58,11 +58,13 @@ const Overview = (props) => {
   return (
     <Stack vertical>
       <Stack.Item bold fontSize="24px" textColor={BLOB_COLOR}>
-        You are the Blob!
+        Вы - Блоб!
       </Stack.Item>
-      <Stack.Item>As the overmind, you can control the blob.</Stack.Item>
       <Stack.Item>
-        Your blob reagent is:{' '}
+        В роли управляющего ядра вы можете управлять блобом.
+      </Stack.Item>
+      <Stack.Item>
+        Ваш реагент блоба:{' '}
         <span
           style={{
             color,
@@ -72,7 +74,7 @@ const Overview = (props) => {
         </span>
       </Stack.Item>
       <Stack.Item>
-        The{' '}
+        Реагент{' '}
         <span
           style={{
             color,
@@ -80,11 +82,11 @@ const Overview = (props) => {
         >
           {name}
         </span>{' '}
-        reagent {description}
+        {description}
       </Stack.Item>
       {effects && (
         <Stack.Item>
-          The{' '}
+          Реагент{' '}
           <span
             style={{
               color,
@@ -92,7 +94,7 @@ const Overview = (props) => {
           >
             {name}
           </span>{' '}
-          reagent {effects}
+          {effects}
         </Stack.Item>
       )}
     </Stack>
@@ -101,34 +103,32 @@ const Overview = (props) => {
 
 const Basics = (props) => {
   return (
-    <Collapsible title="The Basics">
+    <Collapsible title="Основы">
       <LabeledList>
-        <LabeledList.Item label="Attacking">
-          You can expand, which will attack people, damage objects, or place a
-          Normal Blob if the tile is clear.
+        <LabeledList.Item label="Атака">
+          Вы можете расширяться, что приведет к атаке существ, повреждению
+          предметов или помещению обычной клетки блоба, если тайл пустой.
         </LabeledList.Item>
-        <LabeledList.Item label="Placement">
-          You will be able to manually place your blob core by pressing the
-          Place Blob Core button in the bottom right corner of the screen.{' '}
+        <LabeledList.Item label="Размещение">
+          Вы сможете вручную разместить ядро блоба, нажав кнопку Place Blob Core
+          в правом нижнем углу экрана. <br />
           <br />
-          <br />
-          If you are the blob infection, you can place the core where you are
-          standing by pressing the pop button on the top left corner of the
-          screen.
+          Если вы являетесь блоб-инфекцией, вы можете разместить ядро там, где
+          вы стоите нажав на кнопку в левом верхнем углу экрана. экрана.
         </LabeledList.Item>
-        <LabeledList.Item label="HUD">
-          In addition to the buttons on your HUD, there are a few click
-          shortcuts to speed up expansion and defense.
+        <LabeledList.Item label="Интерфейс">
+          В дополнение к кнопкам на вашем интерфейсе, есть несколько сочетаний
+          клавиш для ускорения расширения и обороны.
         </LabeledList.Item>
-        <LabeledList.Item label="Shortcuts">
-          Click = Expand Blob <br />
-          Middle Mouse Click = Rally Spores <br />
-          Ctrl Click = Create Shield Blob <br />
-          Alt Click = Remove Blob <br />
+        <LabeledList.Item label="Сочетания клавиш">
+          Клик = Разместить клетку блоба <br />
+          СКМ = Отправить споры <br />
+          Ктрл-Клик = Создать щитовую клетку блоба <br />
+          Альт-Клик = Убрать клетку блоба <br />
         </LabeledList.Item>
-        <LabeledList.Item label="Comms">
-          Attempting to talk will send a message to all other overminds,
-          allowing you to coordinate with them.
+        <LabeledList.Item label="Связь">
+          Попытка заговорить отправит сообщение всем остальным управляющим
+          ядрам, что позволит вам координировать свои действия с ними.
         </LabeledList.Item>
       </LabeledList>
     </Collapsible>
@@ -137,17 +137,18 @@ const Basics = (props) => {
 
 const Minions = (props) => {
   return (
-    <Collapsible title="Minions">
+    <Collapsible title="Миньоны">
       <LabeledList>
-        <LabeledList.Item label="Blobbernauts">
-          This unit can be produced from factories for a cost. They are hard to
-          kill, powerful, and moderately smart. The factory used to create one
-          will become fragile and briefly unable to produce spores.
+        <LabeledList.Item label="Блоббернауты">
+          Эта боевая единица может быть произведена на клетках-фабриках за
+          определенную стоимость. Их трудно убить, мощные и в меру умные.
+          Фабрика, использованная для создания одного станет хрупкой и на
+          короткое время потеряет способность производить споры.
         </LabeledList.Item>
-        <LabeledList.Item label="Spores">
-          Produced automatically from factories, these are weak, but can be
-          rallied to attack enemies. They will also attack enemies near the
-          factory and attempt to zombify corpses.
+        <LabeledList.Item label="Споры">
+          Они производятся автоматически на клетках-фабриках, слабы, но их можно
+          собрать воедино и атаковать врагов. Они также будут атаковать врагов
+          рядом с фабрики и пытаются зомбировать трупы.
         </LabeledList.Item>
       </LabeledList>
     </Collapsible>
@@ -156,37 +157,39 @@ const Minions = (props) => {
 
 const Structures = (props) => {
   return (
-    <Collapsible title="Structures">
+    <Collapsible title="Сооружения">
       <Box>
-        Normal Blobs will expand your reach and can be upgraded into special
-        blobs that perform certain functions. Bear in mind that expanding into
-        space has an 80% chance of failing!
+        Обычные клетки блоба расширят ваши границы и могут быть улучшены до
+        специальных клеток блоба, которые выполняют определенные функции. Имейте
+        в виду, что расширение в космос с вероятностью 80% не удастся!
       </Box>
       <br />
-      <Box>You can upgrade normal blobs into the following types of blob:</Box>
+      <Box>Вы можете превратить обычные клетки блоба в следующие типы:</Box>
       <Divider />
       <LabeledList>
-        <LabeledList.Item label="Strong Blobs">
-          Strong blobs are expensive but take more damage. In additon, they are
-          fireproof and can block air, use these to protect yourself from
-          station fires.
+        <LabeledList.Item label="Сильные клетки блоба">
+          Сильные клетки блоба стоят дороже, но наносят больше урона. Кроме
+          того, они огнеупорные и могут блокировать воздух, используйте их,
+          чтобы защититься от пожаров на станции.
         </LabeledList.Item>
-        <LabeledList.Item label="Reflective Blobs">
-          Upgrading strong blobs creates reflective blobs, capable of reflecting
-          most projectiles at the cost of the strong blob&apos;s extra health.
+        <LabeledList.Item label="Отражающие клетки блоба">
+          Улучшение сильных клеток блоба создает отражающие клетки блоба,
+          способные отражать большинство снарядов за счет дополнительного
+          здоровья сильной клетки блоба.
         </LabeledList.Item>
-        <LabeledList.Item label="Resource Blobs">
-          Blobs which produce more resources for you, build as many of these as
-          possible to consume the station. This type of blob must be placed near
-          node blobs or your core to work.
+        <LabeledList.Item label="Ресурсные клетки блоба">
+          Клетки блоба, которые производят больше ресурсов для вас, постройте их
+          как можно больше, чтобы поглощать станцию. Этот тип блобов должен быть
+          размещен рядом с узловыми клетками блоба или ядра, чтобы они работали.
         </LabeledList.Item>
-        <LabeledList.Item label="Factory Blobs">
-          Blobs that spawn blob spores which will attack nearby enemies. This
-          type of blob must be placed near node blobs or your core to work.
+        <LabeledList.Item label="Клетки-фабрики блоба">
+          Клетки блоба, которые порождают споры блоба, которые атакуют ближайших
+          врагов. Эти клетки блоба необходимо поместить рядом с узловыми
+          клетками блоба или ядром, чтобы они работали.
         </LabeledList.Item>
-        <LabeledList.Item label="Node Blobs">
-          Blobs which grow, like the core. Like the core it can activate
-          resource and factory blobs.
+        <LabeledList.Item label="Узловые клетки блоба">
+          Клетки блоба, которые растут, как и ядро. Они, как и ядро, могут
+          активировать ресурсные клетки и клетки-фабрики блоба.
         </LabeledList.Item>
       </LabeledList>
     </Collapsible>
@@ -198,7 +201,7 @@ const ObjectiveDisplay = (props) => {
   const { color, objectives } = data;
 
   return (
-    <Collapsible title="Objectives">
+    <Collapsible title="Задачи">
       <LabeledList>
         {objectives.map(({ explanation }, index) => (
           <LabeledList.Item

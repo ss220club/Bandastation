@@ -11,25 +11,23 @@ export const AntagInfoSentient = (props) => {
       <Window.Content>
         <Section fill>
           <Stack vertical fill textAlign="center">
-            <Stack.Item fontSize="20px">
-              You are a sentient creature!
-            </Stack.Item>
+            <Stack.Item fontSize="20px">Вы - разумное существо!</Stack.Item>
             <Stack.Item>
               <BlockQuote>
-                All at once it makes sense: you know what you are and who you
-                are! Self awareness is yours!
+                Все сразу становится понятно: вы знаете, что вы есть и кто вы!
+                Самосознание стало вашим!
                 {!!enslaved_to &&
-                  ' You are grateful to be self aware and owe ' +
+                  ' Вы благодарны за то, что осознаете себя и обязаны ' +
                     enslaved_to +
-                    ' a great debt. Serve ' +
+                    ' большой долг. Служить ' +
                     enslaved_to +
-                    ', and assist ' +
+                    ', и помогать ' +
                     p_them +
-                    ' in completing ' +
+                    ' в завершении ' +
                     p_their +
-                    ' goals at any cost.'}
+                    ' целей любой ценой.'}
                 {!!holographic &&
-                  ' You also become depressingly aware that you are not a real creature, but instead a holoform. Your existence is limited to the parameters of the holodeck.'}
+                  ' Вы также удручающе осознаете, что являетесь не реальным существом, а голоформой. Ваше существование ограничено параметрами голодека.'}
               </BlockQuote>
             </Stack.Item>
           </Stack>
