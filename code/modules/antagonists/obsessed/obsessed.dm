@@ -191,7 +191,7 @@
 		explanation_text = "Убейте [target.name], [!target_role_type ? job_title_ru(target.assigned_role.title) : target.special_role]."
 	else
 		message_admins("WARNING! [ADMIN_LOOKUPFLW(owner)] obsessed objectives forged without an obsession!")
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 
 /datum/objective/assassinate/jealous //assassinate, but it changes the target to someone else in the previous target's department. cool, right?
 	var/datum/mind/old //the target the coworker was picked from.
@@ -202,7 +202,7 @@
 	if(target?.current && old)
 		explanation_text = "Убейте [target.name], коллегу [old]."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 
 
 /datum/objective/assassinate/jealous/proc/find_coworker(datum/mind/oldmind)//returning null = free objective
@@ -240,10 +240,10 @@
 		creeper.trauma.attachedobsessedobj = src
 		explanation_text = "Проведите [DisplayTimeText(timer)] возле [target.name], пока они живы."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 
 /datum/objective/spendtime/check_completion()
-	return timer <= 0 || explanation_text == "Free Objective"
+	return timer <= 0 || explanation_text == "Свободная задача."
 
 
 /datum/objective/hug//this objective isn't perfect. hugging the correct amount of times, then switching bodies, might fail the objective anyway. maybe i'll come back and fix this sometime.
@@ -258,7 +258,7 @@
 	if(target?.current && creeper)
 		explanation_text = "Обнимите [target.name] [hugs_needed] раз, пока они живы."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 
 /datum/objective/hug/check_completion()
 	var/datum/antagonist/obsessed/creeper = owner.has_antag_datum(/datum/antagonist/obsessed)
@@ -274,7 +274,7 @@
 	if(target?.current)
 		explanation_text = "Сделайте фото [target.name], пока они живы, и храните фотографию у себя."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 
 /datum/objective/polaroid/check_completion()
 	var/list/datum/mind/owners = get_owners()
@@ -298,7 +298,7 @@
 	if(steal_target)
 		explanation_text = "Украдите семейную реликвию, [steal_target.declent_ru(NOMINATIVE)], которая чтится у [target.name]."
 	else
-		explanation_text = "Free Objective"
+		explanation_text = "Свободная задача."
 
 #undef OBSESSED_OBJECTIVE_SPEND_TIME
 #undef OBSESSED_OBJECTIVE_POLAROID

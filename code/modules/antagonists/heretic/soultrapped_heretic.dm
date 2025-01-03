@@ -15,7 +15,7 @@
 // always failure obj
 /datum/objective/heretic_trapped
 	name = "soultrapped failure"
-	explanation_text = "Help the cult. Kill the cult. Help the crew. Kill the crew. Help your wielder. Kill your wielder. Kill everyone. Rattle your chains. Break your bindings."
+	explanation_text = "Помогите культу. Убейте культ. Помогите экипажу. Убейте экипаж. Помогите своему владельцу. Убейте своего владельца. Убейте всех. Гремите своей цепью. Разбейте свои оковы."
 
 /datum/antagonist/soultrapped_heretic/on_gain()
 	..()

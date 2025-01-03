@@ -27,7 +27,7 @@
 
 /datum/antagonist/santa/proc/give_objective()
 	var/datum/objective/santa_objective = new()
-	santa_objective.explanation_text = "Bring joy and presents to the station!"
+	santa_objective.explanation_text = "Несите счастье и подарки на станцию!"
 	santa_objective.completed = TRUE //lets cut our santas some slack.
 	santa_objective.owner = owner
 	objectives |= santa_objective

@@ -68,9 +68,9 @@
 /datum/objective/lunatic/update_explanation_text()
 	. = ..()
 	if(is_master)
-		explanation_text = "Lead your lunatics to further your own goals!"
+		explanation_text = "Руководите своими лунатиками для достижения собственных целей!"
 		return
-	explanation_text = "Помогите вашему Шпрехшталмейстеру - [master], не навредите вашим товарищам-лунатикам"
+	explanation_text = "Помогите вашему Шпрехшталмейстеру - [master], не навредите вашим товарищам-лунатикам."
 
 // Lunatic master
 /datum/antagonist/lunatic/master

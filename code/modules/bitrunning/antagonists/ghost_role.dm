@@ -19,4 +19,4 @@
 /datum/objective/bitrunner_ghost_fluff
 
 /datum/objective/bitrunner_ghost_fluff/New()
-	explanation_text = "Defend your domain from the intruders!"
+	explanation_text = "Защитите свой домен от вторженцев!"

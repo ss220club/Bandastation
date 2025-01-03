@@ -27,13 +27,13 @@
 
 /datum/objective/nightmare_fluff/New()
 	var/list/explanation_texts = list(
-		"Consume the last glimmer of light from the space station.",
-		"Bring judgment upon the daywalkers.",
-		"Extinguish the flame of this hellscape.",
-		"Reveal the true nature of the shadows.",
-		"From the shadows, all shall perish.",
-		"Conjure nightfall by blade or by flame.",
-		"Bring the darkness to the light."
+		"Поглотите последний проблеск света с космической станции.",
+		"Несите суд на дневных ходоков.",
+		"Погасите пламя этого адского пейзажа.",
+		"Раскройте истинную природу теней.",
+		"Из теней все погибнут.",
+		"Создайте ночь с помощью клинка или пламени.",
+		"Принесите тьму к свету."
 	)
 	explanation_text = pick(explanation_texts)
 	..()
