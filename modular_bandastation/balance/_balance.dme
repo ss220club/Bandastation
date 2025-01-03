@@ -9,5 +9,7 @@
 #include "code/station_traits.dm"
 #include "code/supply_packs.dm"
 #include "code/crew_manifest.dm"
+#include "code/cargo_packs.dm"
+#include "code/laser.dm"
 
 #include "code/~undefs.dm"
