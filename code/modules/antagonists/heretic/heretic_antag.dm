@@ -16,7 +16,7 @@
 /// The heretic antagonist itself.
 /datum/antagonist/heretic
 	name = "\improper Heretic"
-	roundend_category = "Heretics"
+	roundend_category = "Еретики"
 	antagpanel_category = "Heretic"
 	ui_name = "AntagInfoHeretic"
 	antag_moodlet = /datum/mood_event/heretics

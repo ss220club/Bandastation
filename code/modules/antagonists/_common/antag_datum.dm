@@ -7,7 +7,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 	///Public name for this antagonist. Appears for player prompts and round-end reports.
 	var/name = "\improper Antagonist"
 	///Section of roundend report, datums with same category will be displayed together, also default header for the section
-	var/roundend_category = "Другими антагонистами"
+	var/roundend_category = "Другие антагонисты"
 	///Set to false to hide the antagonists from roundend report
 	var/show_in_roundend = TRUE
 	///If false, the roundtype will still convert with this antag active

@@ -1,7 +1,7 @@
 ///Tracking reasons
 /datum/antagonist/heretic_monster
 	name = "\improper Eldritch Horror"
-	roundend_category = "Heretics"
+	roundend_category = "Еретики"
 	antagpanel_category = ANTAG_GROUP_HORRORS
 	antag_moodlet = /datum/mood_event/heretics
 	job_rank = ROLE_HERETIC

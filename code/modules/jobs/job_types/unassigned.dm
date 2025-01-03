@@ -5,6 +5,6 @@
  **/
 
 /datum/job/unassigned
-	title = "Безработный член экипажа"
+	title = "Unassigned Crewmember"
 	rpg_title = "Peasant"
 	paycheck = PAYCHECK_ZERO

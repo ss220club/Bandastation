@@ -1,6 +1,6 @@
 /datum/antagonist/spy
 	name = "\proper Шпион"
-	roundend_category = "Шпионами"
+	roundend_category = "Шпионы"
 	antagpanel_category = "Spy"
 	antag_hud_name = "spy"
 	job_rank = ROLE_SPY

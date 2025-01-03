@@ -3,7 +3,7 @@ GLOBAL_LIST_EMPTY(wizard_spellbook_purchases_by_key)
 
 /datum/antagonist/wizard
 	name = "\proper Космический Волшебник"
-	roundend_category = "Волшебниками/Ведьмами"
+	roundend_category = "Волшебники/Ведьмы"
 	antagpanel_category = ANTAG_GROUP_WIZARDS
 	job_rank = ROLE_WIZARD
 	antag_hud_name = "wizard"
