@@ -1,0 +1,4 @@
+#include "_clothing.dm"
+#include "code/cloaks.dm"
+#include "code/hats.dm"
+#include "code/helmet.dm"
