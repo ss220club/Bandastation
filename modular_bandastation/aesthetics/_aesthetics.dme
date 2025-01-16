@@ -29,9 +29,6 @@
 #include "clothing/centcom/code/suits/wintercoats.dm"
 #include "clothing/centcom/code/under/centcom.dm"
 
-// Decals
-#include "decals/code/floor_decals.dm"
-
 // Disposal
 #include "disposal/code/disposal.dm"
 

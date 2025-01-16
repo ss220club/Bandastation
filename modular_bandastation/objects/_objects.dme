@@ -2,6 +2,7 @@
 
 #include "code/shuttles.dm"
 
+#include "code/effects/decal.dm"
 #include "code/effects/turf_decal.dm"
 
 #include "code/items/banners.dm"
@@ -10,6 +11,7 @@
 #include "code/items/material_pouch.dm"
 #include "code/items/stamp.dm"
 #include "code/items/wallets.dm"
+#include "code/items/papers.dm"
 #include "code/items/clothing/glasses/glasses.dm"
 #include "code/items/clothing/gloves/gloves.dm"
 #include "code/items/clothing/head/hat.dm"
@@ -39,6 +41,8 @@
 #include "code/items/storage/death_implant_box.dm"
 #include "code/items/storage/garment.dm"
 #include "code/items/storage/tape_box.dm"
+#include "code/items/storage/grenade_box.dm"
+#include "code/items/storage/paper_spray_box.dm"
 #include "code/items/weapons/melee/centcom/rapier.dm"
 #include "code/items/weapons/ranged/energy/awaymission_gun.dm"
 #include "code/items/weapons/ranged/energy/eg_14.dm"
@@ -53,7 +57,10 @@
 #include "code/structures/platform.dm"
 #include "code/structures/posters.dm"
 #include "code/structures/statues.dm"
+#include "code/structures/fake_light.dm"
 #include "code/structures/crates_lockers/closets/secure/blueshield.dm"
 #include "code/structures/crates_lockers/closets/secure/lawyer.dm"
 #include "code/structures/crates_lockers/closets/secure/magistrate.dm"
 #include "code/structures/crates_lockers/closets/secure/nanotrasen_representative.dm"
+
+#include "code/mecha/mecha.dm"
