@@ -50,7 +50,8 @@
 #include "outfits/_outfits.dme"
 #include "overrides/_overrides.dme"
 #include "hydroponics/_hydroponics.dme"
-
+#include "storyteller/_storyteller.dme"
+#include "game/_game.dme"
 
 // --- PRIME --- //
 // #define DISABLE_PRIME_MODPACKS
@@ -58,4 +59,5 @@
 // Модпаки включены по умолчанию для запуска всех тестов и для этого кода тоже.
 #ifndef DISABLE_PRIME_MODPACKS
 #include "prime_only/_prime_only.dme"
+#include "storyteller/code/storytellers/storyteller_prime.dm"
 #endif
