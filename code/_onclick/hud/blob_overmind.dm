@@ -12,8 +12,8 @@
 
 /atom/movable/screen/blob/jump_to_node
 	icon_state = "ui_tonode"
-	name = "Jump to Node"
-	desc = "Moves your camera to a selected blob node."
+	name = "Перейти к узлу"
+	desc = "Перемещает камеру к выбранному узлу блоба."
 
 /atom/movable/screen/blob/jump_to_node/Click()
 	if(!isovermind(usr))
@@ -23,15 +23,15 @@
 
 /atom/movable/screen/blob/jump_to_core
 	icon_state = "ui_tocore"
-	name = "Jump to Core"
-	desc = "Moves your camera to your blob core."
+	name = "Перейти к ядру"
+	desc = "Переместите камеру к ядру блоба."
 
 /atom/movable/screen/blob/jump_to_core/MouseEntered(location,control,params)
 	if(hud?.mymob && isovermind(hud.mymob))
 		var/mob/eye/blob/B = hud.mymob
 		if(!B.placed)
-			name = "Place Blob Core"
-			desc = "Attempt to place your blob core at this location."
+			name = "Разместить ядро блоба"
+			desc = "Попытатся разместить ядро блоба в этом месте."
 		else
 			name = initial(name)
 			desc = initial(desc)
@@ -48,13 +48,13 @@
 /atom/movable/screen/blob/blobbernaut
 	icon_state = "ui_blobbernaut"
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Blobbernaut (ERROR)"
-	desc = "Produces a strong, smart blobbernaut from a factory blob for (ERROR) resources.<br>The factory blob used will become fragile and unable to produce spores."
+	name = "Произвести Блоббернаута (ОШИБКА)"
+	desc = "Производит сильного, умного блоббернаута из фабричного блоб за (ОШИБКА) ресурсов.<br>Используемый фабричный блоб станет хрупким и не сможет производить споры."
 
 /atom/movable/screen/blob/blobbernaut/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Blobbernaut ([BLOBMOB_BLOBBERNAUT_RESOURCE_COST])"
-	desc = "Produces a strong, smart blobbernaut from a factory blob for [BLOBMOB_BLOBBERNAUT_RESOURCE_COST] resources.<br>The factory blob used will become fragile and unable to produce spores."
+	name = "Произвести Блоббернаута ([BLOBMOB_BLOBBERNAUT_RESOURCE_COST])"
+	desc = "Производит сильного, умного блоббернаута из фабричного блоб за [BLOBMOB_BLOBBERNAUT_RESOURCE_COST] ресурсов.<br>Используемый фабричный блоб станет хрупким и не сможет производить споры."
 
 /atom/movable/screen/blob/blobbernaut/Click()
 	if(!isovermind(usr))
@@ -65,13 +65,13 @@
 /atom/movable/screen/blob/resource_blob
 	icon_state = "ui_resource"
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Resource Blob (ERROR)"
-	desc = "Produces a resource blob for ERROR resources.<br>Resource blobs will give you resources every few seconds."
+	name = "Произвести ресурсный блоб (ОШИБКА)"
+	desc = "Производит ресурсный блоб за ОШИБКА ресурсов.<br>Ресурсный блоб будет давать вам ресурсы каждые несколько секунд."
 
 /atom/movable/screen/blob/resource_blob/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Resource Blob ([BLOB_STRUCTURE_RESOURCE_COST])"
-	desc = "Produces a resource blob for [BLOB_STRUCTURE_RESOURCE_COST] resources.<br>Resource blobs will give you resources every few seconds."
+	name = "Произвести ресурсный блоб ([BLOB_STRUCTURE_RESOURCE_COST])"
+	desc = "Производит ресурсный блоб за [BLOB_STRUCTURE_RESOURCE_COST] ресурсов.<br>Ресурсный блоб будет давать вам ресурсы каждые несколько секунд."
 
 /atom/movable/screen/blob/resource_blob/Click()
 	if(!isovermind(usr))
@@ -82,13 +82,13 @@
 /atom/movable/screen/blob/node_blob
 	icon_state = "ui_node"
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Node Blob (ERROR)"
-	desc = "Produces a node blob for ERROR resources.<br>Node blobs will expand and activate nearby resource and factory blobs."
+	name = "Произвести узлового блоба (ОШИБКА)"
+	desc = "Производит узлового блоба за ОШИБКА ресурсов.<br>Узловой блоб распространяется и активируют близлежащие ресурсные блобы и фабричные блобы."
 
 /atom/movable/screen/blob/node_blob/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Node Blob ([BLOB_STRUCTURE_NODE_COST])"
-	desc = "Produces a node blob for [BLOB_STRUCTURE_NODE_COST] resources.<br>Node blobs will expand and activate nearby resource and factory blobs."
+	name = "Произвести узлового блоба ([BLOB_STRUCTURE_NODE_COST])"
+	desc = "Производит узлового блоба за [BLOB_STRUCTURE_NODE_COST] ресурсов.<br>Узловой блоб распространяется и активируют близлежащие ресурсные блобы и фабричные блобы."
 
 /atom/movable/screen/blob/node_blob/Click()
 	if(!isovermind(usr))
@@ -99,13 +99,13 @@
 /atom/movable/screen/blob/factory_blob
 	icon_state = "ui_factory"
 	// Name and description get given their proper values on Initialize()
-	name = "Produce Factory Blob (ERROR)"
-	desc = "Produces a factory blob for ERROR resources.<br>Factory blobs will produce spores every few seconds."
+	name = "Произвести фабричного блоба (ОШИБКА)"
+	desc = "Производит фабричного блоба за ОШИБКА ресурсов.<br>Фабричный блоб будет производить споры каждые несколько секунд."
 
 /atom/movable/screen/blob/factory_blob/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Produce Factory Blob ([BLOB_STRUCTURE_FACTORY_COST])"
-	desc = "Produces a factory blob for [BLOB_STRUCTURE_FACTORY_COST] resources.<br>Factory blobs will produce spores every few seconds."
+	name = "Произвести фабричного блоба ([BLOB_STRUCTURE_FACTORY_COST])"
+	desc = "Производит фабричного блоба за [BLOB_STRUCTURE_FACTORY_COST] ресурсов.<br>Фабричный блоб будет производить споры каждые несколько секунд."
 
 /atom/movable/screen/blob/factory_blob/Click()
 	if(!isovermind(usr))
@@ -116,18 +116,18 @@
 /atom/movable/screen/blob/readapt_strain
 	icon_state = "ui_chemswap"
 	// Description gets given its proper values on Initialize()
-	name = "Readapt Strain"
-	desc = "Allows you to choose a new strain from ERROR random choices for ERROR resources."
+	name = "Реадаптировать реагент"
+	desc = "Позволяет выбрать новый реагент из ОШИБКА случайных вариантов за ОШИБКА ресурсов."
 
 /atom/movable/screen/blob/readapt_strain/MouseEntered(location,control,params)
 	if(hud?.mymob && isovermind(hud.mymob))
 		var/mob/eye/blob/B = hud.mymob
 		if(B.free_strain_rerolls)
-			name = "[initial(name)] (FREE)"
-			desc = "Randomly rerolls your strain for free."
+			name = "[initial(name)] (БЕСПЛАТНО)"
+			desc = "Случайным образом бесплатно меняет ваш реагент."
 		else
 			name = "[initial(name)] ([BLOB_POWER_REROLL_COST])"
-			desc = "Allows you to choose a new strain from [BLOB_POWER_REROLL_CHOICES] random choices for [BLOB_POWER_REROLL_COST] resources."
+			desc = "Позволяет выбрать новый реагент из [BLOB_POWER_REROLL_CHOICES] случайных вариантов за [BLOB_POWER_REROLL_COST] ресурсов."
 	return ..()
 
 /atom/movable/screen/blob/readapt_strain/Click()
@@ -138,13 +138,13 @@
 /atom/movable/screen/blob/relocate_core
 	icon_state = "ui_swap"
 	// Name and description get given their proper values on Initialize()
-	name = "Relocate Core (ERROR)"
-	desc = "Swaps a node and your core for ERROR resources."
+	name = "Переместить ядро (ОШИБКА)"
+	desc = "Меняет местами узел и ядро за ОШИБКА ресурсов."
 
 /atom/movable/screen/blob/relocate_core/Initialize(mapload, datum/hud/hud_owner)
 	. = ..()
-	name = "Relocate Core ([BLOB_POWER_RELOCATE_COST])"
-	desc = "Swaps a node and your core for [BLOB_POWER_RELOCATE_COST] resources."
+	name = "Переместить ядро ([BLOB_POWER_RELOCATE_COST])"
+	desc = "Меняет местами узел и ядро за [BLOB_POWER_RELOCATE_COST] ресурсов."
 
 /atom/movable/screen/blob/relocate_core/Click()
 	if(isovermind(usr))
