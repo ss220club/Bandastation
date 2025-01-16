@@ -2,12 +2,14 @@
 
 #include "code/~defines.dm"
 
-#include "code/speed/base_speed.dm"
-#include "code/speed/movespeed_modifier.dm"
+#include "code/cargo_packs.dm"
+#include "code/crew_manifest.dm"
 #include "code/dynamic.dm"
 #include "code/events.dm"
+#include "code/laser.dm"
+#include "code/speed/base_speed.dm"
+#include "code/speed/movespeed_modifier.dm"
 #include "code/station_traits.dm"
 #include "code/supply_packs.dm"
-#include "code/crew_manifest.dm"
 
 #include "code/~undefs.dm"
