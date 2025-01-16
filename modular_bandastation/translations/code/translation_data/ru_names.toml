@@ -12062,6 +12062,150 @@ instrumental = "пластиковой уточкой"
 prepositional = "пластиковой уточке"
 gender = "female"
 
+["New Year sweater"]
+nominative = "новогодний свитер"
+genitive = "новогоднего свитера"
+dative = "новогоднему свитеру"
+accusative = "новогодний свитер"
+instrumental = "новогодним свитером"
+prepositional = "новогоднем свитере"
+gender = "male"
+
+["New Year cloak"]
+nominative = "новогодний плащ"
+genitive = "новогоднего плаща"
+dative = "новогоднему плащу"
+accusative = "новогодний плащ"
+instrumental = "новогодним плащом"
+prepositional = "новогоднем плаще"
+gender = "male"
+
+["garland"]
+nominative = "гирлянда"
+genitive = "гирлянды"
+dative = "гирлянде"
+accusative = "гирлянду"
+instrumental = "гирляндой"
+prepositional = "гирлянде"
+gender = "female"
+
+["Industrialist's suit"]
+nominative = "костюм Промышленника"
+genitive = "костюма Промышленника"
+dative = "костюму Промышленника"
+accusative = "костюм Промышленника"
+instrumental = "костюмом Промышленника"
+prepositional = "костюме Промышленника"
+gender = "male"
+
+["Industrialist's coat"]
+nominative = "пальто Промышленника"
+genitive = "пальто Промышленника"
+dative = "пальто Промышленника"
+accusative = "пальто Промышленника"
+instrumental = "пальто Промышленника"
+prepositional = "пальто Промышленника"
+gender = "neuter"
+
+["Kitsuragi's suit"]
+nominative = "костюм Кицураги"
+genitive = "костюма Кицураги"
+dative = "костюму Кицураги"
+accusative = "костюм Кицураги"
+instrumental = "костюмом Кицураги"
+prepositional = "костюме Кицураги"
+gender = "male"
+
+["Wolf's dress"]
+nominative = "платье Волчицы"
+genitive = "платья Волчицы"
+dative = "платью Волчицы"
+accusative = "платье Волчицы"
+instrumental = "платьем Волчицы"
+prepositional = "платье Волчицы"
+gender = "neuter"
+
+["Kitsuragi's jacket"]
+nominative = "бомбер Кицураги"
+genitive = "бомбера Кицураги"
+dative = "бомберу Кицураги"
+accusative = "бомбер Кицураги"
+instrumental = "бомбером Кицураги"
+prepositional = "бомбере Кицураги"
+gender = "male"
+
+["formal suit"]
+nominative = "формальный костюм"
+genitive = "формального костюма"
+dative = "формальному костюму"
+accusative = "формальный костюм"
+instrumental = "формальным костюмом"
+prepositional = "формальном костюме"
+gender = "male"
+
+["jacket suit"]
+nominative = "костюм с жилеткой"
+genitive = "костюма с жилеткой"
+dative = "костюму с жилеткой"
+accusative = "костюм с жилеткой"
+instrumental = "костюмом с жилеткой"
+prepositional = "костюме с жилеткой"
+gender = "male"
+
+["luxurious dress"]
+nominative = "шикарное платье"
+genitive = "шикарного платья"
+dative = "шикарному платью"
+accusative = "шикарное платье"
+instrumental = "шикарным платьем"
+prepositional = "шикарном платье"
+gender = "neuter"
+
+["corset dress"]
+nominative = "платье с корсетом"
+genitive = "платья с корсетом"
+dative = "платью с корсетом"
+accusative = "платье с корсетом"
+instrumental = "платьем с корсетом"
+prepositional = "платье с корсетом"
+gender = "neuter"
+
+["Jester mask"]
+nominative = "маска \"Шутник\""
+genitive = "маски \"Шутник\""
+dative = "маске \"Шутник\""
+accusative = "маску \"Шутник\""
+instrumental = "маской \"Шутник\""
+prepositional = "маске \"Шутник\""
+gender = "female"
+
+["Colombina mask"]
+nominative = "маска \"Коломбина\""
+genitive = "маски \"Коломбина\""
+dative = "маске \"Коломбина\""
+accusative = "маску \"Коломбина\""
+instrumental = "маской \"Коломбина\""
+prepositional = "маске \"Коломбина\""
+gender = "female"
+
+["Harlequin mask"]
+nominative = "маска \"Арлекино\""
+genitive = "маски \"Арлекино\""
+dative = "маске \"Арлекино\""
+accusative = "маску \"Арлекино\""
+instrumental = "маской \"Арлекино\""
+prepositional = "маске \"Арлекино\""
+gender = "female"
+
+["Volto mask"]
+nominative = "маска \"Вольта\""
+genitive = "маски \"Вольта\""
+dative = "маске \"Вольта\""
+accusative = "маску \"Вольта\""
+instrumental = "маской \"Вольта\""
+prepositional = "маске \"Вольта\""
+gender = "female"
+
 # MARK: Pronouns
 ["ваш"]
 nominative = "ваш"
