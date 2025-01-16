@@ -60,6 +60,9 @@
 /obj/structure/window/reinforced/shuttle
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_TITANIUM_WALLS
 
+/obj/structure/window/reinforced/fulltile/ice
+	edge_overlay_file = null
+
 // MARK: Spawners
 /obj/effect/spawner/structure/window
 	icon = 'modular_bandastation/aesthetics/windows/icons/spawners.dmi'

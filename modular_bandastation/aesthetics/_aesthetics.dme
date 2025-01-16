@@ -67,6 +67,7 @@
 
 // Walls
 #include "walls/code/walls.dm"
+#include "walls/code/rocks.dm"
 
 // Windows
 #include "windows/code/full_tile_windows.dm"
