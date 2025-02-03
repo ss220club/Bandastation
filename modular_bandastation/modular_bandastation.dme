@@ -36,6 +36,7 @@
 #include "mapping/_mapping.dme"
 #include "medical/_medical.dme"
 #include "mobs/_mobs.dme"
+#include "minesweeper/_minesweeper.dme"
 #include "nanomap/_nanomap.dme"
 #include "objects/_objects.dme"
 #include "orderables/_orderables.dme"
