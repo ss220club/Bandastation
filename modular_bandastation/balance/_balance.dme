@@ -13,7 +13,6 @@
 #include "code/dynamic.dm"
 #include "code/events.dm"
 #include "code/laser.dm"
-#include "code/materials_market.dm"
 #include "code/religion.dm"
 #include "code/speed/base_speed.dm"
 #include "code/speed/movespeed_modifier.dm"
