@@ -5,6 +5,7 @@
 #define STATE_CHANGING_STATUS "changing_status"
 #define STATE_MAIN "main"
 #define STATE_MESSAGES "messages"
+#define STATE_DINNER "dinner"
 
 // The communications computer
 /obj/machinery/computer/communications
@@ -143,7 +144,7 @@
 	return TRUE
 
 /obj/machinery/computer/communications/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/ui_state)
-	var/static/list/approved_states = list(STATE_BUYING_SHUTTLE, STATE_CHANGING_STATUS, STATE_MAIN, STATE_MESSAGES)
+	var/static/list/approved_states = list(STATE_BUYING_SHUTTLE, STATE_CHANGING_STATUS, STATE_MAIN, STATE_MESSAGES, STATE_DINNER)
 
 	. = ..()
 	if (.)
@@ -453,6 +454,15 @@
 			SSjob.safe_code_timer_id = addtimer(CALLBACK(SSjob, TYPE_PROC_REF(/datum/controller/subsystem/job, send_spare_id_safe_code), pod_location), 120 SECONDS, TIMER_UNIQUE | TIMER_STOPPABLE)
 			minor_announce("Due to staff shortages, your station has been approved for delivery of access codes to secure the Captain's Spare ID. Delivery via drop pod at [get_area(pod_location)]. ETA 120 seconds.")
 
+		if("toggleDinnerReady")
+			var/is_ready = params["is_ready"]
+			var/dep_name = params["dinner_name"]
+			var/timer_cooldown = params["cooldown"]
+			if(!is_ready)
+				to_chat(user, span_warning("Объявить обед можно будет только через: [floor(timeleft(timer_cooldown) / 600)] минут!"))
+				return
+			run_dinner(dep_name)
+
 /obj/machinery/computer/communications/proc/emergency_access_cooldown(mob/user)
 	if(toggle_uses == toggle_max_uses) //you have used up free uses already, do it one more time and start a cooldown
 		to_chat(user, span_warning("This was your last free use without cooldown, you will not be able to use this again for [DisplayTimeText(EMERGENCY_ACCESS_COOLDOWN)]."))
@@ -590,6 +600,19 @@
 							"title" = message.title,
 							"possibleAnswers" = message.possible_answers,
 						))
+
+			if(STATE_DINNER)
+				data["station_code_allowed"] = SSsecurity_level?.current_security_level?.number_level >= SEC_LEVEL_RED ? FALSE : TRUE
+				data["dinner_types"] = list()
+				if(GLOB.department_dinner_types)
+					for(var/dinner_type in GLOB.department_dinner_types)
+						var/datum/dinner/dinner_in_list = dinner_type
+						data["dinner_types"] += list(list(
+							"dinner_name" = dinner_in_list.who_dinner,
+							"dinner_ready" = dinner_in_list.dinner_ready,
+							"dinner_cooldown" = floor(timeleft(dinner_in_list.timer) / 600),
+						))
+
 			if (STATE_BUYING_SHUTTLE)
 				var/datum/bank_account/bank_account = SSeconomy.get_dep_account(ACCOUNT_CAR)
 				var/list/shuttles = list()
@@ -941,3 +964,4 @@
 #undef STATE_CHANGING_STATUS
 #undef STATE_MAIN
 #undef STATE_MESSAGES
+#undef STATE_DINNER
