@@ -50,8 +50,27 @@
 	speech_args[SPEECH_MESSAGE] = message
 	addtimer(CALLBACK(speaker, TYPE_PROC_REF(/mob, emote), "drool"), 0.3 SECONDS)
 	to_chat(speaker, span_priorityalert(pick(brainrot_notifications)))
-	message_admins("[ADMIN_LOOKUPFLW(speaker)] has attempted to say forbidden word. His message was: [original_message]")
+	if(check_streamer_active_admin())
+		message_admins("[ADMIN_LOOKUPFLW(speaker)] has attempted to say forbidden word. The message was: \
+		<a href='byond://?src=[REF(src)];speaker=[key_name(speaker)];message=[original_message]'>SEE MESSAGE</a>")
+	else
+		message_admins("[ADMIN_LOOKUPFLW(speaker)] has attempted to say forbidden word. The message was: [original_message]")
+
 	log_game("[key_name(speaker)] has attempted to say forbidden word. His message was: [original_message]")
+
+/datum/element/speech_filter/proc/check_streamer_active_admin()
+	var/static/list/streamer_rank = list("Максон","Банда")
+	for(var/client/admin as anything in GLOB.admins)
+		if(admin.holder.name in streamer_rank)
+			return TRUE
+
+/datum/element/speech_filter/Topic(href, list/href_list)
+	if (..())
+		return
+	if(!check_rights(R_ADMIN))
+		return
+	if(href_list["speaker"] && href_list["message"])
+		tgui_alert(usr, href_list["message"], href_list["speaker"], autofocus = FALSE)
 
 /datum/element/speech_filter/proc/get_brainrot_filter_regex()
 	if(!fexists(BRAINROT_FILTER_FILE))
@@ -73,13 +92,18 @@
 
 	var/static/brainrot_regex
 	if(!brainrot_regex)
-		var/list/unique_filters = list()
-		unique_filters |= filters
+		var/list/unique_filters = unique_list(filters)
+
 		brainrot_regex = unique_filters.Join("|")
 
 	return brainrot_regex
 
 /datum/element/speech_filter/proc/can_bypass_filter(mob/mob_to_check)
-	return mob_to_check.client.ckey in CONFIG_GET(str_list/speech_filter_bypass)
+	return mob_to_check.client.ckey in ckey_list(CONFIG_GET(str_list/speech_filter_bypass))
+
+/datum/element/speech_filter/proc/ckey_list(list/list_to_ckey)
+	. = list()
+	for(var/i in list_to_ckey)
+		. |= LIST_VALUE_WRAP_LISTS(ckey(i))
 
 #undef BRAINROT_FILTER_FILE
