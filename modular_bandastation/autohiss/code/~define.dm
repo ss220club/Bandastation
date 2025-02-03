@@ -1,0 +1,1 @@
+#define COMSIG_MOB_GET_AFFECTING_SPEECHMODS "get_affecting_speechmods"

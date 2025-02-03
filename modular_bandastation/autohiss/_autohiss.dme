@@ -1,3 +1,11 @@
 #include "_autohiss.dm"
 
-#include "code/autohiss.dm"
+#include "code/~define.dm"
+
+#include "code/autohiss_mind.dm"
+#include "code/autohiss_mob.dm"
+#include "code/autohiss_prefs.dm"
+#include "code/autohiss_speechmod_component.dm"
+#include "code/autohiss_tongues.dm"
+
+#include "code/~undefs.dm"

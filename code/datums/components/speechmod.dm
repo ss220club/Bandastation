@@ -17,10 +17,11 @@
 	/// Any additional checks that we should do before applying the speech modification
 	var/datum/callback/should_modify_speech = null
 
-/datum/component/speechmod/Initialize(replacements = list(), end_string = "", end_string_chance = 100, slots, uppercase = FALSE, should_modify_speech)
+/datum/component/speechmod/Initialize(replacements = list(), end_string = "", end_string_chance = 100, slots, uppercase = FALSE, should_modify_speech, toggleable) // BANDASTATION EDIT - Autohiss
 	if (!ismob(parent) && !isitem(parent) && !istype(parent, /datum/mutation/human))
 		return COMPONENT_INCOMPATIBLE
 
+	src.toggleable = toggleable // BANDASTATION EDIT ADDITION - Autohiss
 	src.replacements = replacements
 	src.end_string = end_string
 	src.end_string_chance = end_string_chance
@@ -37,17 +38,17 @@
 
 	if (istype(parent, /datum/status_effect))
 		var/datum/status_effect/effect = parent
-		targeted = effect.owner
+		set_target_mob(effect.owner) // BANDASTATION EDIT - Autohiss
 		RegisterSignal(targeted, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 		return
 
 	if (ismob(parent))
-		targeted = parent
+		set_target_mob(parent) // BANDASTATION EDIT - Autohiss
 		RegisterSignal(targeted, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 		return
 
 	if (ismob(owner.loc))
-		targeted = owner.loc
+		set_target_mob(owner.loc) // BANDASTATION EDIT - Autohiss
 		RegisterSignal(targeted, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equipped))
@@ -87,13 +88,13 @@
 	if (!isnull(slots) && !(slot & slots))
 		if (!isnull(targeted))
 			UnregisterSignal(targeted, COMSIG_MOB_SAY)
-			targeted = null
+			set_target_mob(null) // BANDASTATION EDIT - Autohiss
 		return
 
 	if (targeted == user)
 		return
 
-	targeted = user
+	set_target_mob(user) // BANDASTATION EDIT - Autohiss
 	RegisterSignal(targeted, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 
 /datum/component/speechmod/proc/on_unequipped(datum/source, mob/living/user)
@@ -102,7 +103,7 @@
 	if (isnull(targeted))
 		return
 	UnregisterSignal(targeted, COMSIG_MOB_SAY)
-	targeted = null
+	set_target_mob(null) // BANDASTATION EDIT - Autohiss
 
 /datum/component/speechmod/proc/on_implanted(datum/source, mob/living/carbon/receiver)
 	SIGNAL_HANDLER
@@ -110,7 +111,7 @@
 	if (targeted == receiver)
 		return
 
-	targeted = receiver
+	set_target_mob(receiver) // BANDASTATION EDIT - Autohiss
 	RegisterSignal(targeted, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 
 /datum/component/speechmod/proc/on_removed(datum/source, mob/living/carbon/former_owner)
@@ -119,7 +120,7 @@
 	if (isnull(targeted))
 		return
 	UnregisterSignal(targeted, COMSIG_MOB_SAY)
-	targeted = null
+	set_target_mob(null) // BANDASTATION EDIT - Autohiss
 
 /datum/component/speechmod/proc/on_mutation_gained(datum/source, mob/living/carbon/human/owner)
 	SIGNAL_HANDLER
@@ -127,7 +128,7 @@
 	if (targeted == owner)
 		return
 
-	targeted = owner
+	set_target_mob(owner) // BANDASTATION EDIT - Autohiss
 	RegisterSignal(targeted, COMSIG_MOB_SAY, PROC_REF(handle_speech))
 
 /datum/component/speechmod/proc/on_mutation_lost(datum/source, mob/living/carbon/human/owner)
@@ -136,7 +137,7 @@
 	if (isnull(targeted))
 		return
 	UnregisterSignal(targeted, COMSIG_MOB_SAY)
-	targeted = null
+	set_target_mob(null) // BANDASTATION EDIT - Autohiss
 
 /datum/component/speechmod/Destroy()
 	should_modify_speech = null

@@ -1,8 +1,10 @@
 import {
+  CheckboxInput,
   Feature,
   FeatureChoiced,
   FeatureChoicedServerData,
   FeatureColorInput,
+  FeatureToggle,
   FeatureValueProps,
 } from './base';
 import { FeatureDropdownInput } from './dropdowns';
@@ -194,4 +196,11 @@ export const feature_vulpkanin_tail_markings: FeatureChoiced = {
 export const vulpkanin_tail_markings_color: Feature<string> = {
   name: 'Хвост - цвет',
   component: FeatureColorInput,
+};
+
+export const autohiss_enabled: FeatureToggle = {
+  name: 'Автошипение',
+  description:
+    'Переключение автошипения для языка. Рекомендуется оставить включённым.',
+  component: CheckboxInput,
 };
